@@ -1,5 +1,6 @@
 baseurl: "https://leafwing-studios.com/"
 title: Leafwing Studios
+author: Leafwing Studios
 theme: leafwing
 languageCode: en-ca
 
@@ -20,11 +21,6 @@ params:
   description: Emergent complexity for thoughtful games
   github: "https://github.com/Leafwing-Studios"
   dateFormat: "2006-01-02"
-
-  opengraph: false
-  shareTwitter: false
-  shareFacebook: false
-  shareLinkedIn: false
 
 permalinks:
   post: "/:year/:month/:day/:filename/"

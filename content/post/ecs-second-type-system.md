@@ -11,4 +11,7 @@ author = "Alice I. Cecile"
 draft = true
 +++
 
-Lorem ipsum.
+ECS IS JUST A CACHE-EFFICIENT STORAGE MODEL, RIGHT??
+
+BEVY. ECS AS A PARADIGM; TOOL FOR MAKING CODE MODULAR.
+
