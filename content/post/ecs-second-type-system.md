@@ -34,3 +34,13 @@ But here, everything was just a vanilla `Entity`.
 Each component described what *could* happen to these entities, flowing through the systems that made up my game; while the complete collection of components they had (their **archetype**) determined the total path that they took.
 
 It's almost like... components are acting like *traits*? Now this is an idea worth exploring.
+
+| Type Concept  | ECS Concept          | Simple Explanation                                      |
+| ------------- | -------------------- | ------------------------------------------------------- |
+| type          | archetype            | What an object *is*.                                    |
+| instance      | entity               | A single object of a particular kind.                   |
+| field         | component            | The data the object has, organized in a structured way. |
+| trait         | marker component (?) | The behaviors an object is allowed to perform.          |
+| method        | system               | Logic that operates on some kinds of objects.           |
+| trait objects | kinded entity        | An object that has a certain set of behavior.           |
+| subtyping     | archetype invariant  | A guarantee about how types are related.                |
