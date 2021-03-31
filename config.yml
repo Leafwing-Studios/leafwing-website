@@ -1,6 +1,6 @@
 baseurl: "https://leafwing-studios.com/"
 title: Leafwing Studios
-theme: PaperMod
+theme: leafwing
 languageCode: en-ca
 pygmentsUseClasses: true
 pygmentsCodefences: true
