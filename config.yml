@@ -1,6 +1,6 @@
 baseurl: "https://leafwing-studios.com/"
 title: Leafwing Studios
-theme: leafwing
+theme: PaperMod
 languageCode: en-ca
 pygmentsUseClasses: true
 pygmentsCodefences: true
@@ -15,18 +15,6 @@ markup:
     lineNumbersInTable: true
     noClasses: true
     tabWidth: 2
-
-privacy:
-  disqus:
-    disable: true
-  googleAnalytics:
-    anonymizeIP: true
-    respectDoNotTrack: true
-    useSessionStorage: false
-
-author:
-  name: My Name
-  profile: ""
 
 taxonomies:
   tag: tags
