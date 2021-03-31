@@ -1,128 +1,87 @@
-# Ghostwriter
+# PaperMod | [Demo](https://adityatelange.github.io/hugo-PaperMod/)
 
-Enhanced port of the Ghost "[ghostwriter](https://github.com/roryg/ghostwriter)" theme to the [Hugo](https://gohugo.io) site generator.
+☄️ Fast | ☁️ Fluent | 🌙 Smooth | 📱 Responsive
 
-## Installation
+Hugo PaperMod is a theme based on [hugo-paper](https://github.com/nanxiaobei/hugo-paper).
+The goal of this project is add more Features and customization to the og theme.
 
-Inside the folder of your Hugo site run:
+The [demo site](https://adityatelange.github.io/hugo-PaperMod/) includes a lot of documentation about Installation, Features with few more stuff. Make sure you visit it, to get the awesome hands-on experience and get known about the features ...
 
-```bash
-$ mkdir themes
-$ cd themes
-$ git clone https://github.com/jbub/ghostwriter
-```
+ExampleSite can be found here: [exampleSite](https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite). Demo is built up with exampleSite as source.
 
-For more information read the official [setup guide](//gohugo.io/overview/installing/) of Hugo.
+![Build GH-Pages](https://github.com/adityatelange/hugo-PaperMod/workflows/Build%20GH-Pages/badge.svg)
+![GitHub](https://img.shields.io/github/license/adityatelange/hugo-PaperMod)
+[![hugo-papermod](https://img.shields.io/badge/Hugo--Themes-@PaperMod-blue)](https://themes.gohugo.io/hugo-papermod/)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=adityatelange_hugo-PaperMod&metric=alert_status)](https://sonarcloud.io/dashboard?id=adityatelange_hugo-PaperMod)
+![code-size](https://img.shields.io/github/languages/code-size/adityatelange/hugo-PaperMod)
 
-## Development
+---
 
-After installing the theme you need to install javascript dependencies. You can use 
-`npm` to install them from `package.json`. We are using `webpack` to build and package 
-styles. In order to develop with realtime reloading in the browser you can use this powerful combo:
+<p align="center">
+  <kbd><img width=600px src="https://raw.githubusercontent.com/adityatelange/hugo-PaperMod/exampleSite/content/posts/papermod/papermod-features/images/homeinfo.jpg" alt="HomeInfo" /></kbd>
+  <kbd><img width=153px src="https://i.ibb.co/LNgGcrt/mobileview.png" alt="HomeInfo" /></kbd>
+</p>
 
-```bash
-hugo server
-npm run watch
-```
+---
 
-To update theme styles edit the `styles/style.scss` file. You can then either use the `watch` command
-or run `build` to compile the styles:
+## Features/Mods 💥
 
-```bash
-npm run build
-```
+-   Uses Hugo's asset generator with pipelining, fingerprinting, bundling and minification by default.
+-   3 Modes:
+    -   [Regular Mode.](https://github.com/adityatelange/hugo-PaperMod/wiki/Features#regular-mode-default-mode)
+    -   [Home-Info Mode.](https://github.com/adityatelange/hugo-PaperMod/wiki/Features#home-info-mode)
+    -   [Profile Mode.](https://github.com/adityatelange/hugo-PaperMod/wiki/Features#profile-mode)
+-   Table of Content Generation (newer implementation).
+-   Archive of posts.
+-   Social Icons (home-info and profile-mode)
+-   Social-Media Share buttons on post.
+-   Menu location indicator.
+-   Multilingual support. (with language selector)
+-   Taxonomies
+-   Cover image for each post (with Responsive image support).
+-   Light/Dark theme (automatic theme switch a/c to browser theme and theme-switch button).
+-   SEO Friendly.
+-   Muliple Author support.
+-   Search Page with Fuse.js
+-   Other Posts suggestion below a post
+-   BreadCrumb Navigation
+-   No webpack, nodejs and other depedencies required to edit the theme.
 
-## Example config.yml
+Read Wiki For More Details => **[PaperMod - Features](https://github.com/adityatelange/hugo-PaperMod/wiki/Features)**
 
-To customize your theme you can use following params:
+---
 
-```yaml
-baseurl: "https://example.com/"
-title: mytitle
-theme: ghostwriter
-languageCode: en-us
-copyright: My Name
-googleAnalytics: XXX
-disqusShortname: XXX
-pygmentsUseClasses: true
-pygmentsCodefences: true
+## Install/Update 📥
 
-markup:
-  highlight:
-    codeFences: true
-    guessSyntax: false
-    hl_Lines: ""
-    lineNoStart: 1
-    lineNos: false
-    lineNumbersInTable: true
-    noClasses: true
-    tabWidth: 2
+Read Wiki For More Details => **[PaperMod - Installation](https://github.com/adityatelange/hugo-PaperMod/wiki/Installation)**
 
-privacy:
-  disqus:
-    disable: true
-  googleAnalytics:
-    anonymizeIP: true
-    respectDoNotTrack: true
-    useSessionStorage: false
+---
 
-author:
-  name: My Name
-  profile: ""
+## Social-Icons/Share-Icons 🖼️
 
-taxonomies:
-  tag: tags
+Read Wiki For More Details => **[PaperMod-Icons](https://github.com/adityatelange/hugo-PaperMod/wiki/Icons)**
 
-params:
-  mainSections:
-    - post
-  intro: true
-  headline: My headline
-  description: My description
-  github: "https://github.com/XXX"
-  gitlab: "https://gitlab.com/XXX"
-  linkedin: "https://linkedin.com/in/XXX/"
-  twitter: "https://twitter.com/XXX"
-  stackoverflow: "https://stackoverflow.com/users/XXX/YYY"
-  facebook: "https://www.facebook.com/username"
-  email: xxx@example.com
-  opengraph: true
-  shareTwitter: true
-  rss: true
-  shareFacebook: true
-  shareLinkedIn: false
-  dateFormat: "Mon, Jan 2, 2006"
-  exponeaJsUrl: ""
-  exponeaTarget: ""
-  exponeaToken: ""
-  exponeaTrackVisits: false
-  readingTime: true
-  readingTimeText: "Estimated reading time:"
-  fathomUrl: ""
-  fathomSiteId: ""
-  plausibleAnalytics:
-    domain: ""
-    # Default value is plausible.io, overwrite this if you are self-hosting or using a custom domain
-    serverURL: ""
+---
 
-permalinks:
-  post: "/:year/:month/:day/:filename/"
+## FAQs / How To's Guide 🙋
 
-menu:
-  main:
-    - name: Blog
-      url: /
-      weight: 1
-    - name: Projects
-      url: /project/
-      weight: 2
-    - name: Contact
-      url: /page/contact/
-      weight: 3
-    - name: About
-      url: /page/about/
-      weight: 4
-```
+Read Wiki For More Details => **[PaperMod-FAQs](https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs)**
 
-You can also inject arbitrary HTML into `<head>` simply by overriding the `extra-in-head.html`
-partial, which is meant for that purpose.
+---
+
+## Release Changelog
+
+Release ChangeLog has info about stuff added: **[Releases](https://github.com/adityatelange/hugo-PaperMod/releases)**
+
+---
+
+## [LightHouse Report (100% ?)](https://lighthouse-dot-webdotdevsite.appspot.com//lh/html?url=https%3A%2F%2Fadityatelange.github.io%2Fhugo-PaperMod%2F)
+
+---
+
+## Special Thanks 🌟
+
+-   [**Highlight.js**](https://github.com/highlightjs/highlight.js)
+-   [**Fuse.js**](https://github.com/krisk/fuse)
+-   [**Feather Icons**](https://github.com/feathericons/feather)
+-   **All Contributors and Supporters**
