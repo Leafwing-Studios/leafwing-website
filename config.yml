@@ -34,5 +34,5 @@ menu:
       url: /projects/
       weight: 2
     - name: About
-      url: /page/about/
+      url: /about/
       weight: 3
