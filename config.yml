@@ -2,19 +2,12 @@ baseurl: "https://leafwing-studios.com/"
 title: Leafwing Studios
 theme: leafwing
 languageCode: en-ca
-pygmentsUseClasses: true
-pygmentsCodefences: true
 
-markup:
-  highlight:
-    codeFences: true
-    guessSyntax: false
-    hl_Lines: ""
-    lineNoStart: 1
-    lineNos: false
-    lineNumbersInTable: true
-    noClasses: true
-    tabWidth: 2
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON # Necessary for search
 
 taxonomies:
   tag: tags
@@ -26,12 +19,12 @@ params:
   headline: Leafwing Studios
   description: Emergent complexity for thoughtful games
   github: "https://github.com/Leafwing-Studios"
-  opengraph: true
-  shareTwitter: true
-  rss: true
-  shareFacebook: true
-  shareLinkedIn: false
   dateFormat: "2006-01-02"
+
+  opengraph: false
+  shareTwitter: false
+  shareFacebook: false
+  shareLinkedIn: false
 
 permalinks:
   post: "/:year/:month/:day/:filename/"
@@ -45,5 +38,5 @@ menu:
       url: /projects/
       weight: 2
     - name: About
-      url: /about/
+      url: /page/about/
       weight: 3
