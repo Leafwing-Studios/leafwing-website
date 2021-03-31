@@ -1,0 +1,49 @@
+baseurl: "https://leafwing-studios.com/"
+title: Leafwing Studios
+theme: leafwing
+languageCode: en-ca
+pygmentsUseClasses: true
+pygmentsCodefences: true
+
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    tabWidth: 2
+
+taxonomies:
+  tag: tags
+
+params:
+  mainSections:
+    - post
+  intro: true
+  headline: Leafwing Studios
+  description: Emergent complexity for thoughtful games
+  github: "https://github.com/Leafwing-Studios"
+  opengraph: true
+  shareTwitter: true
+  rss: true
+  shareFacebook: true
+  shareLinkedIn: false
+  dateFormat: "2006-01-02"
+
+permalinks:
+  post: "/:year/:month/:day/:filename/"
+
+menu:
+  main:
+    - name: Blog
+      url: /
+      weight: 1
+    - name: Projects
+      url: /projects/
+      weight: 2
+    - name: About
+      url: /about/
+      weight: 3
