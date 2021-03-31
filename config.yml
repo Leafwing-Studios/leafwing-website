@@ -27,11 +27,11 @@ permalinks:
 
 menu:
   main:
-    - name: Blog
-      url: /
-      weight: 1
     - name: Projects
       url: /projects/
+      weight: 1
+    - name: Blog
+      url: /
       weight: 2
     - name: About
       url: /about/
