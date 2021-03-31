@@ -42,11 +42,8 @@ menu:
       url: /
       weight: 1
     - name: Projects
-      url: /project/
+      url: /projects/
       weight: 2
-    - name: Contact
-      url: /page/contact/
-      weight: 3
     - name: About
-      url: /page/about/
-      weight: 4
+      url: /about/
+      weight: 3
