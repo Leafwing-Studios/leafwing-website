@@ -2,7 +2,8 @@
 title = "Bad documentation will kill your project"
 description = "Friction and cognitive load as a driver of burnout"
 tags = [
-    "game-design"
+    "project management",
+    "documentation"
 ]
 date = 2021-03-30
 author = "Alice I. Cecile"
