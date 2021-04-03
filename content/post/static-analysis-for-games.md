@@ -37,7 +37,7 @@ By focusing on building powerful, reusable tools, you can create a common vocabu
 Some of our favorite tools at *Leafwing Studios* are:
 
 * **Strong design goals:** Carefully think through what you're trying to do, and then refer back to your goals regularly. Ask if the current rules and options match your goals.
-* **Systems analysis:** What are your feedback loops? Where are the interesting choices? What tensions exist? Is every choice meaningful?
+* **Systems analysis:** What are your feedback loops? Where are the interesting choices? What tensions exist? Is every choice meaningful? Do actions lead to tangible consequences?
 * **Complexity budgeting:** Every new system and feature comes with a cost to your players; there is only so much they can understand and remember at once. Make sure you've spent your budget wisely. Complexity is much more expensive at **run-time** (during active gameplay) than at **compile-time** (during planning).
 * **Tuning levers:** Knobs that are both trivial to adjust after the system has been built and influence the system's balance or feel. For example, the amount of damage a particular weapon does.
 * **Balance frameworks:** Use consistent units of power and establish conversion rates between those units of power. Separate power budgets by type to avoid entanglement. Avoid unnecessary granularity.
