@@ -21,9 +21,12 @@ params:
   description: Emergent complexity for thoughtful games
   github: "https://github.com/Leafwing-Studios"
   dateFormat: "2006-01-02"
+  homeInfoParams:
+    title: This is the blog
+    content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque imperdiet venenatis urna eu pellentesque. In et eleifend nibh, et tincidunt orci. Nulla maximus sem nec lorem sollicitudin ultrices. Pellentesque mattis ex nibh, vitae posuere justo ultricies gravida. Aenean quis pretium turpis, vitae hendrerit arcu. Vivamus eu lorem nisl. Nullam faucibus quam eu ipsum tristique, at volutpat sem molestie. Nulla tincidunt porta pellentesque. Nulla sed orci arcu. Sed nisi tellus, sodales in posuere sed, egestas quis velit. Etiam viverra fringilla vehicula. Praesent vel luctus erat. Ut fringilla, nisi ac efficitur placerat, diam est commodo metus, sit amet hendrerit tortor augue eget tellus. Integer sit amet magna vitae quam rhoncus mollis at ac orci. Sed vitae sagittis diam.
 
 permalinks:
-  post: "/:year/:month/:day/:filename/"
+  post: "/post/:filename/"
 
 menu:
   main:
