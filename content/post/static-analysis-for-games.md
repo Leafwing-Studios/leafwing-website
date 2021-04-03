@@ -31,7 +31,7 @@ As you move up in levels, the cost increases dramatically, but you also get bett
 ## Static analysis
 
 **Static analysis** is the process of determining the properties of and potential issues with a design, just by inspection.
-In software, this corresponds to a **compiler**.
+In software, this corresponds to a **compiler.**
 If you've never done this before, this may seem like wishful thinking, or perhaps a vague gut feeling reserved only for the most seasoned designers.
 By focusing on building powerful, reusable tools, you can create a common vocabulary and process for your team.
 Some of our favorite tools at *Leafwing Studios* are:
