@@ -70,15 +70,9 @@
     font-size: 12px
 }
 
-.post-content a,
-.toc a:hover {
-    box-shadow: 0 1px 0
-}
-
-.post-content a code {
-    margin: auto 0;
-    border-radius: 0;
-    box-shadow: 0 -1px 0 var(--primary) inset
+.post-content a{
+    text-decoration: underline;
+    color: var(--highlight);
 }
 
 .post-content del {
