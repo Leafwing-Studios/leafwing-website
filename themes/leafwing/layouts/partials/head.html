@@ -10,6 +10,28 @@
 {{- /* Title */}}
 <title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} | {{ end }}{{ end }}{{ .Site.Title }}</title>
 
+{{- /* Favicons */}}
+<link rel="shortcut icon" href="favicons/favicon.ico">
+<link rel="icon" sizes="16x16 32x32 64x64" href="favicons/favicon.ico">
+<link rel="icon" type="image/png" sizes="196x196" href="favicons/favicon-192.png">
+<link rel="icon" type="image/png" sizes="160x160" href="favicons/favicon-160.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96.png">
+<link rel="icon" type="image/png" sizes="64x64" href="favicons/favicon-64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16.png">
+<link rel="apple-touch-icon" href="favicons/favicon-57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="favicons/favicon-114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="favicons/favicon-72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="favicons/favicon-144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="favicons/favicon-60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="favicons/favicon-120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="favicons/favicon-76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="favicons/favicon-152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicons/favicon-180.png">
+<meta name="msapplication-TileColor" content="#FFFFFF">
+<meta name="msapplication-TileImage" content="favicons/favicon-144.png">
+<meta name="msapplication-config" content="favicons/browserconfig.xml">
+
 {{- /* Meta */}}
 <meta name="keywords" content="{{ if .Params.keywords -}}
     {{- range $i, $e := .Params.keywords }}{{ if $i }}, {{ end }}{{ $e }}{{ end }} {{- else }}
@@ -60,18 +82,6 @@
 <script defer src="{{ $search.RelPermalink }}" onload="loadSearch();"></script>
 {{- end }}
 {{- end -}}
-
-{{- /* Favicons */}}
-<link rel="icon" href="{{ .Site.Params.assets.favicon | default " favicon.ico" | absURL }}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ .Site.Params.assets.favicon16x16 | default " favicon-16x16.png"
-    | absURL }}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ .Site.Params.assets.favicon32x32 | default " favicon-32x32.png"
-    | absURL }}">
-<link rel="apple-touch-icon" href="{{ .Site.Params.assets.apple_touch_icon | default " apple-touch-icon.png" | absURL
-    }}">
-<link rel="mask-icon" href="{{ .Site.Params.assets.safari_pinned_tab | default " safari-pinned-tab.svg" | absURL }}">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
 
 {{- /* Generator */}}
 {{ hugo.Generator }}
