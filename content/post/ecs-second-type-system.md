@@ -48,7 +48,7 @@ Poking around, I found all *sorts* of interesting parallels, summarized in the t
 
 Now, let's crash this grand theory of ours on the rocky shores of cold, hard reality, and see what we can salvage from the wreckage.
 
-## Entity is to Instance as Archetype is to Type
+## Entity is to instance as archetype is to type
 
 If you've stumbled upon this post, you probably have a *rough* idea of what a **type** is, in the sense used by Rust.
 For the brave game designers who have decided to stick with us, a [type](https://doc.rust-lang.org/reference/types.html) describes the data an object has, and what functions can operate on it.
@@ -61,7 +61,7 @@ Each entity belongs to exactly one archetype at a time, and has its own unique d
 The parallels are undeniable; if nothing else, this is a great way to teach ECS to programmers.
 Our grand theory breezily sails over the perilous reefs; blithely ignoring the deeper questions that our dear readers are beginning to formulate!
 
-## Components act like Traits with data
+## Components act like traits with data
 
 **Components** are attached to each entity, storing important gameplay data about that particular object.
 And so, the quick-witted reader will readily assert that if entities are instances of a type, components represent the **fields** of such a type!
@@ -72,18 +72,20 @@ But yet, they are so much more!
 
 Via the magic of the **scheduler**, Bevy's ECS automatically dispatches data to systems as it's needed,
 operating on only the entities with the components specified in its **queries**.
-THIS MEANS COMPONENTS CONTROL BEHAVIOR AND CONTROL WHICH FUNCTIONS CAN RUN ON IT.
-MARKER COMPONENTS ARE THE PLATONIC IDEAL OF THIS, WHERE YOU CONTROL BEHAVIOR WITHOUT DATA.
+As a result, components aren't just *raw data*: they also control which logic can operate on a particularly entity, and which behaviors it obeys.
 
-PROBLEMS WITH TRAITS WITH DATA.
+**TODO:** can we strengthen this or make it more clear?
 
-## Duck alchemy
+In this way, we get an ontology of objects that looks suspiciously like **traits:** each object can belong to many groups, and we check group membership to determine whether a function is valid for that entity.
+**Marker components** (simply components without any data) are the perfect demonstration of this idea: they serve a vital role in managing data flow in Bevy, but are never used directly in computation.
 
-DUCK-TYPING. EACH COLLECTION OF TRAITS RESULTS IN A SINGLE TYPE.
+**TODO:** is this a fair description of the problems?
 
-TYPES CAN *CHANGE*.
+Of course, there are some [challenges](https://www.reddit.com/r/rust/comments/a08e6k/what_is_the_current_status_of_trait_member_fields/) with [traits that hold data](https://github.com/nikomatsakis/fields-in-traits-rfc/blob/master/0000-fields-in-traits.md).
+Bevy's ECS sidesteps most of those by mapping Rust's types one-to-one with each component, ensuring that the data layout is consistent, avoiding branching and punting on questions of how to relate traits to each other.
 
-So, if you think about it in a certain way, our ECS is really just a type system where `transmute` is a first-class feature!
+Unfortunately, this comes at a fairly heavy cost: we're left without any particularly good tools to override the [default behavior](https://github.com/bevy-cheatbook/bevy-cheatbook/issues/18) of an entity based on which variant of a component it has.
+As a result, components end up looking a lot like traits with fields, but where you can only have a single type that implements each trait.
 
 ## Systems are functions that are run automatically
 
@@ -95,7 +97,19 @@ COMMANDS ARE CONCEPTUALLY MUCH CLOSER TO ORDINARY FUNCTIONS.
 
 ONLY OPERATE ON ENTITIES WITH THE CORRECT TRAIT.
 
+## Duck alchemy
+
+DUCK-TYPING. EACH COLLECTION OF TRAITS RESULTS IN A SINGLE TYPE.
+
+TYPES CAN *CHANGE*.
+
+So, if you think about it in a certain way, our ECS is really just a type system where `transmute` is a first-class feature!
+
+
 ## The Proof is in the Predictive Power
+
+Dreaded diamond problem: what if you implement multiple traits that encode the same problem
+Can't implement multiple traits that implement a similar property, because then they each carry their own copy of the data that you need to synchronize
 
 ARCHETYPE INVARIANTS DEFINTION.
 USEFUL FOR VERIFYING CORRECTNESS, AND ENABLING MORE POWERFUL ECS FEATURES.
