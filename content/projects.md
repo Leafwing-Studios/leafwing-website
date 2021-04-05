@@ -2,14 +2,30 @@
 title = "Projects"
 +++
 
-## Prototype
+Interested in keeping up to date with our projects? Join our [email list](TODO: add link) (with granular permissions!) or add our blog to your [RSS](TODO: add link) reader.
 
-* *Fonts of Power:* a tactical roleplaying game about adventure in magical places.
-By using the same set of [rules](https://rules.fontsofpower.com/#/) for both the tabletop and video game, this game pushes the boundaries of both.
+## *Fonts of Power*
 
-## Design
+An original d20 roleplaying game (for both the tabletop and PC!) about magical places that have taken on a life of their own.
 
-* *Emergence:* an organic factory builder that explores themes of complexity, robustness and indirect control.
+Our design focuses on three core areas:
+
+1. A unique, progressive **magical world** that provides great hooks and makes running your games easy.
+2. Rich and satisfying **tactical combat** with unparalleled character and monster customization.
+3. A fresh set of **narrative mechanics** that foster player agency and create fascinating emergent storylines.
+
+By using the same set of [rules](https://rules.fontsofpower.com/#/) for both the tabletop and video game, this game pushes the boundaries of both media.
+Learn to play with the video game ("no one reads the rulebook"), team up with your friends using the game as a first-class virtual-tabletop (VTT), then keep playing in our rogue-lite single player modes long after the rest of your party has logged off.
+
+Join our the *Fonts of Power* [Discord](https://discord.gg/K6SSPvfkne) or watch on [GitHub](https://github.com/leafwing-studios/fop-game) to follow along as we turn our prototypes into a complete game!
+
+## *Emergence*
+
+While humanity may not have made it to Earth's micro-scale post-apocalyptic future, life *did*.
+As a new symbiotic civilization of plants, fungi and insects emerges, they must evolve and adapt to face the challenges of the ever-shifting world around them.
+
+Currently in the design phase, *Emergence* is an organic factory builder that explores themes of complexity, robustness and indirect control.
+Explore a dynamic living world, carefully orchestrate an intricate web of eco-industrial activity, and evolve your organisms to fit the exact niche you've imagined for them.
 
 ## Contributions
 
