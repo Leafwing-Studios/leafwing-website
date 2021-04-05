@@ -27,7 +27,14 @@ As a new symbiotic civilization of plants, fungi and insects emerges, they must 
 Currently in the design phase, *Emergence* is an organic factory builder that explores themes of complexity, robustness and indirect control.
 Explore a dynamic living world, carefully orchestrate an intricate web of eco-industrial activity, and evolve your organisms to fit the exact niche you've imagined for them.
 
-## Contributions
+## *Consensus | Together*
+
+[*Consensus | Together*](https://leafwing-studios.itch.io/consensus-together) is a pair of complete, pay-what-you-want one-page narrative roleplaying games about a group of people working together to do something about the state of the world, and the importance of the rules that guide our interactions. Using an identical setup and facing the same challenges, each game has subtle variations in its mechanics and framing. These differences implicitly showcase two very different visions of what it means to work together using consensus-based decision making processes. As they play, players can use the rules to improve the game itself, provided of course that they can come to a consensus about how to do so.
+
+Work together (or don’t) to discuss **proposals** on the **agenda** as you define and then work to achieve your goals. Will you desperately try to patch the broken process before everyone has **Something Better to Do**? Or will you revel in the chaos, embracing your personal **hidden agenda** as you **gather information**, **build solidarity** and enforce the rules through judicious use of **Points of Order**?
+
+
+## Open Source Contributions
 
 * *Bevy:* a brilliant ergonomic ECS [game engine](https://bevyengine.org/) written in Rust.
-We use Bevy to make our games, and are giving back by helping organize the work that needs to be done, designing innovative features for the ECS and steadily making the engine easier to learn and use.
+We use Bevy to make our games, so we're giving back by helping organize the work that needs to be done, designing innovative features for the ECS and steadily making the engine easier to learn and use.
