@@ -3,13 +3,13 @@ title = "About Us"
 +++
 
 *Leafwing Studios* is a fledgling Canadian indie games studio, founded in 2020 to make richer, more thoughtful games.
-Whether we're making tabletop games or board games, we care about:
+Whether we're making tabletop games or video games, we care about:
 
 * more sustainable, equitable and sensible business models for game development
 * better design and prototyping practices
-* creating memorable, replayable experiences through emergent complexity
+* creating memorable, replayable experiences through emergent design
 
-You'll catch us [blogging](/blog/) about our [projects](/content/projects.md), game design, Rust, Bevy and better ways to create and collaborate.
+You'll catch us [blogging](/blog/) about our [projects](/projects), game design, Rust, Bevy and better ways to create and collaborate.
 
 ## Team
 
@@ -17,9 +17,9 @@ You'll catch us [blogging](/blog/) about our [projects](/content/projects.md), g
 
 **Class:** Ecologist / Mathematician / Entrepreneur / Programmer / Game Designer
 
-**Species:** Plant Girl
+**Species:** Plant Girl 🍃
 
-**Attributes:** -5 Prowess | -1 Agility | +2 Focus | + 5 Expertise | +4 Presence
+**Attributes:** -5 Prowess | -1 Agility | +2 Focus | +5 Expertise | +4 Presence
 
 **Ideals:** 4 Equality | 0 Harmony | 3 Liberty | 5 Progress | 2 Sanctity
 
@@ -31,18 +31,18 @@ You'll catch us [blogging](/blog/) about our [projects](/content/projects.md), g
 
 -----
 
-**Name:** Rose "Sixfold" Peck
+**Name:** Rose "sixfold" Peck
 
 **Class:** Software Developer / Entrepreneur / Game Designer
 
-**Species:** Robot Girl
+**Species:** Robot Girl 🤖
 
-**Attributes:** -1 Prowess | 0 Agility | -2 Focus | + 4 Expertise | +4 Presence
+**Attributes:** -1 Prowess | +0 Agility | -2 Focus | +4 Expertise | +4 Presence
 
 **Ideals:** 4 Equality | 3 Harmony | 2 Liberty | 3 Progress | 3 Sanctity
 
 **Specialties:** [Ludotography](https://www.youtube.com/watch?v=5ebIizhEgxg&t=521s), analysis frameworks, process improvement
 
-**Fun fact:** Pretty okay at Super Metroid and Tetris, I guess ;)
+**Fun fact:** Pretty okay at [Super Metroid](https://www.speedrun.com/plof27/) and [Tetris](https://www.youtube.com/watch?v=kIf0LqfK50I), I guess ;)
 
-**Follow:** [Twitch](https://www.twitch.tv/plof27), [GitHub](https://github.com/plof27)
+**Follow:** [Twitter](https://twitter.com/plof27), [GitHub](https://github.com/plof27)
