@@ -7,7 +7,7 @@ tags = [
 ]
 date = 2021-03-30 #TODO: Update date
 author = "Alice I. Cecile & Rose Peck"
-draft = false
+draft = true
 +++
 
 Spend enough time in certain game design circles, and you'll encounter the belief that playtesting is the best (or *only*) tool for game design.
@@ -92,10 +92,15 @@ Testing your game from end-to-end, as if you were a player, can be great for cat
 As a result, classical playtesting should often be considered as either a last resort, or as a "finishing pass" on a design you've already analyzed on it's own.
 This is particularly easy and effective if you have good tuning levers to work with, allowing your classical playtest to focus on nailing those values and improving game feel.
 
-## Conclusion
+## Every tool has a place
 
 In the end, classical playtesting can still be fun, informative, and highly effective, particularly for learning about subjective player experience, and performing holistic evaluation.
 But, as we hope we've convinced you in this blog post, it's only one tool in your toolbox.
 Use static analysis first to identify problems, hammer them out with focused tests and then use classical playtesting to refine feel and catch unforeseen issues.
 By doing this, you can catch mistakes early and guide your designs much more intentionally.
-As you sharpen these analysis skills, you'll eventually be able to accept, reject, and critique whole systems by inspection alone.
+
+As we've built games together, we've learned to **turn patterns into tools.**
+Instead of passing on "best practices" by oral tradition, and letting them slowly mutate to match each use, we've made a conscious effort to **extract, name, document and polish** the processes that we end up coming back to again and again.
+
+This, at its heart, is where this concept of **static analysis for game design** originated: as a meta-tool, created as a tool to organize and think about these simple but powerful techniques for critiquing games by inspection.
+Static analysis has dramatically improved our designs, and we hope that you'll stick with us over the coming months (and years!) as we share the tools that we've discovered with you, our dear readers.
