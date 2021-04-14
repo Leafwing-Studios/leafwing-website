@@ -17,7 +17,7 @@ You'll catch us [blogging](/blog/) about our [projects](/projects), game design,
 
 **Class:** Ecologist / Mathematician / Entrepreneur / Programmer / Game Designer
 
-**Species:** Plant Girl 🍃
+**Species:** Plant Girl 🍃 [she / her]
 
 **Attributes:** -5 Prowess | -1 Agility | +2 Focus | +5 Expertise | +4 Presence
 
@@ -35,7 +35,7 @@ You'll catch us [blogging](/blog/) about our [projects](/projects), game design,
 
 **Class:** Software Developer / Entrepreneur / Game Designer
 
-**Species:** Robot Girl 🤖
+**Species:** Robot Girl 🤖 [she / they]
 
 **Attributes:** -1 Prowess | +0 Agility | -2 Focus | +4 Expertise | +4 Presence
 
