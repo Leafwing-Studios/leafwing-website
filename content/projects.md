@@ -2,7 +2,7 @@
 title = "Projects"
 +++
 
-Interested in keeping up to date with our projects? Join our [email list](TODO: add link) (with granular permissions!) or add our blog to your [RSS](TODO: add link) reader.
+Interested in keeping up to date with our projects? Join our [email list](/mailing-list.html) (with granular interest categories!) or add our blog to your [RSS](TODO: add link) reader.
 
 ## Fonts of Power
 
@@ -32,7 +32,6 @@ Explore a dynamic living world, carefully orchestrate an intricate web of eco-in
 [*Consensus | Together*](https://leafwing-studios.itch.io/consensus-together) is a pair of complete, pay-what-you-want one-page narrative roleplaying games about a group of people working together to do something about the state of the world, and the importance of the rules that guide our interactions. Using an identical setup and facing the same challenges, each game has subtle variations in its mechanics and framing. These differences implicitly showcase two very different visions of what it means to work together using consensus-based decision making processes. As they play, players can use the rules to improve the game itself, provided of course that they can come to a consensus about how to do so.
 
 Work together (or don’t) to discuss **proposals** on the **agenda** as you define and then work to achieve your goals. Will you desperately try to patch the broken process before everyone has **Something Better to Do**? Or will you revel in the chaos, embracing your personal **hidden agenda** as you **gather information**, **build solidarity** and enforce the rules through judicious use of **Points of Order**?
-
 
 ## Open Source Contributions
 
