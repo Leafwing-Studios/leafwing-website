@@ -28,19 +28,19 @@
     {{- partial "anchored_headings.html" .Content -}}
   </div>
   <footer class="post-footer">
-    <div
-      style="border-top: 1px solid rgb(110, 110, 110); width: 80%; margin-left: auto; margin-right: auto; padding-bottom: 16px;">
+    <div style="border-top: 2px solid rgb(110, 110, 110); width: 80%; margin-left: auto; margin-right: auto;">
     </div>
-    <p class=" post-content" style="padding-bottom: 20px; text-align: center;">
+    {{- if .Params.tags }}
+    <p class=" post-content" style="padding: 20px 0 20px 0; text-align: center;">
       <i>
-        Did you enjoy our writing? Consider joining our
+        Feeling enlightened? Intrigued? Enflamed?<br>Consider joining our
         <a href="/mailing-list">email list</a>
-        to be notified of new posts, or following our
+        or following our
         <a href="/TODO-add-link-pls">RSS feed.</a>
+        to be notified of new posts.
       </i>
     </p>
-    {{- if .Params.tags }}
-    <ul class="post-tags">
+    <ul class="post-tags" style="text-align: center;">
       {{- range ($.GetTerms "tags") }}
       <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
       {{- end }}
