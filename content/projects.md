@@ -2,7 +2,7 @@
 title = "Projects"
 +++
 
-Interested in keeping up to date with our projects? Join our [email list](/mailing-list) (with granular interest categories!) or add our blog to your [RSS](TODO: add link) reader.
+Interested in keeping up to date with our projects? Join our [email list](/mailing-list) (with granular interest categories!) or add our blog to your [RSS](/TODO-add-link-pls) reader.
 
 ## Fonts of Power
 

@@ -28,6 +28,17 @@
     {{- partial "anchored_headings.html" .Content -}}
   </div>
   <footer class="post-footer">
+    <div
+      style="border-top: 1px solid rgb(110, 110, 110); width: 80%; margin-left: auto; margin-right: auto; padding-bottom: 16px;">
+    </div>
+    <p class=" post-content" style="padding-bottom: 20px; text-align: center;">
+      <i>
+        Did you enjoy our writing? Consider joining our
+        <a href="/mailing-list">email list</a>
+        to be notified of new posts, or following our
+        <a href="/TODO-add-link-pls">RSS feed.</a>
+      </i>
+    </p>
     {{- if .Params.tags }}
     <ul class="post-tags">
       {{- range ($.GetTerms "tags") }}
