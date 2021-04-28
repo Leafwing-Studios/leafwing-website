@@ -29,6 +29,8 @@ You'll catch us [blogging](/blog/) about our [projects](/projects), game design,
 
 **Follow:** [Twitter](https://twitter.com/AliceICecile), [GitHub](https://github.com/alice-i-cecile)
 
+**Email:** <span style="display:none">alice</span>@leafwing-studios.com
+
 -----
 
 **Name:** Rose "sixfold" Peck
@@ -46,3 +48,5 @@ You'll catch us [blogging](/blog/) about our [projects](/projects), game design,
 **Fun fact:** Pretty okay at [Super Metroid](https://www.speedrun.com/plof27/) and [Tetris](https://www.youtube.com/watch?v=kIf0LqfK50I), I guess ;)
 
 **Follow:** [Twitter](https://twitter.com/plof27), [GitHub](https://github.com/plof27)
+
+**Email:** <span style="display:none">rose</span>@leafwing-studios.com
