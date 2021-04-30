@@ -40,7 +40,7 @@ Some of our favorite tools for this at *Leafwing Studios* are:
 
 * **Strong design goals:** Carefully think through what you're trying to accomplish, and then refer back to your goals regularly. Ask if the current rules and options match your goals.
 * **System breakdown:** What are your feedback loops? Where are the interesting choices? What tensions exist? Is every choice meaningful? Do actions lead to tangible consequences?
-* **Complexity budgeting:** Every new system and feature comes with a cost to your players; there is only so much they can understand and remember at once before the [complexity](TODO: add link) of the system overwhelms them. How are you spending your budget? What pieces are eating a lot of complexity?
+* **Complexity budgeting:** Every new system and feature comes with a cost to your players; there is only so much they can understand and remember at once before the [complexity](https://medium.com/@wp/depth-vs-complexity-in-game-design-7e687d5f6f1f) of the system overwhelms them. How are you spending your budget? What pieces are eating a lot of complexity?
 * **Tuning levers:** Identify (and build!) knobs that are 1. trivial to adjust after the system has been built and 2. influence the system's balance or feel. For example, the amount of damage a particular weapon does is a common tuning lever.
 * **Balance frameworks:** Use consistent units of power and establish conversion rates between those units of power. Separate power budgets by type to avoid entanglement. Avoid unnecessary granularity.
 * **Regression testing:** Record your design's failures (or the failures of similar games), and check to make sure you've fixed or avoided them.
