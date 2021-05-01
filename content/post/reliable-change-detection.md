@@ -1,6 +1,6 @@
 +++
 title = "Reliable change detection in Bevy"
-description = "The What, Why and How"
+description = "Fast, ergonomic, infallible: pick three"
 tags = [
     "bevy",
     "ECS",
@@ -11,22 +11,99 @@ author = "Alice I. Cecile"
 draft = true
 +++
 
-ECS AND BEVY 101.
+Over the past half-year or so, I've dedicated much of my time to improving [Bevy](https://bevyengine.org/), an ECS-first game engine in Rust.
+It's a fantastic (if immature) tool, but one of my favorite things about it is its focus on providing incredibly powerful, ergonomic abstractions to work with.
+Today, I want to talk about one of the features I helped build and love using: **reliable change detection**.
 
-QUERIES.
+For those of you who've never used Bevy before, all of the game logic occurs in **systems**: ordinary Rust functions that are automatically scheduled to run each frame.
+These receive their data from the central ECS data store by requesting access to specific data, typically via **queries**, which carefully slice the data and request only the specific data needed.
 
-CHANGE DETECTION.
+Here's a quick, complete example of how that looks in practice:
 
-WHAT IS IT GOOD FOR?
+```rust
+use bevy::prelude::*;
 
-PROBLEMS WITH CHANGE DETECTION.
 
-SIMPLE FIXES?
+// TODO: WRITE EXAMPLE
+// Text-only
+// Spawning system, changes creation
 
-CONSTRAINTS.
+```
 
-FINAL DESIGN.
+As we build out our game, we can combine these systems to spectacular effect, carefully slicing our data and performing elaborate feats of automatically-parallelized behavior-first execution.
+
+By default though, queries fetch data from *all* of the entities with the appropriate components.
+This can be quite expensive when we only need to operate on a subset, even if we carefully slice our queries using `With` or `Without` **query filters**.
+Most commonly, we only care about the components that have been recently *changed* or *added*: this is where **change detection** comes in.
+
+By adding `Changed<C>` to our query filters, our query will only contain entities whose component of the type `C` has recently changed.
+This can be incredibly useful, allowing us to use **reactive** patterns in our code: while our systems may always run, they have minimal overhead and won't be doing wasted work.
+`Added<C>` query filters also 
+
+We can see how this plays out in practice by expanding our example above:
+
+```rust
+// TODO: more examples
+
+```
+
+## What does "reliable" mean?
+
+Those paying attention will notice a critical weasel word in my description above: "recently".
+This is at the crux of our [issue](https://github.com/bevyengine/bevy/issues/68): how long do we track these changes for.
+
+The obvious answer, and the one that Bevy used up to version 0.4 is that "changes persist until the end of the frame".
+
+USABILITY FOOTGUNS.
+SCHEDULER CHANGES.
+
+## A tangled web of constraints
+
+With a clear need, the Bevy team set out in search of a new solution.
+However, our constraint set was incredibly tight!
+New solutions should be:
+
+1. **Ergonomic.** It must use the same pretty query filter syntax as our existing solution.
+2. **Automatic.** It should happen automatically for every component (and resource) type, and occur whenever a change is made.
+3. **No false negatives.** Changes should never be missed by a system.
+4. **No false positives.** Every change reported should reflect a real change, with no double counting.
+5. **No delays.** We must be able to detect changes that were just made.
+6. **Low memory overhead.** We must store this information for each component in the entire game: thousands of entities with dozens of components. 
+7. **Low compute-cost.** Our change tracker must be must be fast to update and changes must be quick to fetch for each query.
+
+The "reliable" criteria (3, 4 and 5) deserve a bit more attention. This must work:
+
+1. If the change occurred immediately before the detecting system.
+2. If the change occurred later in the frame than the detecting system. This results in a frame delay, but shouldn't cause catastrophic failure.
+3. If the detecting system runs more than once each frame. This can occur with looping run criteria, commonly in `States`.
+4. If the detecting system didn't run for one or more frames.
+
+The final criteria is both devious and shockingly important.
+Skipping systems via **run criteria** is a powerful tool for common game functionality, like pausing, swapping between modes using `States`, or having systems that only run every X seconds or frames.
+
+It would be very nice if these systems could take advantage of our change detection as well.
+However, that introduces another serious complication: changes could be "seen" by some systems and marked as complete well before they're seen by another system that was skipped.
+
+With that terrible wrinkle in our mind, let's take a look at some simple attempts at a solution.
+
+## Rejected designs
+
+TODO: Discuss simple solutions, and evaluate against the criteria
+
+## A no-compromise solution
+
+TODO: discuss ring buffer solution
+
+[The ultimate solution](https://github.com/bevyengine/bevy/pull/1471)
+
+## Closing thoughts
 
 WHAT DOES RELIABLE CHANGE DETECTION ENABLE?
 
-NEXT STEPS: EVENTS?
+While I helped design solutions, clarify constraints, organize work and review changes, huge amounts of credit belong to the rest of the Bevy team.
+In particular:
+
+- [Bryce "@davier" Davier](https://github.com/davier) for doing the huge majority of this implementation work
+- [Carter "@cart" Anderson](https://github.com/sponsors/cart) for creating Bevy, writing the intial change detection implementation (including the awesome `DerefMut` trick) and helping us polish the new implementation
+- [@bjorn3](https://github.com/bjorn3) and [@jamadazi](https://github.com/jamadazi) for drafting the algorithm we used
+- Everyone else who contributed in the [issue](https://github.com/bevyengine/bevy/issues/68) and [PR](https://github.com/bevyengine/bevy/pull/1471) threads for a combined 206 messages!
