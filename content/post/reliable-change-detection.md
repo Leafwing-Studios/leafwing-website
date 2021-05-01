@@ -38,7 +38,7 @@ Most commonly, we only care about the components that have been recently *change
 
 By adding `Changed<C>` to our query filters, our query will only contain entities whose component of the type `C` has recently changed.
 This can be incredibly useful, allowing us to use **reactive** patterns in our code: while our systems may always run, they have minimal overhead and won't be doing wasted work.
-`Added<C>` query filters also 
+`Added<C>` query filters are also handy: they filter for components that were recently added instead, allowing you to automatically handle initialization in a later system.
 
 We can see how this plays out in practice by expanding our example above:
 
