@@ -68,7 +68,7 @@ New solutions should be:
 3. **No false negatives.** Changes should never be missed by a system.
 4. **No false positives.** Every change reported should reflect a real change, with no double counting.
 5. **No delays.** We must be able to detect changes that were just made.
-6. **Low memory overhead.** We must store this information for each component in the entire game: thousands of entities with dozens of components. 
+6. **Low memory overhead.** We must store this information for each component in the entire game: thousands of entities with dozens of components.
 7. **Low compute-cost.** Our change tracker must be must be fast to update and changes must be quick to fetch for each query.
 
 The "reliable" criteria (3, 4 and 5) deserve a bit more attention. This must work:
@@ -88,7 +88,7 @@ With that terrible wrinkle in our mind, let's take a look at some simple attempt
 
 ## Rejected designs
 
-TODO: Discuss simple solutions, and evaluate against the criteria
+TODO: DerefMut trick, Discuss simple solutions, and evaluate against the criteria
 
 ## A no-compromise solution
 
