@@ -50,12 +50,28 @@ We can see how this plays out in practice by expanding our example above:
 ## What does "reliable" mean?
 
 Those paying attention will notice a critical weasel word in my description above: "recently".
-This is at the crux of our [issue](https://github.com/bevyengine/bevy/issues/68): how long do we track these changes for.
+This is at the crux of our issue: how long do we track these changes for.
 
 The obvious answer, and the one that Bevy used up to version 0.4 is that "changes persist until the end of the frame".
+This is simple, relatively easily implemented and high-performance.
 
-USABILITY FOOTGUNS.
-SCHEDULER CHANGES.
+However, it also poses some serious usability problems:
+
+1. If the system that creates the change runs after the system that detects the change the change will be missed.
+2. If the system that detects the change doesn't run every frame changes will be lost forever.
+3. If the system that detects the change runs multiple times per frame it will repeat work even if there were no new changes to process.
+4. If you have a set of systems that both produce changes and detect changes from each other you can create a circular dependency where no possible ordering works!
+
+The last point may seems convoluted and academic, but as your game grows to hundreds of systems, each interacting with each other, the risk of this occurring increases non-linearly.
+
+While these limitations were frustrating, they came to a serious head with the introduction of our [new scheduler](https://github.com/bevyengine/bevy/pull/1144) slated for release in Bevy 0.5.
+
+In pursuit of the valiant goals of eliminating implicit system ordering to reduce fragile bugs and increasing parallelizability of systems,
+systems were no longer guaranteed to run in a stable order between runs unless an explicit dependency was given!
+
+This turned these frustrations into a much larger issue: rather than being fiddly, prototyping code (and code that was being migrated) would fail catastrophically and non-deterministically, completely missing changes on some runs of the app but not others.
+
+With our collective hand forced, the community turned its attention on an issue that had been neglected for many months: ["System-order-independent ECS change tracking"](https://github.com/bevyengine/bevy/issues/68).
 
 ## A tangled web of constraints
 
