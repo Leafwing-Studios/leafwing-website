@@ -195,7 +195,7 @@ And, fascinatingly, this is the first solution that handles both skipped and rep
 However, this is a *large* amount of data duplication, even if we're clever and only store it on the systems that require `Changed<T>` data.
 This hurts our performance in unacceptable ways: particularly the memory usage (criteria 3).
 
-## A no-compromise solution: Change-counting ring buffers
+## A no-compromise solution: Ring-buffered change-ticks
 
 Despite these frustrations, we seem to be successfully stumbling towards a solution.
 We've learned that any successful solution must:
@@ -208,9 +208,13 @@ We've learned that any successful solution must:
 Avoiding duplication is where the real magic of our final solution begins.
 The basic strategy works as follows:
 
-* TODO: write
+* We store the current time, by number of systems that have run, in a global integer called the **world change tick**. In Bevy, this is a `u32` stored on the `World`(https://github.com/bevyengine/bevy/pull/1471/files#diff-8799631eaab5e61e5dbc20251e08d83474df566ba159061cf2a78ce8f1fd59d5R53).
+* Each system store [its own change tick](https://github.com/bevyengine/bevy/pull/1471/files#diff-0e94997025571f709abd7cac97f03bb4e8ec8bf29650068a7e5ec07170011892R137) that records when it was last run.
+* Each piece of component (and resource) data stores [its own change tick](https://github.com/bevyengine/bevy/pull/1471/files#diff-0e94997025571f709abd7cac97f03bb4e8ec8bf29650068a7e5ec07170011892R137), which act as a record of when the changes were made.
+* If the system has not run since the last time the component changed, it has a change that must be processed. This is [measured by the difference between the component and system change ticks from the world change tick](https://github.com/bevyengine/bevy/pull/1471/files#diff-0e94997025571f709abd7cac97f03bb4e8ec8bf29650068a7e5ec07170011892R137).
+* We use wrapping subtraction in the step above to get **ring buffer** behavior, allowing our change detection to continue functioning indefinitely rather than running out of space as time goes on.
 
-For those interested in the gory, Bevy-specific details, feel free to check out the [corresponding PR](https://github.com/bevyengine/bevy/pull/1471).
+For those interested in the gory Bevy-specific details, feel free to check out the [corresponding PR](https://github.com/bevyengine/bevy/pull/1471).
 Now, let's examine those criteria in detail:
 
 1. **Ergonomic.** Yes, all of the magic happens behind-the-scenes.
@@ -237,7 +241,7 @@ From an end user's perspective, reliable change detection allows you to write co
 This simple, bug-free mental model enables tremendous productivity, letting users prototype, refactor and aggressively use these features without worrying that they'll suddenly break.
 At worst, our systems will be in a poorly-considered order, where changes are detected before they are emitted, and we'll end up with at most one frame of delay per change emitting-detecting pair.
 
-If you're looking to implement change detection in *your* ECS (or other vaguely analogous dataflow engine), use per-system change detection or change-counting ring buffers, depending on your performance needs.
+If you're looking to implement change detection in *your* ECS (or other vaguely analogous dataflow engine), use per-system change detection or ring-buffered change ticks, depending on your performance needs.
 Bevy tends to encourage large numbers of systems to take advantage of our automatic parallelism (and doesn't care about the false negatives after a very long skip), so the latter was preferred.
 Reliability is a killer feature, helping your users avoid subtle, painful bugs and enabling them to use change detection to design fast and elegant data flows by skipping work that doesn't need to (or even *shouldn't*) be done.
 
