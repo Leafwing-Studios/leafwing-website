@@ -215,7 +215,8 @@ That was a fun technical jaunt, but is it *really worth it?*
 Yes, absolutely.
 From an end user's perspective, reliable change detection allows you to write code that only affects entities with added or changed components *exactly* once, *no matter what*.
 
-WHAT DOES RELIABLE CHANGE DETECTION ENABLE?
+This simple, bug-free mental model enables tremendous productivity, letting users prototype, refactor and aggressively use these features without worrying that they'll suddenly break.
+At worst, our systems will be in a poor order and we'll end up with at most one frame of delay per change emitting-detecting pair.
 
 If you're looking to implement change detection in *your* ECS (or other vaguely analogous dataflow engine), use per-system change detection or change-counting ring buffers, depending on your performance needs.
 Reliability is a killer feature, helping your users avoid subtle, painful bugs and enabling them to use change detection to design fast and elegant data flows by skipping work that doesn't need to (or even *shouldn't*) be done.
