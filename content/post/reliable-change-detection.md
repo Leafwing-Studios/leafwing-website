@@ -208,7 +208,7 @@ We've learned that any successful solution must:
 Avoiding duplication is where the real magic of our final solution begins.
 The basic strategy works as follows:
 
-* We store the current time, by number of systems that have run, in a global integer called the **world change tick**. In Bevy, this is a `u32` stored on the `World`(https://github.com/bevyengine/bevy/pull/1471/files#diff-8799631eaab5e61e5dbc20251e08d83474df566ba159061cf2a78ce8f1fd59d5R53).
+* We store the current time, by number of systems that have run, in a global integer called the **world change tick**. In Bevy, this is a `u32` stored on the [`World`](https://github.com/bevyengine/bevy/pull/1471/files#diff-8799631eaab5e61e5dbc20251e08d83474df566ba159061cf2a78ce8f1fd59d5R53) which [is incremented atomically](https://github.com/bevyengine/bevy/pull/1471/files#diff-5499ffc12ee4011981ff6d5069a1986197d824648c65ed24056e6b2772b3cd81R146) each time a system is run.
 * Each system store [its own change tick](https://github.com/bevyengine/bevy/pull/1471/files#diff-0e94997025571f709abd7cac97f03bb4e8ec8bf29650068a7e5ec07170011892R137) that records when it was last run.
 * Each piece of component (and resource) data stores [its own change tick](https://github.com/bevyengine/bevy/pull/1471/files#diff-0e94997025571f709abd7cac97f03bb4e8ec8bf29650068a7e5ec07170011892R137), which act as a record of when the changes were made.
 * If the system has not run since the last time the component changed, it has a change that must be processed. This is [measured by the difference between the component and system change ticks from the world change tick](https://github.com/bevyengine/bevy/pull/1471/files#diff-0e94997025571f709abd7cac97f03bb4e8ec8bf29650068a7e5ec07170011892R137).
