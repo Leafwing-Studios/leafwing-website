@@ -142,6 +142,7 @@ It even passes criteria 7, as changes are immediately marked.
 
 However, as discussed above, this solution fails to be reliable.
 Unsurprisingly, it fails criteria 5: false negatives can exist and are quite common, occurring whenever the change detecting system occurs earlier in the frame than the changes are made.
+False negatives also occur when systems are skipped for one or more frame.
 
 More surprisingly, it also fails criteria 6, presenting false positives!
 This occurs whenever a system is run more than once per frame: it will process a change on the first pass, and then find that the same component is still marked as changed on all future passes.
@@ -152,7 +153,7 @@ This can have subtle but catastrophic effects if your systems that respond to ch
 Nice and simple, and we can avoid the ordering problem by only looking backwards.
 Just like Solution 1, it passes criteria 1-4.
 
-It has no false negatives (criteria 5), and only has false positives for repeated systems (criteria 6).
+It has no false negatives (criteria 5), other than when systems are skipped, and only has false positives for repeated systems (criteria 6).
 
 However, it fails criteria 7 badly: you must wait an entire frame to respond to changes.
 This seriously limits the value of change detection: you must be willing to tolerate delays, and must be *certain* not to have change detection chains that result in noticeable delays.
@@ -164,9 +165,9 @@ This "double-buffer" solution is [how events work](https://github.com/bevyengine
 Under this proposal, a change would be detected if the component is marked as flagged in either the current frame's buffer or the last frame's buffer.
 
 This is both ergonomic (1) and automatic (2), and comes at a modest performance cost (3 and 4).
-It's immediate (7) and eliminates false negatives (5).
+It's immediate (7) and eliminates false negatives (5), barring systems that are skipped for at least two frames.
 
-However, it's false positive behavior is very bad.
+However, its false positive behavior is very bad.
 In addition to the repeated systems false positives from Solutions 1 and 2, it triggers a false positive for *every* change-detecting system that runs after a change-causing system on every frame.
 This double-counting is a serious performance cost in real applications and, as discussed above, can cause frustrating bugs.
 
@@ -178,7 +179,7 @@ Users must filter for either `JustChanged` (solution 1's behavior) or `Changed` 
 On its face, this is the best of both worlds: you can opt for either immediacy or no false negatives depending on your needs.
 Implementation is automatic (2), the performance is fine (3 and 4) and you *can* choose to avoid either false negatives (5) or delays (7).
 
-However, it still suffers from repeated system false positives (6), and, more critically, it's ergonomics (1) are terrible.
+However, it still suffers from skipped system false negatives (5), repeated system false positives (6), and, most critically, it's ergonomics (1) are terrible.
 Users are forced to confront the gritty details of the scheduler immediately, and choose between two subtly but critically distinct choices.
 No matter which solution they pick, they must deal with frustrating and hard-to-debug limitations.
 
@@ -189,19 +190,20 @@ In effect, this behaves much like event channels, with change events getting sen
 Under the hood, this could be done quite easily using a [system-local `Local` resource](https://docs.rs/bevy/0.5.0/bevy/ecs/system/struct.Local.html).
 
 This is ergonomic (1), automatic (2), and perfectly reliable, as we only update this data when the change has been seen.
-And, fascinatingly, this is the first solution that handles repeating systems properly, as we're finally able to desynchronize the `Changed` status of each component by system.
+And, fascinatingly, this is the first solution that handles both skipped and repeating systems properly, as we're finally able to desynchronize the `Changed` status of each component by system and persist changes for more than a frame or two.
 
 However, this is a *large* amount of data duplication, even if we're clever and only store it on the systems that require `Changed<T>` data.
 This hurts our performance in unacceptable ways: particularly the memory usage (criteria 3).
 
-## A no-compromise solution: change-counting ring buffers
+## A no-compromise solution: Change-counting ring buffers
 
 Despite these frustrations, we seem to be successfully stumbling towards a solution.
 We've learned that any successful solution must:
 
-1. Report changes immediately (or at least, before anyone else is allowed to look at those changes).
+1. Persist changes for more than a frame or two to avoid missing systems that are skipped.
 2. Store *some* data on a per-system basis to avoid double counting, especially when working with repeated systems.
-3. Avoid naively duplicating all of the change detection data between each of our systems.
+3. Report changes immediately (or at least, before anyone else is allowed to look at those changes).
+4. Avoid naively duplicating all of the change detection data between each of our systems.
 
 TODO: discuss ring buffer solution
 
@@ -209,7 +211,14 @@ TODO: discuss ring buffer solution
 
 ## Closing thoughts
 
+That was a fun technical jaunt, but is it *really worth it?*
+Yes, absolutely.
+From an end user's perspective, reliable change detection allows you to write code that only affects entities with added or changed components *exactly* once, *no matter what*.
+
 WHAT DOES RELIABLE CHANGE DETECTION ENABLE?
+
+If you're looking to implement change detection in *your* ECS (or other vaguely analogous dataflow engine), use per-system change detection or change-counting ring buffers, depending on your performance needs.
+Reliability is a killer feature, helping your users avoid subtle, painful bugs and enabling them to use change detection to design fast and elegant data flows by skipping work that doesn't need to (or even *shouldn't*) be done.
 
 While I helped design solutions, clarify constraints, organize work and review changes, huge amounts of credit belong to the rest of the Bevy team.
 In particular:
