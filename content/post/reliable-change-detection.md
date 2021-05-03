@@ -205,9 +205,28 @@ We've learned that any successful solution must:
 3. Report changes immediately (or at least, before anyone else is allowed to look at those changes).
 4. Avoid naively duplicating all of the change detection data between each of our systems.
 
-TODO: discuss ring buffer solution
+Avoiding duplication is where the real magic of our final solution begins.
+The basic strategy works as follows:
 
-[The ultimate solution](https://github.com/bevyengine/bevy/pull/1471)
+* TODO: write
+
+For those interested in the gory, Bevy-specific details, feel free to check out the [corresponding PR](https://github.com/bevyengine/bevy/pull/1471).
+Now, let's examine those criteria in detail:
+
+1. **Ergonomic.** Yes, all of the magic happens behind-the-scenes.
+2. **Automatic.** Yes, there's no need to opt in.
+3. **Low memory overhead.** Yes, we're only storing a single u32 per component, no matter how many systems we have.
+4. **Low compute-cost.** Yes: experiments and [benchmarks](https://github.com/bevyengine/bevy/pull/1471#issuecomment-793531969) showed no meaningful cost in real-world games, mild performance improvements in several benchmarks and only one [minor regression](https://github.com/bevyengine/bevy/pull/1471#issuecomment-795559596).
+5. **No false negatives.** Yes!
+6. **No false positives.** Yes!
+7. **No delays.** Yes!
+
+No matter the scenario, this solution detects each change *exactly* once per system if the data has been mutably accessed at least once since the system last ran.
+
+What's that? Oh right, I must apologize: there is one case where a change may be missed with a warning.
+If, while your system is asleep, more than [`u32::MAX * 3 / 4`](https://github.com/bevyengine/bevy/pull/1471#issuecomment-787009753) (3221225471) systems have run, you will miss changes that occurred.
+Running at 1000 systems per frames and 60 frames per second, this would take about 15 hours.
+Hopefully your games can tolerate this limitation.
 
 ## Closing thoughts
 
@@ -216,15 +235,16 @@ Yes, absolutely.
 From an end user's perspective, reliable change detection allows you to write code that only affects entities with added or changed components *exactly* once, *no matter what*.
 
 This simple, bug-free mental model enables tremendous productivity, letting users prototype, refactor and aggressively use these features without worrying that they'll suddenly break.
-At worst, our systems will be in a poorly-considered order, where changes are detected before they are emitted and we'll end up with at most one frame of delay per change emitting-detecting pair.
+At worst, our systems will be in a poorly-considered order, where changes are detected before they are emitted, and we'll end up with at most one frame of delay per change emitting-detecting pair.
 
 If you're looking to implement change detection in *your* ECS (or other vaguely analogous dataflow engine), use per-system change detection or change-counting ring buffers, depending on your performance needs.
+Bevy tends to encourage large numbers of systems to take advantage of our automatic parallelism (and doesn't care about the false negatives after a very long skip), so the latter was preferred.
 Reliability is a killer feature, helping your users avoid subtle, painful bugs and enabling them to use change detection to design fast and elegant data flows by skipping work that doesn't need to (or even *shouldn't*) be done.
 
 While I helped design solutions, clarify constraints, organize work and review changes, huge amounts of credit belong to the rest of the Bevy team.
 In particular:
 
-- [@davier](https://github.com/davier) for doing the huge majority of this implementation work
-- [@cart](https://github.com/sponsors/cart) for creating Bevy, writing the intial change detection implementation (including the awesome `DerefMut` trick) and helping us polish the new implementation
-- [@bjorn3](https://github.com/bjorn3) and [@jamadazi](https://github.com/jamadazi) for sketching out the algorithm we used
-- Everyone else who contributed in the [issue](https://github.com/bevyengine/bevy/issues/68) and [PR](https://github.com/bevyengine/bevy/pull/1471) threads for a combined 206 messages!
+* [@davier](https://github.com/davier) for doing the huge majority of this implementation work
+* [@cart](https://github.com/sponsors/cart) for creating Bevy, writing the intial change detection implementation (including the awesome `DerefMut` trick) and helping us polish the new implementation
+* [@bjorn3](https://github.com/bjorn3) and [@jamadazi](https://github.com/jamadazi) for sketching out the algorithm we used
+* Everyone else who contributed in the [issue](https://github.com/bevyengine/bevy/issues/68) and [PR](https://github.com/bevyengine/bevy/pull/1471) threads for a combined 206 messages!
