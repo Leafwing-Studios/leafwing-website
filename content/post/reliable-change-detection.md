@@ -121,5 +121,5 @@ In particular:
 
 - [@davier](https://github.com/davier) for doing the huge majority of this implementation work
 - [@cart](https://github.com/sponsors/cart) for creating Bevy, writing the intial change detection implementation (including the awesome `DerefMut` trick) and helping us polish the new implementation
-- [@bjorn3](https://github.com/bjorn3) and [@jamadazi](https://github.com/jamadazi) for drafting the algorithm we used
+- [@bjorn3](https://github.com/bjorn3) and [@jamadazi](https://github.com/jamadazi) for sketching out the algorithm we used
 - Everyone else who contributed in the [issue](https://github.com/bevyengine/bevy/issues/68) and [PR](https://github.com/bevyengine/bevy/pull/1471) threads for a combined 206 messages!
