@@ -59,7 +59,7 @@ While this can result in minor false positives (in case a component was mutably 
 There are two quirks of this worth calling out:
 
 1. You can manually trigger change detection by manually mutably derefencing a piece of data, such as by calling `component.deref_mut()`.
-This is a very high-performance (if somewhat odd) way to flag components as requiring review, and even works on unit struct **marker components** that store no data.
+This is a very high-performance (if somewhat odd) way to flag components as requiring review, and even works on **marker components** (unit structs that store no data).
 2. Change detection fails to detect changes to data structures made via [interior mutability](https://doc.rust-lang.org/book/ch15-05-interior-mutability.html).
 As above, this can either be a feature or a bug, depending on exactly what behavior you're trying to achieve.
 If you *really* wanted to, you could even combine these quirks, and call `deref_mut()` each time the data was changed as part of your setter methods to ensure change detection behaves as expected.
