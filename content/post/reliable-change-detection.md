@@ -75,7 +75,7 @@ This is simple, relatively easily implemented and high-performance.
 
 However, it also poses some serious usability problems:
 
-1. If the system that creates the change runs after the system that detects the change the change will be missed.
+1. If the system that creates the change runs after the system that detects the change, the change will be missed.
 2. If the system that detects the change doesn't run every frame changes will be lost forever.
 3. If the system that detects the change runs multiple times per frame it will repeat work even if there were no new changes to process.
 4. If you have a set of systems that both produce changes and detect changes from each other you can create a circular dependency where no possible ordering works!
