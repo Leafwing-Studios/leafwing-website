@@ -11,6 +11,8 @@ author = "Alice I. Cecile"
 draft = true
 +++
 
+**An abridged version of this post was also presented as a 10 minute talk for the Rust East Coast meetup group ([slides](https://docs.google.com/presentation/d/1gggEX4dfOaBdKcZJySm8i7TmxIJkyModEcl8dDkrqQw/edit#slide=id.p), [video](TODO: add link))*.
+
 Over the past half-year or so, I've dedicated much of my time to improving [Bevy](https://bevyengine.org/), an ECS-first game engine in Rust.
 It's a fantastic (if immature) tool, but one of my favorite things about it is its focus on providing incredibly powerful, ergonomic abstractions to work with.
 Today, I want to talk about one of the features I helped build and love using: **reliable change detection**.
