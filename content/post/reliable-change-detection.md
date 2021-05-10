@@ -207,17 +207,19 @@ We've learned that any successful solution must:
 3. Report changes immediately (or at least, before anyone else is allowed to look at those changes).
 4. Avoid naively duplicating all of the change detection data between each of our systems.
 
-Avoiding duplication is where the real magic of our final solution begins.
-The basic strategy works as follows:
+Avoiding duplication is where the real magic begins.
 
-* We store the current time, by number of systems that have run, in a global integer called the **world change tick**. In Bevy, this is a `u32` stored on the [`World`](https://github.com/bevyengine/bevy/pull/1471/files#diff-8799631eaab5e61e5dbc20251e08d83474df566ba159061cf2a78ce8f1fd59d5R53) which [is incremented atomically](https://github.com/bevyengine/bevy/pull/1471/files#diff-5499ffc12ee4011981ff6d5069a1986197d824648c65ed24056e6b2772b3cd81R146) each time a system is run.
-* Each system store [its own change tick](https://github.com/bevyengine/bevy/pull/1471/files#diff-0e94997025571f709abd7cac97f03bb4e8ec8bf29650068a7e5ec07170011892R137) that records when it was last run.
-* Each piece of component (and resource) data stores [its own change tick](https://github.com/bevyengine/bevy/pull/1471/files#diff-0e94997025571f709abd7cac97f03bb4e8ec8bf29650068a7e5ec07170011892R137), which act as a record of when the changes were made.
-* If the system has not run since the last time the component changed, it has a change that must be processed. This is [measured by the difference between the component and system change ticks from the world change tick](https://github.com/bevyengine/bevy/pull/1471/files#diff-0e94997025571f709abd7cac97f03bb4e8ec8bf29650068a7e5ec07170011892R137).
-* We use wrapping subtraction in the step above to get **ring buffer** behavior, allowing our change detection to continue functioning indefinitely rather than running out of space as time goes on.
+To do so, we store timers in three separate locations:
+
+* On the `World` as a global indicator of current time. Whenever a system begins execution, [this increments once](https://github.com/bevyengine/bevy/pull/1471/files#diff-5499ffc12ee4011981ff6d5069a1986197d824648c65ed24056e6b2772b3cd81R146).
+* On each piece of `Resource` or `Component` data, [marking when the data was last changed](https://github.com/bevyengine/bevy/pull/1471/files#diff-0e94997025571f709abd7cac97f03bb4e8ec8bf29650068a7e5ec07170011892R137) in terms of the global timer.
+* On each `System`, marking when the system last ran in terms of the global timer.
+
+If the data's change tick is greater than the system's change tick, the data has changed since it was last processed.
+We use [wrapping subtraction]((https://github.com/bevyengine/bevy/pull/1471/files#diff-0e94997025571f709abd7cac97f03bb4e8ec8bf29650068a7e5ec07170011892R137) to determine what "greater than" means, giving us **ring buffer** behavior, allowing our change detection to continue functioning indefinitely rather than running out of space as time goes on.
 
 For those interested in the gory Bevy-specific details, feel free to check out the [corresponding PR](https://github.com/bevyengine/bevy/pull/1471).
-Now, let's examine those criteria in detail:
+Now, let's see how this proposal stands up to our criteria:
 
 1. **Ergonomic.** Yes, all of the magic happens behind-the-scenes.
 2. **Automatic.** Yes, there's no need to opt in.
