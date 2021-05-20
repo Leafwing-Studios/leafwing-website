@@ -49,12 +49,16 @@ Players don't have interesting or meaningful choices, and so they become overly 
 It's not the player's fault that the game didn't balance and communicate what the trade-offs are for using a consumable.
 As we said, it's always a design problem.
 
+In this case, the core problem is the game's inability to facilitate rational planning.
+And if we'd stopped at "those damn players, not using their potions like they're supposed to", we never would have found it.
+Now that we've recognized the true design problem at the heart of consumables, we can actually solve the underlying issue.
+
 ## Solving Consumables
 
 Realizing that there's a design problem at play, it can be tempting to toss on a band-aid solution: disincentivizing the pathological behavior directly.
 You see this play out in tabletop RPGs, where the Game Master (GM) plays a dual-role as a game designer.
 Out-of-character, the GM begs, exhorts and bribes to get players to drink their damn healing potions when they're at 2hp, promising that they'll discover more soon.
-Or worse, they implement a last-second nerf to their cunning hording strategies under the guise of "realism": explaining how the seven potions they just drank reacted in their stomach, causing them to take 6d6 poison damage and salvaging the tension of the epic boss battle.
+Or worse, they implement a last-second nerf to the players cunning hording strategies under the guise of "realism": explaining how the seven potions they just drank reacted in the wizard's stomach, causing them to take 6d6 poison damage and salvaging the tension of the epic boss battle.
 
 Obviously, last-minute band-aid solutions are suboptimal and often rob the player of meaningful choice in a similar way to the original problem: the players still don't have sufficient information or agency to reason and strategize around the consumable system.
 
