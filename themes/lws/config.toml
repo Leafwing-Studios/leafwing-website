@@ -1,7 +1,7 @@
 # The URL the site will be built for
 base_url = "https://leafwing-studios.com/"
 
-title = "LWS - A product site theme for Zola based on Juice"
+title = "LWS - A product site theme for Zola originally based on Juice"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
