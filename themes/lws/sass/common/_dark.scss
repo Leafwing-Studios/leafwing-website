@@ -25,12 +25,12 @@ body.dark a {
 }
 
 body.dark a.text-body {
-    color: $body-color-dark !important;
+    color: $body-color-dark  !important;
 }
 
 body.dark .btn-primary {
     @include button-variant($button-color-dark, $button-color-dark);
-    color: $body-bg-dark !important;
+    color: $body-bg-dark  !important;
 }
 
 body.dark .btn-outline-primary {
@@ -70,18 +70,18 @@ body.dark h2 {
 
 body.dark h1,
 .h1 .title-text {
-    border-left: 0px!important;
+    border-left: 0px !important;
     ;
 }
 
 body.dark h3,
 .h1 .title-text {
-    border-left: 0px!important;
-    color: #8ed6fb!important
+    border-left: 0px !important;
+    color: #8ed6fb !important
 }
 
 body.dark header {
-    background-color: $body-bg-dark !important;
+    background-color: $body-bg-dark  !important;
 }
 
 body.dark .logo {
@@ -124,7 +124,7 @@ body.dark.home .navbar {
 }
 
 body.dark .navbar-light .navbar-brand {
-    color: $navbar-dark-color !important;
+    color: $navbar-dark-color  !important;
 }
 
 body.dark .navbar-light .navbar-nav .nav-link {
@@ -238,7 +238,7 @@ body.dark .form-control:focus {
 }
 
 body.dark .border-top {
-    border-top: 1px solid $border-dark !important;
+    border-top: 1px solid $border-dark  !important;
 }
 
 @include media-breakpoint-up(lg) {
@@ -333,7 +333,7 @@ body.dark .card {
 }
 
 body.dark .card.bg-light {
-    background: $body-overlay-dark !important;
+    background: $body-overlay-dark  !important;
 }
 
 body.dark .navbar .menu-icon .navicon {

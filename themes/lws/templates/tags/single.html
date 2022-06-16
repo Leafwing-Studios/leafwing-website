@@ -4,25 +4,25 @@
 
 {% block header %}
 <header class="box-shadow">
-    {{ macros::render_header() }}
+  {{ macros::render_header() }}
 </header>
 {% endblock header %}
 
 
 
 {% block content %}
-  <div class='container'>
-      <div class='has-text-centered' style="margin-top:2rem;">
-        <h2 class="title">
-          <span class="icon-text">
-            <span class="icon">
-              <i class="fas fa-tag"></i>
-            </span>
-            <span>{{ term.name }}</span>
-          </span>
-        </h1>
-      </div>
-    </div>
+<div class='container'>
+  <div class='has-text-centered' style="margin-top:2rem;">
+    <h2 class="title">
+      <span class="icon-text">
+        <span class="icon">
+          <i class="fas fa-tag"></i>
+        </span>
+        <span>{{ term.name }}</span>
+      </span>
+      </h1>
+  </div>
+</div>
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
@@ -41,18 +41,18 @@
             </a>
           </h2>
           <p class="subtitle">{{ page.description }}</p>
-                <div class="columns is-multiline is-gapless">
-          <div class="column is-10">
+          <div class="columns is-multiline is-gapless">
+            <div class="column is-10">
+            </div>
+            <div class="column is-2">
+              <a class="rightAlign has-text-danger-dark has-text-weight-semibold sizingS" href='{{ page.permalink }}'>
+                Read More
+                <span class="icon is-small">
+                  <i class="fas fa-arrow-right fa-xs"></i>
+                </span>
+              </a>
+            </div>
           </div>
-          <div class="column is-2">
-             <a class="rightAlign has-text-danger-dark has-text-weight-semibold sizingS" href='{{ page.permalink }}'>
-              Read More
-              <span class="icon is-small">
-                <i class="fas fa-arrow-right fa-xs"></i>
-              </span>
-            </a>
-            </div>
-            </div>
           <div class="columns is-multiline is-gapless">
             <div class="column is-8">
               {{ macros::page_publish_metadata(page=page) }}
@@ -61,9 +61,9 @@
               {{ macros::page_content_metadata(page=page) }}
             </div>
           </div>
-  
+
           <div class="columns">
-         
+
             <div class="column has-text-right-desktop">
               {% if page.taxonomies.tags %}
               {{ macros::render_tags(tags=page.taxonomies.tags) }}

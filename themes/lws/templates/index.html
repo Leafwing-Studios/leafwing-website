@@ -4,26 +4,28 @@
 
 <head>
     <meta charset="UTF-8">
-    <title >{% block title %}{{ config.title }}{% endblock title %}</title>  
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% include "_variables.html" %}
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/mapbox-gl@2.1.1/dist/mapbox-gl.min.css" rel="stylesheet" />
-  <link href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/mapbox-gl@2.1.1/dist/mapbox-gl.min.css" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/normalize.css">
-    <link rel="icon" href="{{ get_url(path="logo.png") }}">
-    <link rel="stylesheet" href="{{ get_url(path="lws.css") }}">
-    <link rel="stylesheet" href="{{ get_url(path="addition.css") }}">
-    <link rel="stylesheet" href="{{ get_url(path="main.css") }}">
+    <link rel="icon" href="{{ get_url(path=" logo.png") }}">
+    <link rel="stylesheet" href="{{ get_url(path=" lws.css") }}">
+    <link rel="stylesheet" href="{{ get_url(path=" addition.css") }}">
+    <link rel="stylesheet" href="{{ get_url(path=" main.css") }}">
     {% block head %}
     {% endblock head %}
 
     {% block rss %}
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
-{% endblock %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path=" rss.xml", trailing_slash=false)
+        }}">
+    {% endblock %}
 
 </head>
 
@@ -42,11 +44,11 @@
             </h1>
             <h3 class="title-text oswald">
                 Emergent complexity for thoughtful games
-            </h3>          
+            </h3>
         </section>
 
 
-        <img class="hero-image" style="width: 30%" src="{{ get_url(path="logo310.png") }}">
+        <img class="hero-image" style="width: 30%" src="{{ get_url(path=" logo310.png") }}">
 
         <div class="explore-more text"
             onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
@@ -56,6 +58,7 @@
             .hero section {
                 padding: 0 5rem;
             }
+
             @media screen and (max-width: 768px) {
                 .hero section {
                     padding: 0 2rem;
@@ -71,7 +74,7 @@
 
     {% endblock header %}
 
-    
+
     <main style="justify-content:center;">
         {% block toc %}
         {% if section.toc %}
@@ -109,39 +112,41 @@
         {% block sidebar %}
         {% endblock %}
     </main>
-  
 
-      {% block pagination %}
-  {% if paginator.previous or paginator.next %}
-  <section class="section">
-    <div class="container">
-      <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <a class="pagination-previous" href='{{ paginator.previous }}' {% if not paginator.previous %}disabled{% endif %}>
-          <span class="icon">
-            <i class="fas fa-angle-double-left"></i>
-          </span>
-          Previous
-        </a>
-        <a class="pagination-next" href='{{ paginator.next }}' {% if not paginator.next %}disabled{% endif %}>
-          Next page
-          <span class="icon">
-            <i class="fas fa-angle-double-right"></i>
-          </span>
-        </a>
-        <ul class="pagination-list">
-          {% for pager in range(start=1, end=paginator.number_pagers+1) %}
-          <li>
-            <a class="pagination-link {% if paginator.current_index == pager %}is-current{% endif %}" href='{{ paginator.base_url }}{{pager}}' aria-label="Goto page {{pager}}">
-              {{pager}}
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-      </nav>
-    </div>
-  </section>
-  {% endif %}
-  {% endblock %}
+
+    {% block pagination %}
+    {% if paginator.previous or paginator.next %}
+    <section class="section">
+        <div class="container">
+            <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+                <a class="pagination-previous" href='{{ paginator.previous }}' {% if not paginator.previous %}disabled{%
+                    endif %}>
+                    <span class="icon">
+                        <i class="fas fa-angle-double-left"></i>
+                    </span>
+                    Previous
+                </a>
+                <a class="pagination-next" href='{{ paginator.next }}' {% if not paginator.next %}disabled{% endif %}>
+                    Next page
+                    <span class="icon">
+                        <i class="fas fa-angle-double-right"></i>
+                    </span>
+                </a>
+                <ul class="pagination-list">
+                    {% for pager in range(start=1, end=paginator.number_pagers+1) %}
+                    <li>
+                        <a class="pagination-link {% if paginator.current_index == pager %}is-current{% endif %}"
+                            href='{{ paginator.base_url }}{{pager}}' aria-label="Goto page {{pager}}">
+                            {{pager}}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+    </section>
+    {% endif %}
+    {% endblock %}
 
     {% block footer %}
     <footer class="footerr">
@@ -151,22 +156,23 @@
         <small class="subtext ">
             <hr>
         </small>
-        
+
         <small class="subtext">
-             
-             <a style="text-decoration: none;" href="/mailing-list">Mailing List <i class="far fa-envelope"></i></a>
-             &nbsp;&nbsp;
-             <a style="text-decoration: none;" href="https://leafwing-studios.com/rss.xml">RSS Feed <i class="fas fa-rss-square"></i></a>
+
+            <a style="text-decoration: none;" href="/mailing-list">Mailing List <i class="far fa-envelope"></i></a>
+            &nbsp;&nbsp;
+            <a style="text-decoration: none;" href="https://leafwing-studios.com/rss.xml">RSS Feed <i
+                    class="fas fa-rss-square"></i></a>
         </small>
     </footer>
     {% endblock footer %}
 
-       
 
 
 
 
-<script src="{{ get_url(path="main.js") }}"></script>
+
+    <script src="{{ get_url(path=" main.js") }}"></script>
 
 
 </body>
@@ -207,13 +213,16 @@
 
 <!-- MailerLite Universal -->
 <script>
-(function(m,a,i,l,e,r){ m['MailerLiteObject']=e;function f(){
-var c={ a:arguments,q:[]};var r=this.push(c);return "number"!=typeof r?r:f.bind(c.q);}
-f.q=f.q||[];m[e]=m[e]||f.bind(f.q);m[e].q=m[e].q||f.q;r=a.createElement(i);
-var _=a.getElementsByTagName(i)[0];r.async=1;r.src=l+'?v'+(~~(new Date().getTime()/1000000));
-_.parentNode.insertBefore(r,_);})(window, document, 'script', 'https://static.mailerlite.com/js/universal.js', 'ml');
+        (function (m, a, i, l, e, r) {
+            m['MailerLiteObject'] = e; function f() {
+                var c = { a: arguments, q: [] }; var r = this.push(c); return "number" != typeof r ? r : f.bind(c.q);
+            }
+            f.q = f.q || []; m[e] = m[e] || f.bind(f.q); m[e].q = m[e].q || f.q; r = a.createElement(i);
+            var _ = a.getElementsByTagName(i)[0]; r.async = 1; r.src = l + '?v' + (~~(new Date().getTime() / 1000000));
+            _.parentNode.insertBefore(r, _);
+        })(window, document, 'script', 'https://static.mailerlite.com/js/universal.js', 'ml');
 
-var ml_account = ml('accounts', '3077953', 'h1i7s7d3b7', 'load');
+    var ml_account = ml('accounts', '3077953', 'h1i7s7d3b7', 'load');
 </script>
 <!-- End MailerLite Universal -->
 
