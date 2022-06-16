@@ -1,4 +1,13 @@
-# Keep synced with duplicate in project root
+###########################
+###########################
+## Markdown Linter rules ##
+###########################
+###########################
 
-{
-}
+# Linter rules doc:
+# - https://github.com/DavidAnson/markdownlint
+
+#################
+# Rules by tags #
+#################
+line-length: false

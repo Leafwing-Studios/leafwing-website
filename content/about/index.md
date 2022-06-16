@@ -11,11 +11,10 @@ Whether we're making tabletop games or video games, we care about:
 * better design and prototyping practices
 * creating memorable, replayable experiences through emergent design
 
-You'll catch us <a href="/blog" style="color: green;">blogging</a> about our  <a href="/projects" style="color: green;">projects</a>, game design, Rust, Bevy and better ways to create and collaborate.
+You'll catch us [blogging](../blog/) about our  [projects](../projects/), game design, [Rust](https://www.rust-lang.org/), [Bevy](https://bevyengine.org/) and better ways to create and collaborate.
 
-# Team
+## Team
 
- 
 **Name:** Alice "IvyLashes" Cecile
 
 **Class:** Ecologist / Mathematician / Entrepreneur / Programmer / Game Designer
@@ -30,8 +29,7 @@ You'll catch us <a href="/blog" style="color: green;">blogging</a> about our  <a
 
 **Fun fact:** Despite the world's best efforts, somehow not dead yet!
 
-**Follow:** <a href="https://twitter.com/AliceICecile" style="color: green;">Twitter</a> , <a href="https://github.com/alice-i-cecile" style="color: green;">Github</a>
-
+**Follow:** [Twitter](https://twitter.com/AliceICecile), [Twitch](https://twitter.com/AliceICecile), [Github](https://github.com/alice-i-cecile)
 
 **Email:** alice@leafwing-studios.com
 
@@ -47,10 +45,10 @@ You'll catch us <a href="/blog" style="color: green;">blogging</a> about our  <a
 
 **Ideals:** 4 Equality | 3 Harmony | 2 Liberty | 3 Progress | 3 Sanctity
 
-**Specialties:** <a href="https://www.youtube.com/watch?v=5ebIizhEgxg&t=521s" style="color: green;">Ludotography</a>, analysis frameworks, process improvement
+**Specialties:** [Ludotography](https://www.youtube.com/watch?v=5ebIizhEgxg&t=521s)</a>, analysis frameworks, process improvement
 
-**Fun fact:** Pretty okay at <a href="https://www.speedrun.com/plof27/" style="color: green;">Super Metroid</a> and <a href="https://www.youtube.com/watch?v=kIf0LqfK50I" style="color: green;">Tetris</a>, I guess ;)
+**Fun fact:** Pretty okay at [Super Metroid](https://www.speedrun.com/plof27/)</a> and [Tetris](https://www.youtube.com/watch?v=kIf0LqfK50I), I guess ;)
 
-**Follow:** <a href="https://twitter.com/plof27" style="color: green;">Twitter</a> , <a href="https://github.com/plof27" style="color: green;">Github</a>
+**Follow:** [Twitter](https://twitter.com/plof27), [Github](https://github.com/plof27)
 
 **Email:** rose@leafwing-studios.com
