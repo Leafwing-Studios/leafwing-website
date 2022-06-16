@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title >{% block title %}{{ config.title }}{% endblock title %}</title>  
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% include "_variables.html" %}
       <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css" rel="stylesheet" />
@@ -42,7 +42,7 @@
             </h1>
             <h3 class="title-text oswald">
                 Emergent complexity for thoughtful games
-            </h3>          
+            </h3>
         </section>
 
 
@@ -56,6 +56,7 @@
             .hero section {
                 padding: 0 5rem;
             }
+
             @media screen and (max-width: 768px) {
                 .hero section {
                     padding: 0 2rem;
@@ -71,7 +72,7 @@
 
     {% endblock header %}
 
-    
+
     <main style="justify-content:center;">
         {% block toc %}
         {% if section.toc %}
@@ -109,7 +110,7 @@
         {% block sidebar %}
         {% endblock %}
     </main>
-  
+
 
       {% block pagination %}
   {% if paginator.previous or paginator.next %}
@@ -161,7 +162,7 @@
     </footer>
     {% endblock footer %}
 
-       
+
 
 
 
