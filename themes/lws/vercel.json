@@ -1,0 +1,10 @@
+{
+  "build": {
+    "env": {
+      "ZOLA_VERSION": "0.15.3"
+    }
+  },
+  "github": {
+    "silent": true
+  }
+}
