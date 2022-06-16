@@ -1,4 +1,6 @@
 {% import "_macros.html" as macros %}
+<!-- WARNING: This file currently breaks when autoformatted; the get_url macro is not formatted correctly. -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,25 +9,23 @@
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% include "_variables.html" %}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css"
-        rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/mapbox-gl@2.1.1/dist/mapbox-gl.min.css" rel="stylesheet" />
-    <link href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css" rel="stylesheet" />
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/mapbox-gl@2.1.1/dist/mapbox-gl.min.css" rel="stylesheet" />
+  <link href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/normalize.css">
-    <link rel="icon" href="{{ get_url(path=" logo.png") }}">
-    <link rel="stylesheet" href="{{ get_url(path=" lws.css") }}">
-    <link rel="stylesheet" href="{{ get_url(path=" addition.css") }}">
-    <link rel="stylesheet" href="{{ get_url(path=" main.css") }}">
+    <link rel="icon" href="{{ get_url(path="logo.png") }}">
+    <link rel="stylesheet" href="{{ get_url(path="lws.css") }}">
+    <link rel="stylesheet" href="{{ get_url(path="addition.css") }}">
+    <link rel="stylesheet" href="{{ get_url(path="main.css") }}">
     {% block head %}
     {% endblock head %}
 
     {% block rss %}
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path=" rss.xml", trailing_slash=false)
-        }}">
-    {% endblock %}
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
+{% endblock %}
 
 </head>
 
@@ -48,7 +48,7 @@
         </section>
 
 
-        <img class="hero-image" style="width: 30%" src="{{ get_url(path=" logo310.png") }}">
+        <img class="hero-image" style="width: 30%" src="{{ get_url(path="logo310.png") }}">
 
         <div class="explore-more text"
             onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
@@ -172,7 +172,7 @@
 
 
 
-    <script src="{{ get_url(path=" main.js") }}"></script>
+<script src="{{ get_url(path="main.js") }}"></script>
 
 
 </body>
