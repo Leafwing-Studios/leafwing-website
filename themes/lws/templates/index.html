@@ -16,16 +16,16 @@
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/normalize.css">
-    <link rel="icon" href="{{ get_url(path="logo.png") }}">
-    <link rel="stylesheet" href="{{ get_url(path="lws.css") }}">
-    <link rel="stylesheet" href="{{ get_url(path="addition.css") }}">
-    <link rel="stylesheet" href="{{ get_url(path="main.css") }}">
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="lws.css">
+    <link rel="stylesheet" href="addition.css">
+    <link rel="stylesheet" href="main.css">
     {% block head %}
     {% endblock head %}
 
     {% block rss %}
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
-{% endblock %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+    {% endblock %}
 
 </head>
 
@@ -47,8 +47,7 @@
             </h3>
         </section>
 
-
-        <img class="hero-image" style="width: 30%" src="{{ get_url(path="logo310.png") }}">
+        <img class="hero-image" style="width: 30%" src="logo310.png">
 
         <div class="explore-more text"
             onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
@@ -167,13 +166,7 @@
     </footer>
     {% endblock footer %}
 
-
-
-
-
-
-<script src="{{ get_url(path="main.js") }}"></script>
-
+    <script src="main.js"></script>
 
 </body>
 <script>
