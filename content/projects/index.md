@@ -8,7 +8,7 @@ Interested in keeping up to date with our projects? Join our [email list](../mai
 
 ## Released Games
 
-### [*Consensus | Together*]((https://leafwing-studios.itch.io/consensus-together))
+### [*Consensus | Together*](https://leafwing-studios.itch.io/consensus-together)
 
 A pair of complete, pay-what-you-want one-page narrative roleplaying games about a group of people working together to do something about the state of the world, and the importance of the rules that guide our interactions. Using an identical setup and facing the same challenges, each game has subtle variations in its mechanics and framing. These differences implicitly showcase two very different visions of what it means to work together using consensus-based decision making processes. As they play, players can use the rules to improve the game itself, provided of course that they can come to a consensus about how to do so.
 
