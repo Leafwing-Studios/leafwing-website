@@ -1,0 +1,25 @@
+# The URL the site will be built for
+base_url = "https://leafwing-studios.com/"
+
+title = "LWS - A product site theme for Zola originally based on Juice"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+theme = "lws"
+
+# Configuration of the Markdown rendering
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+highlight_theme = "inspired-github"
+
+[extra]
+lws_logo_name = "LWS"
+lws_logo_path = "LWS.svg"
+lws_extra_menu = [   
+]
