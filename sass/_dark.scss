@@ -12,9 +12,9 @@ $link-color-dark: $blue-300;
 $button-color-dark: $link-color-dark;
 $focus-color-dark: lighten($link-color-dark, 2.5%);
 
-$navbar-dark-color:                 $body-color-dark;
-$navbar-dark-hover-color:           $link-color-dark;
-$navbar-dark-active-color:          $link-color-dark;
+$navbar-dark-color: $body-color-dark;
+$navbar-dark-hover-color: $link-color-dark;
+$navbar-dark-active-color: $link-color-dark;
 
 /** Theme styles */
 
@@ -28,13 +28,13 @@ body.dark a {
 }
 
 body.dark a.text-body {
-  color: $body-color-dark !important;
+  color: $body-color-dark  !important;
 }
 
 body.dark .btn-primary {
   @include button-variant($button-color-dark, $button-color-dark);
 
-  color: $body-bg-dark !important;
+  color: $body-bg-dark  !important;
 }
 
 body.dark .btn-outline-primary {
@@ -58,7 +58,7 @@ body.dark.home .navbar {
 }
 
 body.dark .navbar-light .navbar-brand {
-  color: $navbar-dark-color !important;
+  color: $navbar-dark-color  !important;
 }
 
 body.dark .navbar-light .navbar-nav .nav-link {
@@ -74,8 +74,8 @@ body.dark .navbar-light .navbar-nav .nav-link.disabled {
   color: $navbar-dark-disabled-color;
 }
 
-body.dark .navbar-light .navbar-nav .show > .nav-link,
-body.dark .navbar-light .navbar-nav .active > .nav-link,
+body.dark .navbar-light .navbar-nav .show>.nav-link,
+body.dark .navbar-light .navbar-nav .active>.nav-link,
 body.dark .navbar-light .navbar-nav .nav-link.show,
 body.dark .navbar-light .navbar-nav .nav-link.active {
   color: $navbar-dark-active-color;
@@ -166,7 +166,7 @@ body.dark .form-control:focus {
 }
 
 body.dark .border-top {
-  border-top: 1px solid $border-dark !important;
+  border-top: 1px solid $border-dark  !important;
 }
 
 @include media-breakpoint-up(lg) {
@@ -261,7 +261,7 @@ body.dark .card {
 }
 
 body.dark .card.bg-light {
-  background: $body-overlay-dark !important;
+  background: $body-overlay-dark  !important;
 }
 
 body.dark .navbar .menu-icon .navicon {

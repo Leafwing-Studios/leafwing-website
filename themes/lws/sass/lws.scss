@@ -11,6 +11,7 @@
 
 @import "bootstrap/scss/bootstrap";
 @import "common/dark";
+
 body {
     padding: 0;
     margin: 0;
@@ -51,6 +52,7 @@ header {
     display: flex;
     align-items: center;
     margin: 0 40px;
+
     img {
         width: 60px;
         margin: 0 25px;
@@ -62,6 +64,7 @@ header {
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
+
     &:hover {
         color: #000;
         text-decoration: underline;
@@ -76,6 +79,7 @@ header {
     background-color: var(--primary-color);
     overflow-x: hidden;
     padding: 0 40px;
+
     .explore-more {
         position: absolute;
         bottom: 20px;
@@ -86,26 +90,32 @@ header {
 main {
     display: flex;
     padding: 50px 100px;
+
     .toc {
         max-width: 260px;
         min-width: 240px;
     }
+
     .toc-item {
         padding: 10px 20px;
         color: #424242;
     }
+
     .toc-item a,
     .toc-item-child a {
         color: var(--secondary-text-color);
+
         &:hover {
             cursor: pointer;
             text-decoration: underline;
         }
     }
+
     .toc-item a.active,
     .toc-item-child a.active {
         color: var(--toc-highlight-text-color);
     }
+
     .toc-item-child {
         padding: 0 30px 5px;
         color: #424242;
@@ -133,6 +143,7 @@ footer {
     align-items: center;
     background-color: #202020;
     color: #fcfcfc;
+
     a {
         color: #fcfcfc;
         text-decoration: underline;
@@ -153,27 +164,34 @@ footer {
         align-items: center;
         justify-content: center;
     }
+
     .logo {
         font-size: 28px;
         margin: 10px;
+
         img {
             width: 45px;
             margin: 0 10px 0 0;
         }
     }
+
     .nav-item {
         margin: 0 5px;
         font-size: 14px;
     }
+
     .hero {
         padding: 40px 30px;
     }
+
     main {
         padding: 30px;
     }
+
     .content {
         padding: 0;
     }
+
     .explore-more,
     .toc {
         display: none;
