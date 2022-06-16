@@ -1,0 +1,84 @@
+{% extends "lws/templates/index.html" %}
+
+{% block title %}{{ section.title }} | {{ super() }} {% endblock title %}
+
+{% block header %}
+<header class="box-shadow">
+  {{ macros::render_header() }}
+</header>
+{% endblock header %}
+
+{% block toc %}
+{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="has-text-centered">
+      <h2 class="title is-2 raleway ">{{ section.extra.caption }}</h1>
+        <p class="subtitle is-4">{{ section.description }}</p>
+    </div>
+    <div class="content">
+      {{ section.content | safe }}
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-12 mt-4">
+        {% if paginator %}
+        {% set pages = paginator.pages %}
+        {% else %}
+        {% set pages = section.pages %}
+        {% endif %}
+
+        {% for page in pages %}
+        <article class="box width">
+          <h2 class="title">
+            <a class="raleway" href='{{ page.permalink }}'>
+              {{ page.title }}
+            </a>
+          </h2>
+
+          <p class="subtitle oswald">{{ page.description }}</p>
+          <div class="columns is-multiline is-gapless">
+            <div class="column is-10">
+            </div>
+            <div class="column is-2">
+              <button class="btnCustom">
+                <a class="btnCustom has-text-danger-dark has-text-weight-semibold sizingS" href='{{ page.permalink }}'>
+                  Read More
+                  <span class="icon is-small">
+                    <i class="fas fa-arrow-right fa-xs"></i>
+                  </span>
+                </a>
+              </button>
+            </div>
+          </div>
+          <div class="columns is-multiline is-gapless">
+            <div class="column is-8">
+              {{ macros::page_publish_metadata(page=page) }}
+            </div>
+
+            <div class="column is-4 has-text-right-desktop">
+              {{ macros::page_content_metadata(page=page) }}
+            </div>
+          </div>
+
+          <!-- <div class="content mt-2 oswald">
+         
+            {{ page.summary | safe }}
+            
+          </div> -->
+          <div class="columns ">
+
+            <div class="column has-text-right-desktop">
+              {% if page.taxonomies.tags %}
+              {{ macros::render_tags(tags=page.taxonomies.tags) }}
+              {% endif %}
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

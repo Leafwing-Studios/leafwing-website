@@ -1,0 +1,10 @@
+name = "lws"
+description = "LWS - A product site theme for Zola based on Juice"
+license = "MIT"
+min_version = "0.11.0"
+
+[extra]
+
+[author]
+name = "Leafwing Studios"
+homepage = "https://leafwing-studios.com"
