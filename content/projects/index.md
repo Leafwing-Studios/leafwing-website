@@ -4,7 +4,7 @@ description="Projects"
 template="projects.html"
 +++
 
-Interested in keeping up to date with our projects? Join our [email list](../mailing-list/index.md) (with granular interest categories!) or add our blog to your [RSS](https://leafwing-studios.com/rss.xml)reader.
+Interested in keeping up to date with our projects? Join our [email list](../mailing-list/index.md) (with granular interest categories!) or add our blog to your [RSS](https://leafwing-studios.com/rss.xml) reader.
 
 ## Fonts of Power
 
