@@ -1,5 +1,5 @@
 .heading-text {
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Oswald", "Fira Sans", sans-serif;
   font-size: 26px;
   font-style: italic;
   font-weight: 600;
@@ -9,22 +9,28 @@
 
 h1,
 .title-text {
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Oswald", "Fira Sans", sans-serif;
   font-size: 25px;
   font-weight: 500;
   color: var(--primary-text-color);
 }
 
-h2,
 .subtitle-text {
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Raleway", "Fira Sans", sans-serif;
+  font-style: italic;
   font-size: 20px;
-  font-weight: 500;
   color: var(--primary-text-color);
 }
 
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-family: "Oswald", "Fira Sans", sans-serif;
+    color: var(--primary-text-color);
+  }
+}
+
 .text {
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Raleway", "Fira Sans", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 26px;
@@ -33,7 +39,7 @@ h2,
 }
 
 .subtext {
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Raleway", "Fira Sans", sans-serif;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.1px;

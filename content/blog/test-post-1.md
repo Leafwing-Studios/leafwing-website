@@ -2,6 +2,7 @@
 title="First Post"
 description="What you didn't know about game design"
 date=2018-08-20
+template="blog-post.html"
 
 [taxonomies]
 categories = ["Sample Post"]

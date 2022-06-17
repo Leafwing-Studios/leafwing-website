@@ -48,6 +48,10 @@ header {
     align-items: center;
     margin: 0 40px;
 
+    &:hover {
+        color: var(--secondary-text-color);
+    }
+
     img {
         width: 60px;
         margin: 0 25px;
@@ -57,12 +61,14 @@ header {
 .nav-item {
     margin: 0 10px;
     text-decoration: none;
+
+    font-family: "Raleway", "Fira Sans", sans-serif;
     font-size: 18px;
     font-weight: bold;
+    color: var(--primary-text-color);
 
     &:hover {
-        color: #000;
-        text-decoration: underline;
+        color: var(--secondary-text-color);
     }
 }
 
@@ -172,7 +178,6 @@ footer {
 
     .nav-item {
         margin: 0 5px;
-        font-size: 14px;
     }
 
     .hero {
