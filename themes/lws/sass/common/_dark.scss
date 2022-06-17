@@ -1,12 +1,11 @@
 /** Theme variables */
 
-// Source: https://material.io/design/color/dark-theme.html
 $body-bg-dark: $gray-900;
 $body-overlay-dark: darken($body-bg-dark, 2.5%);
 $border-dark: darken($body-bg-dark, 2.5%);
 $body-color-dark: $gray-300;
 $dots-dark: darken($body-color-dark, 50%);
-$link-color-dark: $blue-300;
+$link-color-dark: #0596eb;
 $focus-color-dark: lighten($link-color-dark, 2.5%);
 $navbar-dark-color: $body-color-dark;
 $navbar-dark-hover-color: $link-color-dark;
@@ -119,10 +118,6 @@ body.dark .navbar-light .navbar-nav .nav-link {
 body.dark .navbar-light .navbar-nav .nav-link:hover,
 body.dark .navbar-light .navbar-nav .nav-link:focus {
     color: $navbar-dark-hover-color;
-}
-
-body.dark .navbar-light .navbar-nav .nav-link.disabled {
-    color: $navbar-dark-disabled-color;
 }
 
 body.dark .navbar-light .navbar-nav .show>.nav-link,

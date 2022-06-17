@@ -1,15 +1,10 @@
 @import "_utility.scss";
 @import "_text.scss";
 @import "_markdown.scss";
-@import "bootstrap/scss/functions";
 
 /** Import theme variables */
 
 @import "common/variables";
-
-/** Import Bootstrap */
-
-@import "bootstrap/scss/bootstrap";
 @import "common/dark";
 
 body {

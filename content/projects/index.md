@@ -9,7 +9,7 @@ or add our blog to your [RSS](https://leafwing-studios.com/rss.xml) reader.
 
 ## Released Games
 
-### [*Consensus | Together*](https://leafwing-studios.itch.io/consensus-together)
+### [Consensus | Together](https://leafwing-studios.itch.io/consensus-together)
 
 A pair of complete, pay-what-you-want one-page narrative roleplaying games
 about a group of people working together to do something about the state of the world,
@@ -25,7 +25,7 @@ Or will you revel in the chaos, embracing your personal **hidden agenda** as you
 
 ## Actively Developed Games
 
-### [*Fonts of Power*](https://github.com/leafwing-studios/fonts-of-power)
+### [Fonts of Power](https://github.com/leafwing-studios/fonts-of-power)
 
 An original d20 roleplaying game (for both the tabletop and PC!) about magical places that have taken on a life of their own.
 
@@ -46,7 +46,7 @@ to follow along as we turn our prototypes into a complete game!
 
 ## Planned Games
 
-### *Emergence*
+### Emergence
 
 While humanity may not have made it to Earth's micro-scale post-apocalyptic future, life *did*.
 As a new symbiotic civilization of plants, fungi and insects emerges,
