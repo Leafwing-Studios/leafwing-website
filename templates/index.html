@@ -9,9 +9,13 @@
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% include "_variables.html" %}
+    <!-- Used to give pretty icons to the tags -->
     <link href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" rel="stylesheet" />
+    <!-- Messes up hero display because flex-direction: column is needed -->
     <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css" rel="stylesheet" />
+    <!-- Used for main logo title -->
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <!-- Used as a default font -->
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/normalize.css">
     <link rel="icon" href="{{ get_url(path="logo.png") }}">
