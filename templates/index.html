@@ -36,17 +36,17 @@
 
     <div class="hero">
         {% block hero %}
-        <section class="text-center mt-2">
-            <h1 class="heading-text raleway" style="font-size: 50px">
+        <section class="text-center">
+            <h1 class="heading-text" style="font-size: 50px">
                 Leafwing Studios
             </h1>
-            <h3 class="title-text oswald">
+            <h3 class="title-text">
                 Emergent complexity for thoughtful games
             </h3>
         </section>
 
 
-        <img class="hero-image" style="width: 30%" src="{{ get_url(path="logo310.png") }}">
+        <img class="hero-image" style="width: 30%" src="{{ get_url(path=" logo310.png") }}">
         {% endblock hero %}
     </div>
 
@@ -82,8 +82,8 @@
 
         <div class="content text">
             {% block content %}
-            <div id="features" class="heading-text raleway "></div>
-            <div class="oswald">{{ section.content | safe }}</div>
+            <div id="features" class="heading-text"></div>
+            <div>{{ section.content | safe }}</div>
             {% endblock content %}
         </div>
 
@@ -150,7 +150,7 @@
 
 
 
-<script src="{{ get_url(path="main.js") }}"></script>
+    <script src="{{ get_url(path=" main.js") }}"></script>
 
 
 </body>

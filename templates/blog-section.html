@@ -17,7 +17,7 @@
 <section>
   <div class="container">
     <div class="has-text-centered">
-      <h1 class="title is-2 raleway ">{{ section.title }}</h1>
+      <h1 class="title is-2">{{ section.title }}</h1>
       <p class="subtitle is-4">{{ section.description }}</p>
     </div>
     <div class="content">
@@ -34,12 +34,12 @@
         {% for page in pages %}
         <article class="box width">
           <h2 class="title">
-            <a class="raleway" href='{{ page.permalink }}'>
+            <a href='{{ page.permalink }}'>
               {{ page.title }}
             </a>
           </h2>
 
-          <p class="subtitle oswald">{{ page.description }}</p>
+          <p class="subtitle">{{ page.description }}</p>
           <div class="columns is-multiline is-gapless">
             <div class="column is-10">
             </div>
