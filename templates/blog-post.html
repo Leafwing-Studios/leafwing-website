@@ -11,7 +11,8 @@
 
 {% block content %}
 
-<h1>{{ page.title | safe }}</h1>
-<div>{{page.description | safe}}</div>
+<h1 class="title-text">{{ page.title | safe }}</h1>
+<p class="subtitle-text" >{{ page.description | safe }}</p>
+
 <div class="raleway">{{ page.content | safe }}</div>
 {% endblock content %}
