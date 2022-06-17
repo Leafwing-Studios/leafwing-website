@@ -5,19 +5,19 @@
   display: inline-flex;
   vertical-align: middle; // match .btn alignment given font-size hack above
 
-  > .btn {
+  >.btn {
     position: relative;
     flex: 1 1 auto;
   }
 
   // Bring the hover, focused, and "active" buttons to the front to overlay
   // the borders properly
-  > .btn-check:checked + .btn,
-  > .btn-check:focus + .btn,
-  > .btn:hover,
-  > .btn:focus,
-  > .btn:active,
-  > .btn.active {
+  >.btn-check:checked+.btn,
+  >.btn-check:focus+.btn,
+  >.btn:hover,
+  >.btn:focus,
+  >.btn:active,
+  >.btn.active {
     z-index: 1;
   }
 }
@@ -34,15 +34,16 @@
 }
 
 .btn-group {
+
   // Prevent double borders when buttons are next to each other
-  > .btn:not(:first-child),
-  > .btn-group:not(:first-child) {
+  >.btn:not(:first-child),
+  >.btn-group:not(:first-child) {
     margin-left: -$btn-border-width;
   }
 
   // Reset rounded corners
-  > .btn:not(:last-child):not(.dropdown-toggle),
-  > .btn-group:not(:last-child) > .btn {
+  >.btn:not(:last-child):not(.dropdown-toggle),
+  >.btn-group:not(:last-child)>.btn {
     @include border-end-radius(0);
   }
 
@@ -50,9 +51,9 @@
   // - the "third or more" child
   // - the second child and the previous element isn't `.btn-check` (making it the first child visually)
   // - part of a btn-group which isn't the first child
-  > .btn:nth-child(n + 3),
-  > :not(.btn-check) + .btn,
-  > .btn-group:not(:first-child) > .btn {
+  >.btn:nth-child(n + 3),
+  > :not(.btn-check)+.btn,
+  >.btn-group:not(:first-child)>.btn {
     @include border-start-radius(0);
   }
 }
@@ -61,8 +62,13 @@
 //
 // Remix the default button sizing classes into new ones for easier manipulation.
 
-.btn-group-sm > .btn { @extend .btn-sm; }
-.btn-group-lg > .btn { @extend .btn-lg; }
+.btn-group-sm>.btn {
+  @extend .btn-sm;
+}
+
+.btn-group-lg>.btn {
+  @extend .btn-lg;
+}
 
 
 //
@@ -84,12 +90,12 @@
   }
 }
 
-.btn-sm + .dropdown-toggle-split {
+.btn-sm+.dropdown-toggle-split {
   padding-right: $btn-padding-x-sm * .75;
   padding-left: $btn-padding-x-sm * .75;
 }
 
-.btn-lg + .dropdown-toggle-split {
+.btn-lg+.dropdown-toggle-split {
   padding-right: $btn-padding-x-lg * .75;
   padding-left: $btn-padding-x-lg * .75;
 }
@@ -116,24 +122,24 @@
   align-items: flex-start;
   justify-content: center;
 
-  > .btn,
-  > .btn-group {
+  >.btn,
+  >.btn-group {
     width: 100%;
   }
 
-  > .btn:not(:first-child),
-  > .btn-group:not(:first-child) {
+  >.btn:not(:first-child),
+  >.btn-group:not(:first-child) {
     margin-top: -$btn-border-width;
   }
 
   // Reset rounded corners
-  > .btn:not(:last-child):not(.dropdown-toggle),
-  > .btn-group:not(:last-child) > .btn {
+  >.btn:not(:last-child):not(.dropdown-toggle),
+  >.btn-group:not(:last-child)>.btn {
     @include border-bottom-radius(0);
   }
 
-  > .btn ~ .btn,
-  > .btn-group:not(:first-child) > .btn {
+  >.btn~.btn,
+  >.btn-group:not(:first-child)>.btn {
     @include border-top-radius(0);
   }
 }

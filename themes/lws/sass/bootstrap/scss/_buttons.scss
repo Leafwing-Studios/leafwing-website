@@ -9,7 +9,7 @@
   line-height: $btn-line-height;
   color: $body-color;
   text-align: center;
-  text-decoration: if($link-decoration == none, null, none);
+  text-decoration: if($link-decoration ==none, null, none);
   white-space: $btn-white-space;
   vertical-align: middle;
   cursor: if($enable-button-pointers, pointer, null);
@@ -21,17 +21,17 @@
 
   &:hover {
     color: $body-color;
-    text-decoration: if($link-hover-decoration == underline, none, null);
+    text-decoration: if($link-hover-decoration ==underline, none, null);
   }
 
-  .btn-check:focus + &,
+  .btn-check:focus+&,
   &:focus {
     outline: 0;
     box-shadow: $btn-focus-box-shadow;
   }
 
-  .btn-check:checked + &,
-  .btn-check:active + &,
+  .btn-check:checked+&,
+  .btn-check:active+&,
   &:active,
   &.active {
     @include box-shadow($btn-active-box-shadow);
@@ -56,17 +56,20 @@
 //
 
 // scss-docs-start btn-variant-loops
-@each $color, $value in $theme-colors {
+@each $color,
+$value in $theme-colors {
   .btn-#{$color} {
     @include button-variant($value, $value);
   }
 }
 
-@each $color, $value in $theme-colors {
+@each $color,
+$value in $theme-colors {
   .btn-outline-#{$color} {
     @include button-outline-variant($value);
   }
 }
+
 // scss-docs-end btn-variant-loops
 
 

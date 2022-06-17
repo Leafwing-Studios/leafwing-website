@@ -4,13 +4,17 @@
 // Helper function to replace negative values with 0
 @function valid-radius($radius) {
   $return: ();
+
   @each $value in $radius {
-    @if type-of($value) == number {
+    @if type-of($value)==number {
       $return: append($return, max($value, 0));
-    } @else {
+    }
+
+    @else {
       $return: append($return, $value);
     }
   }
+
   @return $return;
 }
 
@@ -19,7 +23,8 @@
   @if $enable-rounded {
     border-radius: valid-radius($radius);
   }
-  @else if $fallback-border-radius != false {
+
+  @else if $fallback-border-radius  !=false {
     border-radius: $fallback-border-radius;
   }
 }
@@ -75,4 +80,5 @@
     border-bottom-left-radius: valid-radius($radius);
   }
 }
+
 // scss-docs-end border-radius-mixins
