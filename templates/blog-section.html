@@ -1,5 +1,7 @@
 {% extends "lws/templates/index.html" %}
 
+<!--The rest of this template is not being used in any form; everything is coming from index.html-->
+
 {% block title %}{{ section.title }} | {{ super() }} {% endblock title %}
 
 {% block header %}
@@ -15,7 +17,6 @@
 <section class="section">
   <div class="container">
     <div class="has-text-centered">
-      <!--These are not being rendered for some reason-->
       <h1 class="title is-2 raleway ">{{ section.title }}</h1>
       <p class="subtitle is-4">{{ section.description }}</p>
     </div>
