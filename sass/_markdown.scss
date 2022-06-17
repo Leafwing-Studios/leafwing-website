@@ -30,7 +30,7 @@
 }
 
 .content a {
-  color: var(--primary-link-color);
+  color: $primary-link-color;
 
   &:hover {
     text-decoration: underline;

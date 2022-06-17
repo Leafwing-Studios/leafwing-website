@@ -1,10 +1,10 @@
 @import "_utility.scss";
 @import "_text.scss";
 @import "_markdown.scss";
-@import "_colors.scss";
 
 /** Import theme variables */
 
+@import "_colors.scss";
 @import "common/variables";
 @import "common/dark";
 
@@ -12,7 +12,7 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: var(--secondary-color);
+    background-color: $secondary-color;
 }
 
 a {
@@ -33,7 +33,7 @@ p>img {
 }
 
 header {
-    background-color: var(--primary-color);
+    background-color: $primary-color;
     color: black;
     padding: 20px 50px;
     display: flex;
@@ -44,13 +44,13 @@ header {
 .logo {
     font-family: "Alfa Slab One", serif;
     font-size: 32px;
-    color: var(--primary-text-color);
+    color: $primary-text-color;
     display: flex;
     align-items: center;
     margin: 0 40px;
 
     &:hover {
-        color: var(--secondary-text-color);
+        color: $secondary-text-color;
     }
 
     img {
@@ -66,10 +66,10 @@ header {
     font-family: "Raleway", sans-serif;
     font-size: 18px;
     font-weight: bold;
-    color: var(--primary-text-color);
+    color: $primary-text-color;
 
     &:hover {
-        color: var(--secondary-text-color);
+        color: $secondary-text-color;
     }
 }
 
@@ -78,7 +78,7 @@ header {
     align-items: center;
     justify-content: space-evenly;
     height: 100vh;
-    background-color: var(--primary-color);
+    background-color: $primary-color;
     overflow-x: hidden;
     padding: 0 40px;
 
@@ -105,7 +105,7 @@ main {
 
     .toc-item a,
     .toc-item-child a {
-        color: var(--secondary-text-color);
+        color: $secondary-text-color;
 
         &:hover {
             cursor: pointer;
@@ -115,7 +115,7 @@ main {
 
     .toc-item a.active,
     .toc-item-child a.active {
-        color: var(--toc-highlight-text-color);
+        color: $toc-highlight-text-color;
     }
 
     .toc-item-child {
@@ -126,7 +126,7 @@ main {
 
 .toc-sticky {
     border-radius: 3px;
-    border-top: 5px solid var(--primary-color);
+    border-top: 5px solid $primary-color;
     background-color: white;
     position: sticky;
     position: -webkit-sticky;
