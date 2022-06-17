@@ -2,6 +2,7 @@
 title="Zeroth Post"
 description="Is playtesting is the best (or *only*) tool for game design?"
 date=2018-08-19
+template="blog-post.html"
 
 [taxonomies]
 categories = ["Sample Post"]
