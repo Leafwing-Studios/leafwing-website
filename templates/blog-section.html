@@ -1,5 +1,7 @@
 {% extends "lws/templates/index.html" %}
 
+<!--The rest of this template is not being used in any form; everything is coming from index.html-->
+
 {% block title %}{{ section.title }} | {{ super() }} {% endblock title %}
 
 {% block header %}
@@ -15,8 +17,8 @@
 <section class="section">
   <div class="container">
     <div class="has-text-centered">
-      <h2 class="title is-2 raleway ">{{ section.extra.caption }}</h1>
-        <p class="subtitle is-4">{{ section.description }}</p>
+      <h1 class="title is-2 raleway ">{{ section.title }}</h1>
+      <p class="subtitle is-4">{{ section.description }}</p>
     </div>
     <div class="content">
       {{ section.content | safe }}
@@ -61,12 +63,6 @@
               {{ macros::page_content_metadata(page=page) }}
             </div>
           </div>
-
-          <!-- <div class="content mt-2 oswald">
-         
-            {{ page.summary | safe }}
-            
-          </div> -->
           <div class="columns ">
 
             <div class="column has-text-right-desktop">
