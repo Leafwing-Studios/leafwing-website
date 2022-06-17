@@ -15,12 +15,17 @@ h1,
   color: var(--primary-text-color);
 }
 
-h2,
 .subtitle-text {
   font-family: "Raleway", "Fira Sans", sans-serif;
   font-size: 20px;
-  font-weight: 500;
   color: var(--primary-text-color);
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-family: "Oswald", "Fira Sans", sans-serif;
+    color: var(--primary-text-color);
+  }
 }
 
 .text {
