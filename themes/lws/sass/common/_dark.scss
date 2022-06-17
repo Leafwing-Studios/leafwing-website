@@ -7,7 +7,6 @@ $border-dark: darken($body-bg-dark, 2.5%);
 $body-color-dark: $gray-300;
 $dots-dark: darken($body-color-dark, 50%);
 $link-color-dark: $blue-300;
-$button-color-dark: $link-color-dark;
 $focus-color-dark: lighten($link-color-dark, 2.5%);
 $navbar-dark-color: $body-color-dark;
 $navbar-dark-hover-color: $link-color-dark;
@@ -26,20 +25,6 @@ body.dark a {
 
 body.dark a.text-body {
     color: $body-color-dark  !important;
-}
-
-body.dark .btn-primary {
-    @include button-variant($button-color-dark, $button-color-dark);
-    color: $body-bg-dark  !important;
-}
-
-body.dark .btn-outline-primary {
-    @include button-outline-variant($button-color-dark, $button-color-dark);
-    color: $link-color-dark;
-}
-
-body.dark .btn-outline-primary:hover {
-    color: $body-bg-dark;
 }
 
 body.dark .text {
@@ -194,26 +179,6 @@ body.dark .navbar-light .navbar-text a:focus {
     color: $navbar-dark-active-color;
 }
 
-body.dark .navbar .btn-link {
-    color: $navbar-dark-color;
-}
-
-body.dark .content .btn-link {
-    color: $link-color-dark;
-}
-
-body.dark .content .btn-link:hover {
-    color: $link-color-dark;
-}
-
-body.dark .navbar .btn-link:hover {
-    color: $navbar-dark-hover-color;
-}
-
-body.dark .navbar .btn-link:active {
-    color: $navbar-dark-active-color;
-}
-
 body.dark .form-control.is-search {
     background: $body-overlay-dark;
     /*
@@ -239,13 +204,6 @@ body.dark .form-control:focus {
 
 body.dark .border-top {
     border-top: 1px solid $border-dark  !important;
-}
-
-@include media-breakpoint-up(lg) {
-    body.dark .docs-sidebar {
-        order: 0;
-        border-right: 1px solid $border-dark;
-    }
 }
 
 body.dark .docs-navigation {
