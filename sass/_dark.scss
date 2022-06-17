@@ -31,22 +31,6 @@ body.dark a.text-body {
   color: $body-color-dark  !important;
 }
 
-body.dark .btn-primary {
-  @include button-variant($button-color-dark, $button-color-dark);
-
-  color: $body-bg-dark  !important;
-}
-
-body.dark .btn-outline-primary {
-  @include button-outline-variant($button-color-dark, $button-color-dark);
-
-  color: $link-color-dark;
-}
-
-body.dark .btn-outline-primary:hover {
-  color: $body-bg-dark;
-}
-
 body.dark .navbar {
   background: $body-bg-dark;
   opacity: 0.975;
@@ -125,26 +109,6 @@ body.dark .page-links h3.sidebar-link a {
 
 body.dark .navbar-light .navbar-text a:hover,
 body.dark .navbar-light .navbar-text a:focus {
-  color: $navbar-dark-active-color;
-}
-
-body.dark .navbar .btn-link {
-  color: $navbar-dark-color;
-}
-
-body.dark .content .btn-link {
-  color: $link-color-dark;
-}
-
-body.dark .content .btn-link:hover {
-  color: $link-color-dark;
-}
-
-body.dark .navbar .btn-link:hover {
-  color: $navbar-dark-hover-color;
-}
-
-body.dark .navbar .btn-link:active {
   color: $navbar-dark-active-color;
 }
 
