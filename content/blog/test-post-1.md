@@ -1,6 +1,6 @@
 +++
-title="Test Post"
-description="Spend enough time in certain game design circles, and you'll encounter the belief that playtesting is the best (or *only*) tool for game design."
+title="First Post"
+description="What you didn't know about game design"
 date=2018-08-20
 
 [taxonomies]

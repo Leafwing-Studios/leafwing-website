@@ -1,6 +1,6 @@
 +++
 title="Zeroth Post"
-description="Spend enough time in certain game design circles, and you'll encounter the belief that playtesting is the best (or *only*) tool for game design."
+description="Is playtesting is the best (or *only*) tool for game design?"
 date=2018-08-19
 
 [taxonomies]
