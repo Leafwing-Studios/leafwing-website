@@ -1,0 +1,40 @@
+.section {
+	padding: 3rem 1.5rem
+}
+
+.container {
+	flex-grow: 1;
+	margin: 0 auto;
+	position: relative;
+	width: auto
+}
+
+.box {
+	background-color: #fff;
+	border-radius: 6px;
+	box-shadow: 0 .5em 1em -.125em rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .02);
+	color: #4a4a4a;
+	display: block;
+	padding: 1.25rem
+}
+
+.columns {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	flex-wrap: wrap;
+}
+
+.column {
+	display: block;
+	flex-basis: 0;
+	flex-grow: 1;
+	flex-shrink: 1;
+	padding: .75rem;
+}
+
+@media screen and (min-width:1024px) {
+	.has-text-right-desktop {
+		text-align: right !important
+	}
+}

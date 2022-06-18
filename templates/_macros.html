@@ -1,41 +1,24 @@
 {% macro page_publish_metadata(page) %}
-<span class="icon-text has-text-grey">
-  <span class="icon">
-    <i class="fas fa-user"></i>
-  </span>
-  <span>{{ config.extra.author.name }} published on</span>
-  <span class="icon">
-    <i class="far fa-calendar-alt"></i>
-  </span>
+<span>
   <span><time datetime="{{ page.date }}">{{ page.date | date(format='%B %d, %Y') }}</time></span>
-</span>
-{% endmacro %}
+  {% endmacro %}
 
-{% macro page_content_metadata(page) %}
-<span class="icon-text has-text-grey">
-  <span class="icon">
-    <i class="far fa-clock"></i>
+  {% macro page_content_metadata(page) %}
+  <span>
+    <span>{{ page.reading_time }} min,</span>
+    <span>{{ page.word_count }} words</span>
   </span>
-  <span>{{ page.reading_time }} min,</span>
-  <span class="icon">
-    <i class="fas fa-pencil-alt"></i>
-  </span>
-  <span>{{ page.word_count }} words</span>
-</span>
-{% endmacro %}
+  {% endmacro %}
 
-{% macro render_tags(tags) %}
-<p>
-  Tags:
-  {% for tag in tags %}
-  <a class="has-text-info-dark has-text-weight-semibold" href="{{ get_taxonomy_url(kind='tags', name=tag) }}">
-    <span class="icon-text">
-      <span class="icon">
-        <i class="fas fa-tag"></i>
+  {% macro render_tags(tags) %}
+  <p>
+    Tags:
+    {% for tag in tags %}
+    <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}">
+      <span>
+        <span>{{tag}}</span>
       </span>
-      <span>{{tag}}</span>
-    </span>
-  </a>
-  {% endfor %}
-</p>
-{% endmacro %}
+    </a>
+    {% endfor %}
+  </p>
+  {% endmacro %}
