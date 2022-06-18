@@ -1,0 +1,14 @@
+footer {
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #202020;
+	color: #fcfcfc;
+
+	a {
+		color: #fcfcfc;
+		text-decoration: underline;
+	}
+}
