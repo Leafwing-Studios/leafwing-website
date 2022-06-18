@@ -1,0 +1,43 @@
+// Top banner
+header {
+	background-color: $primary-color;
+	color: black;
+	padding: 20px 50px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+// Logo + wordmark section of banner
+.logo {
+	font-family: "Alfa Slab One", serif;
+	font-size: 32px;
+	color: $primary-text-color;
+	display: flex;
+	align-items: center;
+	margin: 0 40px;
+
+	&:hover {
+		color: $secondary-text-color;
+	}
+
+	img {
+		width: 60px;
+		margin: 0 25px;
+	}
+}
+
+// Header links
+.nav-item {
+	margin: 0 10px;
+	text-decoration: none;
+
+	font-family: "Raleway", sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: $primary-text-color;
+
+	&:hover {
+		color: $secondary-text-color;
+	}
+}

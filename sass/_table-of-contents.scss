@@ -1,0 +1,38 @@
+.toc {
+	max-width: 260px;
+	min-width: 240px;
+}
+
+.toc-item {
+	padding: 10px 20px;
+	color: #424242;
+}
+
+.toc-item a,
+.toc-item-child a {
+	color: $secondary-text-color;
+
+	&:hover {
+		cursor: pointer;
+		text-decoration: underline;
+	}
+}
+
+.toc-item a.active,
+.toc-item-child a.active {
+	color: $toc-highlight-text-color;
+}
+
+.toc-item-child {
+	padding: 0 30px 5px;
+	color: #424242;
+}
+
+.toc-sticky {
+	border-radius: 3px;
+	border-top: 5px solid $primary-color;
+	background-color: white;
+	position: sticky;
+	top: 10px;
+	padding: 10px 0;
+}
