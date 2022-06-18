@@ -80,12 +80,7 @@ header {
     background-color: $primary-color;
     overflow-x: hidden;
     padding: 0 40px;
-
-    .explore-more {
-        position: absolute;
-        bottom: 20px;
-        cursor: pointer;
-    }
+    flex-direction: column;
 }
 
 main {
