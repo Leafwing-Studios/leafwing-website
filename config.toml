@@ -25,8 +25,6 @@ highlight_code = true
 highlight_theme = "inspired-github"
 
 [extra]
-lws_logo_name = "Leafwing Studios"
-lws_logo_path = "logo.png"
 lws_extra_menu = [
     { title = "Projects", link = "/projects" },
     { title = "Blog", link = "/blog" },
