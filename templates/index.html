@@ -1,5 +1,6 @@
 {% import "_macros.html" as macros %}
 
+<!-- The root html page, from which all templates inherit -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,11 +28,9 @@
 
 <body>
     {% block header %}
-
     <header class="box-shadow">
         {{ macros::render_header() }}
     </header>
-
     {% endblock header %}
 
     <main style="justify-content:center;">
@@ -63,15 +62,10 @@
 
         <div class="content text">
             {% block content %}
-            <div id="features" class="heading-text raleway "></div>
             <div class="oswald">{{ section.content | safe }}</div>
             {% endblock content %}
         </div>
-
-        {% block sidebar %}
-        {% endblock %}
     </main>
-
 
     {% block pagination %}
     {% if paginator.previous or paginator.next %}
@@ -110,7 +104,7 @@
     {% block footer %}
     <footer>
         <small class="subtext ">
-            © 2021 <a href="https://leafwing-studios.com/">Leafwing Studios</a>
+            © 2022 <a href="https://leafwing-studios.com/">Leafwing Studios</a>
         </small>
         <small class="subtext ">
             <hr>
@@ -125,12 +119,12 @@
         </small>
     </footer>
     {% endblock footer %}
-
-
-    <!-- Javascript -->
-    <script src="dark-mode.js"></script>
-
 </body>
+
+<!-- Javascript -->
+<script src="dark-mode.js"></script>
+
+<!-- Highlights where you are in the table of contents -->
 <script>
     function highlightNav(heading) {
         let pathname = location.pathname;
