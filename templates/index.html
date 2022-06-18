@@ -38,7 +38,6 @@
         </a>
 
         <nav>
-            {% if config.extra.lws_extra_menu %}
             <button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
                 <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -62,7 +61,6 @@
             {% for menu in config.extra.lws_extra_menu %}
             <a class="nav-item" href="{{ menu.link }}">{{ menu.title }}</a>
             {% endfor %}
-            {% endif %}
         </nav>
     </header>
     {% endblock header %}
