@@ -27,7 +27,7 @@ highlight_theme = "inspired-github"
 lws_extra_menu = [
     { title = "Projects", link = "/projects" },
     { title = "Blog", link = "/blog" },
-    { title = "About", link = "/about" }
+    { title = "Team", link = "/team" }
 ]
 
 [extra.author]
