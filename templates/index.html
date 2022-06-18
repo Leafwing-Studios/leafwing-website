@@ -1,5 +1,6 @@
 {% import "_macros.html" as macros %}
 
+<!-- The root html page, from which all templates inherit -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,29 +28,10 @@
 
 <body>
     {% block header %}
-
-    <header class="pos-absolute" style="background-color: transparent">
+    <header class="box-shadow">
         {{ macros::render_header() }}
     </header>
-
-    <div class="hero">
-        {% block hero %}
-        <section class="text-center">
-            <h1 class="heading-text raleway" style="font-size: 50px">
-                Leafwing Studios
-            </h1>
-            <h3 class="title-text oswald">
-                Emergent complexity for thoughtful games
-            </h3>
-        </section>
-
-
-        <img class="hero-image" style="width: 30%" src="logo310.png">
-        {% endblock hero %}
-    </div>
-
     {% endblock header %}
-
 
     <main style="justify-content:center;">
         {% block toc %}
@@ -59,7 +41,7 @@
         {% set toc = page.toc %}
         {% endif %}
         {% if toc %}
-        <div class="toc mt-N">
+        <div class="toc">
             <div class="toc-sticky">
                 {% for h in toc %}
                 <div class="toc-item">
@@ -80,15 +62,10 @@
 
         <div class="content text">
             {% block content %}
-            <div id="features" class="heading-text raleway "></div>
             <div class="oswald">{{ section.content | safe }}</div>
             {% endblock content %}
         </div>
-
-        {% block sidebar %}
-        {% endblock %}
     </main>
-
 
     {% block pagination %}
     {% if paginator.previous or paginator.next %}
@@ -127,7 +104,7 @@
     {% block footer %}
     <footer>
         <small class="subtext ">
-            © 2021 <a href="https://leafwing-studios.com/">Leafwing Studios</a>
+            © 2022 <a href="https://leafwing-studios.com/">Leafwing Studios</a>
         </small>
         <small class="subtext ">
             <hr>
@@ -142,12 +119,12 @@
         </small>
     </footer>
     {% endblock footer %}
-
-
-    <!-- Javascript -->
-    <script src="dark-mode.js"></script>
-
 </body>
+
+<!-- Javascript -->
+<script src="dark-mode.js"></script>
+
+<!-- Highlights where you are in the table of contents -->
 <script>
     function highlightNav(heading) {
         let pathname = location.pathname;

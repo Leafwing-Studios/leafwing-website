@@ -1,21 +1,9 @@
 +++
-title = "About Us"
-description="About Us"
-template="about.html"
+title = "Team"
+template="team.html"
 +++
 
-*Leafwing Studios* is a fledgling Canadian indie games studio, founded in 2020 to make richer, more thoughtful games.
-Whether we're making tabletop games or video games, we care about:
-
-* more sustainable, equitable and sensible business models for game development
-* better design and prototyping practices
-* creating memorable, replayable experiences through emergent design
-
-You'll catch us [blogging](../blog/) about our  [projects](../projects/), game design, [Rust](https://www.rust-lang.org/), [Bevy](https://bevyengine.org/) and better ways to create and collaborate.
-
-## Team
-
-**Name:** Alice "IvyLashes" Cecile
+## Alice "IvyLashes" Cecile
 
 **Class:** Ecologist / Mathematician / Entrepreneur / Programmer / Game Designer
 
@@ -33,9 +21,7 @@ You'll catch us [blogging](../blog/) about our  [projects](../projects/), game d
 
 **Email:** alice@leafwing-studios.com
 
----
-
-**Name:** Rose "sixfold" Peck
+## Rose "sixfold" Peck
 
 **Class:** Software Developer / Entrepreneur / Game Designer
 

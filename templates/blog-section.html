@@ -1,14 +1,6 @@
 {% extends "index.html" %}
 
-<!--The rest of this template is not being used in any form; everything is coming from index.html-->
-
 {% block title %}{{ section.title }} | {{ super() }} {% endblock title %}
-
-{% block header %}
-<header class="box-shadow">
-  {{ macros::render_header() }}
-</header>
-{% endblock header %}
 
 {% block toc %}
 {% endblock %}
