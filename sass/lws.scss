@@ -123,10 +123,6 @@ main {
     border-top: 5px solid $primary-color;
     background-color: white;
     position: sticky;
-    position: -webkit-sticky;
-    position: -moz-sticky;
-    position: -ms-sticky;
-    position: -o-sticky;
     top: 10px;
     padding: 10px 0;
 }
