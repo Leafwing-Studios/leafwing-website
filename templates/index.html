@@ -1,5 +1,4 @@
 {% import "_macros.html" as macros %}
-<!-- WARNING: This file currently breaks when autoformatted; the get_url macro is not formatted correctly. -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,22 +7,21 @@
     <meta charset="UTF-8">
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    {% include "_variables.html" %}
     <!-- Used heavily for the blog post list -->
     <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css" rel="stylesheet" />
     <!-- Used for main logo title -->
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/normalize.css">
-    <link rel="icon" href="{{ get_url(path="logo.png") }}">
-    <link rel="stylesheet" href="{{ get_url(path="lws.css") }}">
-    <link rel="stylesheet" href="{{ get_url(path="addition.css") }}">
-    <link rel="stylesheet" href="{{ get_url(path="main.css") }}">
+    <link rel="icon" href="/logo.png">
+    <link rel="stylesheet" href="/lws.css">
+    <link rel="stylesheet" href="/fonts.css">
+    <link rel="stylesheet" href="/main.css">
     {% block head %}
     {% endblock head %}
 
     {% block rss %}
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
-{% endblock %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml">
+    {% endblock %}
 
 </head>
 
@@ -36,7 +34,7 @@
 
     <div class="hero">
         {% block hero %}
-        <section class="text-center mt-2">
+        <section class="text-center">
             <h1 class="heading-text raleway" style="font-size: 50px">
                 Leafwing Studios
             </h1>
@@ -46,7 +44,7 @@
         </section>
 
 
-        <img class="hero-image" style="width: 30%" src="{{ get_url(path="logo310.png") }}">
+        <img class="hero-image" style="width: 30%" src="logo310.png">
         {% endblock hero %}
     </div>
 
@@ -139,19 +137,14 @@
 
             <a style="text-decoration: none;" href="/mailing-list">Mailing List <i class="far fa-envelope"></i></a>
             &nbsp;&nbsp;
-            <a style="text-decoration: none;" href="https://leafwing-studios.com/rss.xml">RSS Feed <i
-                    class="fas fa-rss-square"></i></a>
+            <a style="text-decoration: none;" href="/rss.xml">RSS Feed <i class="fas fa-rss-square"></i></a>
         </small>
     </footer>
     {% endblock footer %}
 
 
-
-
-
-
-<script src="{{ get_url(path="main.js") }}"></script>
-
+    <!-- Javascript -->
+    <script src="dark-mode.js"></script>
 
 </body>
 <script>

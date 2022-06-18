@@ -20,27 +20,3 @@
     .raleway {
         font-family: Raleway;
     }
-
-    .mb-2 {
-        margin-bottom: 2rem;
-    }
-
-    .mt-2 {
-        margin-top: 2rem !important;
-    }
-
-    .mt-N {
-        margin-top: 7rem !important;
-    }
-
-    .mt-4 {
-        margin-top: 10rem !important;
-    }
-
-    .sizingS {
-        font-size: 1rem;
-    }
-
-    .alignLeft {
-        justify-content: left;
-    }

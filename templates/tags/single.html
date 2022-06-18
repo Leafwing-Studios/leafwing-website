@@ -26,7 +26,7 @@
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
-      <div class="column is-12">
+      <div class="column">
         {% if paginator %}
         {% set pages = paginator.pages %}
         {% else %}
@@ -44,8 +44,8 @@
           <div class="columns is-multiline is-gapless">
             <div class="column is-10">
             </div>
-            <div class="column is-2">
-              <a class="rightAlign has-text-danger-dark has-text-weight-semibold sizingS" href='{{ page.permalink }}'>
+            <div class="column">
+              <a class="rightAlign has-text-danger-dark has-text-weight-semibold" href='{{ page.permalink }}'>
                 Read More
                 <span class="icon is-small">
                   <i class="fas fa-arrow-right fa-xs"></i>
@@ -57,7 +57,7 @@
             <div class="column is-8">
               {{ macros::page_publish_metadata(page=page) }}
             </div>
-            <div class="column is-4 has-text-right-desktop">
+            <div class="column has-text-right-desktop">
               {{ macros::page_content_metadata(page=page) }}
             </div>
           </div>

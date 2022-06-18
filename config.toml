@@ -7,7 +7,6 @@ generate_feed = true
 feed_filename = "rss.xml"
 
 taxonomies = [
-    { name = "categories", feed = true, paginate_by = 10 },
     { name = "tags", fees = true, paginate_by = 10 },
 ]
 
@@ -25,8 +24,6 @@ highlight_code = true
 highlight_theme = "inspired-github"
 
 [extra]
-lws_logo_name = "Leafwing Studios"
-lws_logo_path = "logo.png"
 lws_extra_menu = [
     { title = "Projects", link = "/projects" },
     { title = "Blog", link = "/blog" },
