@@ -3,16 +3,10 @@
 
 {% block title %}{{ page.title }} | {{ super() }} {% endblock title %}
 
-{% block header %}
-<header class="box-shadow">
-    {{ macros::render_header() }}
-</header>
-{% endblock header %}
-
 {% block content %}
 
 <h1 class="title-text">{{ page.title | safe }}</h1>
-<p class="subtitle-text" >{{ page.description | safe }}</p>
+<p class="subtitle-text">{{ page.description | safe }}</p>
 
 <div class="raleway">{{ page.content | safe }}</div>
 {% endblock content %}

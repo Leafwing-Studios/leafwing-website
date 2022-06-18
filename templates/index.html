@@ -28,25 +28,9 @@
 <body>
     {% block header %}
 
-    <header class="pos-absolute" style="background-color: transparent">
+    <header class="box-shadow">
         {{ macros::render_header() }}
     </header>
-
-    <div class="hero">
-        {% block hero %}
-        <section class="text-center">
-            <h1 class="heading-text raleway" style="font-size: 50px">
-                Leafwing Studios
-            </h1>
-            <h3 class="title-text oswald">
-                Emergent complexity for thoughtful games
-            </h3>
-        </section>
-
-
-        <img class="hero-image" style="width: 30%" src="logo310.png">
-        {% endblock hero %}
-    </div>
 
     {% endblock header %}
 
