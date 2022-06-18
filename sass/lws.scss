@@ -12,23 +12,28 @@ body {
     background-color: $secondary-color;
 }
 
+// Link style
 a {
     text-decoration: none;
 }
 
+// Unordered list
 ul {
     margin-top: 0.5rem;
 }
 
+// List elements that are the children of an ordered list
 ul>li {
     padding: 0.3rem 0;
 }
 
+// Images inside of a paragraph
 p>img {
     width: 100%;
     height: auto;
 }
 
+// Top banner
 header {
     background-color: $primary-color;
     color: black;
@@ -38,6 +43,7 @@ header {
     justify-content: space-between;
 }
 
+// Logo + wordmark section of banner
 .logo {
     font-family: "Alfa Slab One", serif;
     font-size: 32px;
@@ -56,6 +62,7 @@ header {
     }
 }
 
+// Header links
 .nav-item {
     margin: 0 10px;
     text-decoration: none;
@@ -70,50 +77,40 @@ header {
     }
 }
 
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 100vh;
-    background-color: $primary-color;
-    overflow-x: hidden;
-    padding: 0 40px;
-    flex-direction: column;
-}
-
+// Main content of document
 main {
     display: flex;
     padding: 50px 100px;
+}
 
-    .toc {
-        max-width: 260px;
-        min-width: 240px;
+.toc {
+    max-width: 260px;
+    min-width: 240px;
+}
+
+.toc-item {
+    padding: 10px 20px;
+    color: #424242;
+}
+
+.toc-item a,
+.toc-item-child a {
+    color: $secondary-text-color;
+
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
     }
+}
 
-    .toc-item {
-        padding: 10px 20px;
-        color: #424242;
-    }
+.toc-item a.active,
+.toc-item-child a.active {
+    color: $toc-highlight-text-color;
+}
 
-    .toc-item a,
-    .toc-item-child a {
-        color: $secondary-text-color;
-
-        &:hover {
-            cursor: pointer;
-            text-decoration: underline;
-        }
-    }
-
-    .toc-item a.active,
-    .toc-item-child a.active {
-        color: $toc-highlight-text-color;
-    }
-
-    .toc-item-child {
-        padding: 0 30px 5px;
-        color: #424242;
-    }
+.toc-item-child {
+    padding: 0 30px 5px;
+    color: #424242;
 }
 
 .toc-sticky {
