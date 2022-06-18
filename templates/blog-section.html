@@ -17,14 +17,14 @@
 <section>
   <div class="container">
     <div class="has-text-centered">
-      <h1 class="title is-2 raleway ">{{ section.title }}</h1>
-      <p class="subtitle is-4">{{ section.description }}</p>
+      <h1 class="title raleway ">{{ section.title }}</h1>
+      <p class="subtitle">{{ section.description }}</p>
     </div>
     <div class="content">
       {{ section.content | safe }}
     </div>
     <div class="columns is-centered">
-      <div class="column is-12">
+      <div class="column">
         {% if paginator %}
         {% set pages = paginator.pages %}
         {% else %}
@@ -43,7 +43,7 @@
           <div class="columns is-multiline is-gapless">
             <div class="column is-10">
             </div>
-            <div class="column is-2">
+            <div class="column">
               <a class="has-text-danger-dark has-text-weight-semibold" href='{{ page.permalink }}'>
                 Read More
                 <span class="icon is-small">
@@ -57,7 +57,7 @@
               {{ macros::page_publish_metadata(page=page) }}
             </div>
 
-            <div class="column is-4 has-text-right-desktop">
+            <div class="column has-text-right-desktop">
               {{ macros::page_content_metadata(page=page) }}
             </div>
           </div>
