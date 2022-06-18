@@ -1,11 +1,10 @@
 {% macro page_publish_metadata(page) %}
-<span>
-  <span><time datetime="{{ page.date }}">{{ page.date | date(format='%B %d, %Y') }}</time></span>
+<span><time datetime="{{ page.date }}">{{ page.date | date(format='%B %d, %Y') }}</time>
   {% endmacro %}
 
   {% macro page_content_metadata(page) %}
   <span>
-    <span>{{ page.reading_time }} min,</span>
+    <span>{{ page.reading_time }} minutes,</span>
     <span>{{ page.word_count }} words</span>
   </span>
   {% endmacro %}
@@ -15,9 +14,7 @@
     Tags:
     {% for tag in tags %}
     <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}">
-      <span>
-        <span>{{tag}}</span>
-      </span>
+      <span>{{tag}}, </span>
     </a>
     {% endfor %}
   </p>

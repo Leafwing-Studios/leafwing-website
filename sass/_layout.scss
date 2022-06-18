@@ -15,7 +15,11 @@
 	box-shadow: 0 .5em 1em -.125em rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .02);
 	color: #4a4a4a;
 	display: block;
-	padding: 1.25rem
+	// This cannot be set to zero, or the padding of the internal heading collapses
+	padding-top: 0.01rem;
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+	margin-bottom: 2rem;
 }
 
 .columns {
