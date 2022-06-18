@@ -64,23 +64,6 @@
 </span>
 {% endmacro %}
 
-{% macro render_categories(categories) %}
-<p>
-  Categories:
-  {% for category in categories %}
-  <a class="has-text-info-dark has-text-weight-semibold"
-    href="{{ get_taxonomy_url(kind='categories', name=category) }}">
-    <span class="icon-text">
-      <span class="icon">
-        <i class="fas fa-cube"></i>
-      </span>
-      <span>{{category}}</span>
-    </span>
-  </a>
-  {% endfor %}
-</p>
-{% endmacro %}
-
 {% macro render_tags(tags) %}
 <p>
   Tags:

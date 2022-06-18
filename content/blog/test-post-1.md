@@ -5,7 +5,6 @@ date=2018-08-20
 template="blog-post.html"
 
 [taxonomies]
-categories = ["Sample Post"]
 tags = ["post", "lorem"]
 +++
 
