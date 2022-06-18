@@ -1,5 +1,4 @@
 {% import "_macros.html" as macros %}
-<!-- WARNING: This file currently breaks when autoformatted; the get_url macro is not formatted correctly. -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,16 +12,16 @@
     <!-- Used for main logo title -->
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/normalize.css">
-    <link rel="icon" href="{{ get_url(path="logo.png") }}">
-    <link rel="stylesheet" href="{{ get_url(path="lws.css") }}">
-    <link rel="stylesheet" href="{{ get_url(path="addition.css") }}">
-    <link rel="stylesheet" href="{{ get_url(path="main.css") }}">
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="lws.css">
+    <link rel="stylesheet" href="addition.css">
+    <link rel="stylesheet" href="main.css">
     {% block head %}
     {% endblock head %}
 
     {% block rss %}
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
-{% endblock %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+    {% endblock %}
 
 </head>
 
@@ -45,7 +44,7 @@
         </section>
 
 
-        <img class="hero-image" style="width: 30%" src="{{ get_url(path="logo310.png") }}">
+        <img class="hero-image" style="width: 30%" src="logo310.png">
         {% endblock hero %}
     </div>
 
@@ -145,8 +144,8 @@
     {% endblock footer %}
 
 
-<!-- Javascript -->
-<script src="{{ get_url(path="dark-mode.js") }}"></script>
+    <!-- Javascript -->
+    <script src="dark-mode.js"></script>
 
 </body>
 <script>
