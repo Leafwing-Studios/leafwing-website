@@ -10,26 +10,7 @@
 <section>
   <div class="container">
     {% for page in paginator.pages %}
-    <article class="blog-card">
-      <div class="top-card-row">
-        <div>
-          <h2>
-            <a href='{{ page.permalink }}'>
-              {{ page.title }}
-            </a>
-          </h2>
-          <p class="subtitle">{{ page.description }}</p>
-        </div>
-
-        {{ macros::page_publish_metadata(page=page) }}
-      </div>
-
-      <div class="bottom-card-row">
-        {{ macros::page_content_metadata(page=page) }}
-
-        {{ macros::render_tags(tags=page.taxonomies.tags) }}
-      </div>
-    </article>
+      {{ macros::post_card(page=page) }}
     {% endfor %}
   </div>
 </section>
