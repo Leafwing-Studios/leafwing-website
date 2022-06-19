@@ -1,22 +1,48 @@
 @import "_colors.scss";
 
-.pagination,
+.pagination {
+	align-items: bottom;
+	display: flex;
+	justify-content: space-evenly;
+}
+
 .pagination-list {
 	align-items: center;
 	display: flex;
 	justify-content: center;
-	text-align: center
+	text-align: center;
+	margin: 0;
 }
 
 .pagination-ellipsis,
 .pagination-link,
 .pagination-next,
 .pagination-previous {
+	font-size: 18px;
+	font-weight: bold;
+	font-family: Oswald;
+	padding-bottom: 20px;
+}
+
+.pagination-previous {
+	padding-left: 40px;
+}
+
+.pagination-next {
+	padding-right: 40px;
+}
+
+.pagination-ellipsis,
+.pagination-link {
 	justify-content: space-between;
-	margin: .25rem;
 	padding-left: .5em;
 	padding-right: .5em;
 	text-align: center
+}
+
+// Do not inset like an ordinary unordered list
+ul.pagination-list {
+	padding-left: 0;
 }
 
 .pagination-link.is-current {
