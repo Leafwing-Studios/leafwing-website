@@ -71,6 +71,6 @@ a {
   color: $primary-link-color;
 
   &:hover {
-    text-decoration: underline;
+    color: $hovered-link-color;
   }
 }
