@@ -12,14 +12,14 @@ header {
 .logo {
 	font-family: "Alfa Slab One", serif;
 	font-size: 32px;
-	color: $primary-text-color;
+	color: $text-on-secondary-color;
 	display: flex;
 	align-items: center;
 	margin: 0 20px;
 	letter-spacing: 1px;
 
 	&:hover {
-		color: $secondary-text-color;
+		color: $text-on-primary-color;
 	}
 
 	img {
@@ -36,9 +36,9 @@ header {
 	font-family: "Oswald", sans-serif;
 	font-size: 24px;
 	font-weight: bold;
-	color: $primary-text-color;
+	color: $text-on-secondary-color;
 
 	&:hover {
-		color: $secondary-text-color;
+		color: $text-on-primary-color;
 	}
 }
