@@ -11,6 +11,9 @@ body {
     margin: 0;
     box-sizing: border-box;
     background-color: $secondary-color;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
 }
 
 .container {
@@ -41,8 +44,13 @@ main {
     display: flex;
     padding-top: 30px;
     padding-bottom: 15px;
+    flex-grow: 1;
 }
 
+// Ensure footer is pushed to bottom
+html {
+    height: 100%;
+}
 
 @media screen and (min-width: 1280px) {
     .content {
