@@ -1,8 +1,8 @@
 @import "_colors.scss";
 
 .toc {
-	max-width: 260px;
-	min-width: 240px;
+	max-width: 300px;
+	min-width: 260px;
 }
 
 .toc-sticky {
@@ -13,9 +13,9 @@
 	// Ensure that there's space between TOC and text body
 	margin-right: 30px;
 	padding-bottom: 2px;
-	padding-top: 10px;
-	padding-left: 10px;
-	padding-right: 10px;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 .toc-item {
