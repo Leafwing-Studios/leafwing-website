@@ -3,9 +3,8 @@
 {% block title %}{{ term.name }} | {{ super() }} {% endblock title %}
 
 {% block content %}
-<h1> {{ term.name }} </h1>
+<h1 style="margin-bottom: 32px" >  Posts tagged #{{ term.name }} </h1>
 
-<!-- WARNING: this blog card layout must be kept synchronzied with the data in blog-cards.html -->
 <section>
   <div class="container">
     {% for page in paginator.pages %}
