@@ -12,7 +12,7 @@
       </h1>
   </div>
 </div>
-<section class="section">
+<section>
   <div class="container">
     <div class="columns">
       <div class="column">
@@ -25,16 +25,16 @@
           </h2>
           <p class="subtitle">{{ page.description }}</p>
           <div class="columns">
-            <div class="column is-10">
+            <div class="column">
             </div>
             <div class="column">
-              <a class="rightAlign has-text-danger-dark has-text-weight-semibold" href='{{ page.permalink }}'>
+              <a href='{{ page.permalink }}'>
                 Read More
               </a>
             </div>
           </div>
           <div class="columns">
-            <div class="column is-8">
+            <div class="column">
               {{ macros::page_publish_metadata(page=page) }}
             </div>
             <div class="column has-text-right-desktop">
