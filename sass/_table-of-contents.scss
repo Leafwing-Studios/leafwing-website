@@ -1,3 +1,5 @@
+@import "_colors.scss";
+
 .toc {
 	max-width: 260px;
 	min-width: 240px;
@@ -29,7 +31,7 @@
 .toc-sticky {
 	border-radius: 3px;
 	border-top: 5px solid $primary-color;
-	background-color: $gray-200;
+	background-color: $box-color;
 	position: sticky;
 	top: 10px;
 	padding: 10px 0;
