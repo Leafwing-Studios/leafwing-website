@@ -17,7 +17,7 @@
     <div class="columns">
       <div class="column">
         {% for page in term.pages %}
-        <article class="box">
+        <article class="blog-card">
           <h2 class="title">
             <a href='{{ page.permalink }}'>
               {{ page.title }}
@@ -37,14 +37,14 @@
             <div class="column">
               {{ macros::page_publish_metadata(page=page) }}
             </div>
-            <div class="column has-text-right-desktop">
+            <div class="column">
               {{ macros::page_content_metadata(page=page) }}
             </div>
           </div>
 
           <div class="columns">
 
-            <div class="column has-text-right-desktop">
+            <div class="column">
               {% if page.taxonomies.tags %}
               {{ macros::render_tags(tags=page.taxonomies.tags) }}
               {% endif %}
