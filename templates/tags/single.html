@@ -3,37 +3,35 @@
 {% block title %}{{ term.name }} | {{ super() }} {% endblock title %}
 
 {% block content %}
-<div class='container'>
-  <div class='has-text-centered' style="margin-top:2rem;">
-    <h1>
-      <span>{{ term.name }}</span>
-    </h1>
-  </div>
-</div>
+<h1> {{ term.name }} </h1>
+
+<!-- WARNING: this blog card layout must be kept synchronzied with the data in blog-cards.html -->
 <section>
   <div class="container">
-    <div class="columns">
-      <div class="column">
-        {% for page in term.pages %}
-        <article class="blog-card">
-          <h2 class="title">
+    {% for page in paginator.pages %}
+    <article class="blog-card">
+      <div class="top-card-row">
+        <div>
+          <h2>
             <a href='{{ page.permalink }}'>
               {{ page.title }}
             </a>
           </h2>
           <p class="subtitle">{{ page.description }}</p>
+        </div>
 
+        <div class="post-date">
           {{ macros::page_publish_metadata(page=page) }}
-
-          {{ macros::page_content_metadata(page=page) }}
-
-          {% if page.taxonomies.tags %}
-          {{ macros::render_tags(tags=page.taxonomies.tags) }}
-          {% endif %}
-        </article>
-        {% endfor %}
+        </div>
       </div>
-    </div>
+
+      <div class="bottom-card-row">
+        {{ macros::page_content_metadata(page=page) }}
+
+        {{ macros::render_tags(tags=page.taxonomies.tags) }}
+      </div>
+    </article>
+    {% endfor %}
   </div>
 </section>
-{% endblock content %}
+{% endblock %}

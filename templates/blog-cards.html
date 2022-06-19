@@ -5,6 +5,7 @@
 {% block toc %}
 {% endblock %}
 
+<!-- WARNING: this blog card layout must be kept synchronzied with the data in tags/single.html -->
 {% block content %}
 <section>
   <div class="container">
@@ -20,7 +21,9 @@
           <p class="subtitle">{{ page.description }}</p>
         </div>
 
-        {{ macros::page_publish_metadata(page=page) }}
+        <div class="post-date">
+          {{ macros::page_publish_metadata(page=page) }}
+        </div>
       </div>
 
       <div class="bottom-card-row">
