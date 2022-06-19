@@ -81,10 +81,10 @@
             Previous
         </a>
         <ul class="pagination-list">
-            {% for pager in range(start=1, end=paginator.number_pagers+1) %}
+            {% for page_number in range(start=1, end=paginator.number_pagers+1) %}
             <li>
-                <a class="pagination-link {% if paginator.current_index == pager %}is-current{% endif %}" href='{{ paginator.base_url }}{{pager}}' aria-label="Goto page {{pager}}">
-                    {{pager}}
+                <a class="pagination-link {% if paginator.current_index == page_number %}is-current{% endif %}" href='{{ paginator.base_url }}{{page_number}}' aria-label="Goto page {{page_number}}">
+                    {{page_number}}
                 </a>
             </li>
             {% endfor %}
