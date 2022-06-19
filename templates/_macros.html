@@ -1,6 +1,10 @@
 {% macro page_publish_metadata(page) %}
-<span><time datetime="{{ page.date }}">{{ page.date | date(format='%B %d, %Y') }}</time>
-  {% endmacro %}
+  <span>
+    <time datetime="{{ page.date }}">
+      {{ page.date | date(format='%B %d, %Y') }}
+    </time>
+  </span>
+{% endmacro %}
 
   {% macro page_content_metadata(page) %}
   <span>

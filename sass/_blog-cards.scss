@@ -5,8 +5,6 @@
 	border-left: 10px solid $primary-color;
 	border-radius: 5px;
 	display: block;
-	// This cannot be set to zero, or the padding of the internal heading collapses
-	padding-top: 0.01rem;
 	padding-left: 20px;
 	padding-right: 20px;
 	margin-bottom: 30px;
@@ -14,11 +12,22 @@
 }
 
 .top-card-row {
-	align-content: top;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
 	justify-content: space-between;
 }
 
 .bottom-card-row {
-	align-content: bottom;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: bottom;
 	justify-content: space-between;
+}
+
+// Needs to be pushed down on desktop to ensure alignment with the title of the post
+@media screen and (min-width: 768px) {
+	.post-date {
+		margin-top: 14px;
+	}
 }

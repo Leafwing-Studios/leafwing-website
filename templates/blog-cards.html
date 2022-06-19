@@ -20,7 +20,9 @@
           <p class="subtitle">{{ page.description }}</p>
         </div>
 
-        {{ macros::page_publish_metadata(page=page) }}
+        <div class="post-date">
+          {{ macros::page_publish_metadata(page=page) }}
+        </div>
       </div>
 
       <div class="bottom-card-row">
