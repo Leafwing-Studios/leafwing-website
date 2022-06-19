@@ -57,3 +57,15 @@ ul.pagination-list {
 	flex-wrap: wrap;
 	list-style: none;
 }
+
+// This keeps the layout consistent; simply toggling the element does not
+.pagination-link[disabled],
+.pagination-next[disabled],
+.pagination-previous[disabled] {
+	opacity: 0;
+	cursor: default;
+	pointer-events: none;
+	// FIXME: intended to disable keyboard cycling;
+	// does not appear to work in Chrome.
+	nav-index: -1;
+}
