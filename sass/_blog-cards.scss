@@ -16,6 +16,11 @@
 	flex-wrap: wrap;
 	align-items: flex-start;
 	justify-content: space-between;
+	padding-top: 14px;
+	
+	h2 {
+		margin-top: 0px;
+	}
 }
 
 .bottom-card-row {
@@ -23,11 +28,4 @@
 	flex-wrap: wrap;
 	align-items: bottom;
 	justify-content: space-between;
-}
-
-// Needs to be pushed down on desktop to ensure alignment with the title of the post
-@media screen and (min-width: 768px) {
-	.post-date {
-		margin-top: 14px;
-	}
 }
