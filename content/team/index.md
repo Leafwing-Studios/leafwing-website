@@ -19,7 +19,7 @@ template="team.html"
 
 **Follow:** [Twitter](https://twitter.com/AliceICecile), [Twitch](https://www.twitch.tv/ivylashes), [Github](https://github.com/alice-i-cecile)
 
-**Email:** alice@leafwing-studios.com
+**Email:** [alice@leafwing-studios.com](mailto:alice@leafwing-studios.com)
 
 ## Rose "sixfold" Peck
 
@@ -37,4 +37,4 @@ template="team.html"
 
 **Follow:** [Twitter](https://twitter.com/plof27), [Github](https://github.com/plof27)
 
-**Email:** rose@leafwing-studios.com
+**Email:** [rose@leafwing-studios.com](mailto:rose@leafwing-studios.com)
