@@ -6,8 +6,8 @@
 }
 
 .toc-sticky {
-	border-radius: 3px;
-	border-top: 10px solid $primary-color;
+	border-radius: 10px;
+	border-top: 14px solid $primary-color;
 	background-color: $box-color;
 	position: sticky;
 	// Ensure that there's space between TOC and text body
