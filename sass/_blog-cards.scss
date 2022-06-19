@@ -10,4 +10,15 @@
 	padding-left: 20px;
 	padding-right: 20px;
 	margin-bottom: 30px;
+	flex-direction: column;
+}
+
+.top-card-row {
+	align-content: top;
+	justify-content: space-between;
+}
+
+.bottom-card-row {
+	align-content: bottom;
+	justify-content: space-between;
 }
