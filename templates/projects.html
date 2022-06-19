@@ -3,6 +3,5 @@
 {% block title %}{{ page.title }} | {{ super() }} {% endblock title %}
 
 {% block content %}
-<div class="heading-text">{{ page.description }}</div>
 <div>{{ page.content | safe }}</div>
 {% endblock content %}

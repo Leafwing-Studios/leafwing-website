@@ -1,14 +1,6 @@
 @import "_colors.scss";
 
-.heading-text {
-  font-family: "Oswald", sans-serif;
-  font-size: 26px;
-  font-style: italic;
-  font-weight: 600;
-  padding: 0px 0 15px 0;
-  color: $primary-text-color;
-}
-
+// Page headings
 h1,
 .title-text {
   font-family: "Oswald", sans-serif;
@@ -17,6 +9,7 @@ h1,
   color: $primary-text-color;
 }
 
+// Controls subtitles shown on blog posts
 .subtitle-text {
   font-family: "Raleway", sans-serif;
   font-style: italic;
@@ -24,6 +17,7 @@ h1,
   color: $primary-text-color;
 }
 
+// Sets header text style
 @for $i from 1 through 6 {
   h#{$i} {
     font-family: "Oswald", sans-serif;
@@ -31,6 +25,7 @@ h1,
   }
 }
 
+// Main body text
 .text {
   font-family: "Raleway", sans-serif;
   font-size: 18px;
@@ -40,9 +35,15 @@ h1,
   color: $primary-text-color;
 }
 
+// Smaller informational text
 .subtext {
   font-family: "Raleway", sans-serif;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.1px;
+}
+
+// Link style
+a {
+  text-decoration: none;
 }
