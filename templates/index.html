@@ -78,9 +78,6 @@
     {% if paginator.previous or paginator.next %}
     <nav class="pagination is-centered" role="navigation" aria-label="pagination">
         <a class="pagination-previous" href='{{ paginator.previous }}' {% if not paginator.previous %}disabled{% endif %}>
-            <span class="icon">
-                <i class="fas fa-angle-double-left"></i>
-            </span>
             Previous
         </a>
         <ul class="pagination-list">
@@ -93,10 +90,7 @@
             {% endfor %}
         </ul>
         <a class="pagination-next" href='{{ paginator.next }}' {% if not paginator.next %}disabled{% endif %}>
-            Next page
-            <span class="icon">
-                <i class="fas fa-angle-double-right"></i>
-            </span>
+            Next
         </a>
     </nav>
     {% endif %}
