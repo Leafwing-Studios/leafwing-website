@@ -19,12 +19,20 @@
 }
 
 .toc-item {
-	margin-bottom: 10px;
+	margin-bottom: 6px;
+
+	a {
+		font-size: 16px;
+	}
 }
 
 .toc-item-child {
 	margin-left: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 8px;
+
+	a {
+		font-size: 14px;
+	}
 }
 
 .toc-item a,
