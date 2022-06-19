@@ -1,5 +1,5 @@
 @import "_text.scss";
-@import "_layout.scss";
+@import "_blog-cards.scss";
 @import "_pagination.scss";
 @import "_colors.scss";
 @import "_header.scss";
@@ -11,6 +11,13 @@ body {
     margin: 0;
     box-sizing: border-box;
     background-color: $secondary-color;
+}
+
+.container {
+    flex-grow: 1;
+    margin: 0 auto;
+    position: relative;
+    width: auto
 }
 
 // Unordered list

@@ -1,0 +1,33 @@
+@import "_colors.scss";
+
+.blog-card {
+	background-color: $box-color;
+	border-left: 10px solid $primary-color;
+	border-radius: 5px;
+	display: block;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: 30px;
+	flex-direction: column;
+}
+
+.top-card-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: space-between;
+	padding-top: 14px;
+	
+	h2 {
+		margin-top: 0px;
+	}
+}
+
+.bottom-card-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: bottom;
+	justify-content: space-between;
+
+	column-gap: 16px;
+}

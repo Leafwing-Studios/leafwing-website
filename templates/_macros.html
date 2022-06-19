@@ -1,8 +1,12 @@
 {% macro page_publish_metadata(page) %}
-<span><time datetime="{{ page.date }}">{{ page.date | date(format='%B %d, %Y') }}</time>
-  {% endmacro %}
+  <span>
+    <time datetime="{{ page.date }}">
+      {{ page.date | date(format='%B %d, %Y') }}
+    </time>
+  </span>
+{% endmacro %}
 
-  {% macro page_content_metadata(page) %}
+{% macro page_content_metadata(page) %}
   <span>
     <span>{{ page.reading_time }} minutes,</span>
     <span>{{ page.word_count }} words</span>
@@ -18,4 +22,27 @@
     </a>
     {% endfor %}
   </p>
-  {% endmacro %}
+{% endmacro %}
+
+{% macro post_card(page) %}
+  <article class="blog-card">
+    <div class="top-card-row">
+      <div>
+        <h2>
+          <a href='{{ page.permalink }}'>
+            {{ page.title }}
+          </a>
+        </h2>
+        <p class="subtitle">{{ page.description }}</p>
+      </div>
+
+      {{ macros::page_publish_metadata(page=page) }}
+    </div>
+
+    <div class="bottom-card-row">
+      {{ macros::page_content_metadata(page=page) }}
+
+      {{ macros::render_tags(tags=page.taxonomies.tags) }}
+    </div>
+  </article>
+{% endmacro %}
