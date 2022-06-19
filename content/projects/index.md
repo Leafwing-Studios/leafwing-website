@@ -72,7 +72,7 @@ Bevy is a thriving open source Rust game engine, focused on ECS-first ergonomics
 Alice is one of the core maintainers of Bevy, focusing on product management, documentation and the Entity-Component-System architecture.
 
 We maintain several open source crates in the Bevy ecosystem,
-including [`leafwing_input-manager`](https://github.com/Leafwing-Studios/leafwing_input_manager) and [`leafwing_input_playback`](https://github.com/Leafwing-Studios/leafwing_input_playback).
+including [`leafwing-input-manager`](https://github.com/Leafwing-Studios/leafwing_input_manager) and [`leafwing_input_playback`](https://github.com/Leafwing-Studios/leafwing_input_playback).
 
 ### [Taffy](https://github.com/dioxuslabs/taffy)
 
