@@ -1,30 +1,24 @@
 // Color system
 
-$white: #fff;
-$gray-100: #f8f9fa;
-$gray-200: #e9ecef;
-$gray-300: #dee2e6;
-$gray-400: #ced4da;
-$gray-500: #adb5bd;
-$gray-600: #6c757d;
-$gray-700: #495057;
-$gray-800: #343a40;
-$gray-900: #212529;
-$black: #000;
-
-$primary: #0596eb;
-
 /* Primary theme color */
-$primary-color: #6f996f;
-/* Primary theme text color */
-$primary-text-color: #543631;
+$primary-color: hsl(120, 17%, 52%);
+$text-on-primary-color: hsl(10, 26%, 26%);
+$hovered-text-on-primary-color: hsl(10, 26%, 10%);
+
 /* Link colors */
-$primary-link-color: #008839;
-$hovered-link-color: #00451d;
+$link-color: hsl(145, 100%, 27%);
+$hovered-link-color: hsl(145, 100%, 14%);
+
 /* Secondary color: the background body color */
-$secondary-color: #fcfaf6;
-$secondary-text-color: #37231f;
-/* Highlight text color of table of content */
-$toc-highlight-text-color: #d46e13;
-/* Color of boxes for TOC and blog cards */
-$box-color: #fcf9f4;
+$secondary-color: hsl(40, 40%, 95%);
+$text-on-secondary-color: $text-on-primary-color;
+
+/* Boxes for TOC and blog cards */
+$box-color: hsl(40, 45%, 90%);
+
+/* Shows where you are in the article */
+$toc-highlight-text-color: hsl(9, 30%, 45%);
+
+/* Footer body color */
+$footer-color: hsl(145, 5%, 10%);
+$footer-text-color: hsl(145, 10%, 90%);
