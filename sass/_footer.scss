@@ -6,11 +6,11 @@ footer {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: $gray-900;
-	color: $gray-200;
+	background-color: $footer-color;
+	color: $footer-text-color;
 
 	a {
-		color: $gray-200;
+		color: $footer-text-color;
 		text-decoration: underline;
 	}
 }

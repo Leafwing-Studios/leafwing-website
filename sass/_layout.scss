@@ -14,7 +14,7 @@
 .box {
 	background-color: $box-color;
 	border-radius: 6px;
-	box-shadow: 0 .5em 1em -.125em $gray-800, 0 0 0 1px $gray-800;
+	box-shadow: 0 .5em 1em -.125em $shadow-color, 0 0 0 1px $shadow-color;
 	display: block;
 	// This cannot be set to zero, or the padding of the internal heading collapses
 	padding-top: 0.01rem;
