@@ -5,7 +5,6 @@
 
 .toc-item {
 	padding: 10px 20px;
-	color: #424242;
 }
 
 .toc-item a,
@@ -25,13 +24,12 @@
 
 .toc-item-child {
 	padding: 0 30px 5px;
-	color: #424242;
 }
 
 .toc-sticky {
 	border-radius: 3px;
 	border-top: 5px solid $primary-color;
-	background-color: white;
+	background-color: $gray-200;
 	position: sticky;
 	top: 10px;
 	padding: 10px 0;

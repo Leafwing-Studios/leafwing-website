@@ -1,3 +1,5 @@
+@import "_colors.scss";
+
 .section {
 	padding: 3rem 1.5rem
 }
@@ -10,10 +12,9 @@
 }
 
 .box {
-	background-color: #fff;
+	background-color: $gray-100;
 	border-radius: 6px;
-	box-shadow: 0 .5em 1em -.125em rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .02);
-	color: #4a4a4a;
+	box-shadow: 0 .5em 1em -.125em $gray-800, 0 0 0 1px $gray-800;
 	display: block;
 	// This cannot be set to zero, or the padding of the internal heading collapses
 	padding-top: 0.01rem;

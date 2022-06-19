@@ -46,4 +46,9 @@ h1,
 // Link style
 a {
   text-decoration: none;
+  color: $primary-link-color;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

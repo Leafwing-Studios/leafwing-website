@@ -1,14 +1,16 @@
+@import "_colors.scss";
+
 footer {
 	padding: 30px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: #202020;
-	color: #fcfcfc;
+	background-color: $gray-900;
+	color: $gray-200;
 
 	a {
-		color: #fcfcfc;
+		color: $gray-200;
 		text-decoration: underline;
 	}
 }
