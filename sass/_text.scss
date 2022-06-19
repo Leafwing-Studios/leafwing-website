@@ -5,7 +5,6 @@
 @for $i from 1 through 3 {
   h#{$i} {
     font-family: "Oswald", sans-serif;
-    color: $text-on-secondary-color;
   }
 }
 
