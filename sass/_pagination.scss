@@ -1,7 +1,4 @@
-.pagination {
-	font-size: 1rem;
-	margin: -.25rem
-}
+@import "_colors.scss";
 
 .pagination,
 .pagination-list {
@@ -15,54 +12,22 @@
 .pagination-link,
 .pagination-next,
 .pagination-previous {
-	font-size: 1em;
-	justify-content: center;
+	justify-content: space-between;
 	margin: .25rem;
 	padding-left: .5em;
 	padding-right: .5em;
 	text-align: center
 }
 
-
-.pagination-next,
-.pagination-previous {
-	padding-left: .75em;
-	padding-right: .75em;
-	white-space: nowrap
-}
-
 .pagination-link.is-current {
-	background-color: #3273dc;
-	border-color: #3273dc;
-	color: #fff
+	color: $hovered-link-color;
 }
 
 .pagination-ellipsis {
-	color: #b5b5b5;
 	pointer-events: none
 }
 
 .pagination-list {
-	flex-wrap: wrap
-}
-
-.pagination-list li {
-	list-style: none
-}
-
-@media screen and (max-width:768px) {
-	.pagination {
-		flex-wrap: wrap
-	}
-
-	.pagination-next,
-	.pagination-previous {
-		flex-grow: 1;
-		flex-shrink: 1
-	}
-
-	.pagination-list li {
-		flex-grow: 1;
-		flex-shrink: 1
-	}
+	flex-wrap: wrap;
+	list-style: none;
 }
