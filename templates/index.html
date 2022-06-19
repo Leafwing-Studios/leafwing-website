@@ -76,10 +76,8 @@
 
     {% block pagination %}
     {% if paginator.previous or paginator.next %}
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <a class="pagination-previous" href='{{ paginator.previous }}' {% if not paginator.previous %}disabled{% endif %}>
-            Previous
-        </a>
+    <nav class="pagination" role="navigation" aria-label="pagination">
+        <a class="pagination-previous" href='{{ paginator.previous }}'> Previous </a>
         <ul class="pagination-list">
             {% for page_number in range(start=1, end=paginator.number_pagers+1) %}
             <li>
@@ -89,9 +87,7 @@
             </li>
             {% endfor %}
         </ul>
-        <a class="pagination-next" href='{{ paginator.next }}' {% if not paginator.next %}disabled{% endif %}>
-            Next
-        </a>
+        <a class="pagination-next" href='{{ paginator.next }}'> Next </a>
     </nav>
     {% endif %}
     {% endblock %}
