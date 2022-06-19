@@ -1,48 +1,48 @@
 {% macro page_publish_metadata(page) %}
-  <span>
-    <time datetime="{{ page.date }}">
-      {{ page.date | date(format='%B %d, %Y') }}
-    </time>
-  </span>
+<span>
+  <time datetime="{{ page.date }}">
+    {{ page.date | date(format='%B %d, %Y') }}
+  </time>
+</span>
 {% endmacro %}
 
 {% macro page_content_metadata(page) %}
-  <span>
-    <span>{{ page.reading_time }} minutes,</span>
-    <span>{{ page.word_count }} words</span>
-  </span>
-  {% endmacro %}
+<span>
+  <span>{{ page.reading_time }} minutes,</span>
+  <span>{{ page.word_count }} words</span>
+</span>
+{% endmacro %}
 
-  {% macro render_tags(tags) %}
-  <p>
-    Tags:
-    {% for tag in tags %}
-    <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}">
-      <span>{{tag}}, </span>
-    </a>
-    {% endfor %}
-  </p>
+{% macro render_tags(tags) %}
+<p>
+  <a href="/tags/" style="font-weight:bold"> Tags: </a>
+  {% for tag in tags %}
+  <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}">
+    <span>{{tag}}, </span>
+  </a>
+  {% endfor %}
+</p>
 {% endmacro %}
 
 {% macro post_card(page) %}
-  <article class="blog-card">
-    <div class="top-card-row">
-      <div>
-        <h2>
-          <a href='{{ page.permalink }}'>
-            {{ page.title }}
-          </a>
-        </h2>
-        <p class="subtitle">{{ page.description }}</p>
-      </div>
-
-      {{ macros::page_publish_metadata(page=page) }}
+<article class="blog-card">
+  <div class="top-card-row">
+    <div>
+      <h2>
+        <a href='{{ page.permalink }}'>
+          {{ page.title }}
+        </a>
+      </h2>
+      <p class="subtitle">{{ page.description }}</p>
     </div>
 
-    <div class="bottom-card-row">
-      {{ macros::page_content_metadata(page=page) }}
+    {{ macros::page_publish_metadata(page=page) }}
+  </div>
 
-      {{ macros::render_tags(tags=page.taxonomies.tags) }}
-    </div>
-  </article>
+  <div class="bottom-card-row">
+    {{ macros::page_content_metadata(page=page) }}
+
+    {{ macros::render_tags(tags=page.taxonomies.tags) }}
+  </div>
+</article>
 {% endmacro %}
