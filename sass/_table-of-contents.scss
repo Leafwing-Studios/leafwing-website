@@ -6,7 +6,10 @@
 }
 
 .toc-item {
-	padding: 10px 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .toc-item a,
@@ -25,12 +28,15 @@
 }
 
 .toc-item-child {
-	padding: 0 30px 5px;
+	padding-top: 5px;
+	padding-left: 20px;
+	padding-right: 10px;
+	padding-bottom: 10px;
 }
 
 .toc-sticky {
 	border-radius: 3px;
-	border-top: 5px solid $primary-color;
+	border-top: 10px solid $primary-color;
 	background-color: $box-color;
 	position: sticky;
 	// Ensure that there's space between TOC and text body
