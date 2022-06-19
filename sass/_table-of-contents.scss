@@ -26,8 +26,7 @@
 	color: $text-on-primary-color;
 
 	&:hover {
-		cursor: pointer;
-		text-decoration: underline;
+		color: $hovered-text-on-primary-color;
 	}
 }
 
