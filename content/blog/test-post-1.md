@@ -9,7 +9,7 @@ tags = ["post", "lorem"]
 +++
 
 Like all things, this post starts with a beginning.
-Truly, a beginning full of text, carefully explaining all of the important things that must be known.
+Truly, a beginning full of text, carefully explaining all of the important ***things*** that must be known.
 
 Perhaps even two paragraphs worth!
 
