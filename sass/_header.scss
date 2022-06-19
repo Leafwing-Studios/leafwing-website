@@ -1,8 +1,10 @@
 // Top banner
 header {
 	background-color: $primary-color;
-	color: black;
-	padding: 20px 50px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 0px;
+	padding-right: 30px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -12,14 +14,14 @@ header {
 .logo {
 	font-family: "Alfa Slab One", serif;
 	font-size: 32px;
-	color: $text-on-secondary-color;
+	color: $text-on-primary-color;
 	display: flex;
 	align-items: center;
 	margin: 0 20px;
 	letter-spacing: 1px;
 
 	&:hover {
-		color: $text-on-primary-color;
+		color: $hovered-text-on-primary-color;
 	}
 
 	img {
@@ -36,9 +38,9 @@ header {
 	font-family: "Oswald", sans-serif;
 	font-size: 24px;
 	font-weight: bold;
-	color: $text-on-secondary-color;
+	color: $text-on-primary-color;
 
 	&:hover {
-		color: $text-on-primary-color;
+		color: $hovered-text-on-primary-color;
 	}
 }

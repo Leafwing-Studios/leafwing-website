@@ -2,7 +2,8 @@
 
 /* Primary theme color */
 $primary-color: hsl(120, 17%, 52%);
-$text-on-primary-color: hsl(10, 28%, 17%);
+$text-on-primary-color: hsl(10, 26%, 26%);
+$hovered-text-on-primary-color: hsl(10, 26%, 10%);
 
 /* Link colors */
 $link-color: hsl(145, 100%, 27%);
@@ -10,7 +11,7 @@ $hovered-link-color: hsl(145, 100%, 14%);
 
 /* Secondary color: the background body color */
 $secondary-color: hsl(40, 50%, 98%);
-$text-on-secondary-color: hsl(10, 26%, 26%);
+$text-on-secondary-color: $text-on-primary-color;
 
 /* Boxes for TOC and blog cards */
 $box-color: hsl(37, 57%, 97%);
