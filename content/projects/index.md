@@ -74,7 +74,7 @@ Alice is one of the core maintainers of Bevy, focusing on product management, do
 We maintain several open source crates in the Bevy ecosystem,
 including [`leafwing_input-manager`](https://github.com/Leafwing-Studios/leafwing_input_manager) and [`leafwing_input_playback`](https://github.com/Leafwing-Studios/leafwing_input_playback).
 
-#### [Taffy](https://github.com/dioxuslabs/taffy)
+### [Taffy](https://github.com/dioxuslabs/taffy)
 
 A pure Rust UI layout library, focused on performance, correctness and a painless developer experience (well, as painless as flexbox can be).
 
