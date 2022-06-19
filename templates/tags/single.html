@@ -16,13 +16,7 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column">
-        {% if paginator %}
-        {% set pages = paginator.pages %}
-        {% else %}
-        {% set pages = term.pages %}
-        {% endif %}
-
-        {% for page in pages %}
+        {% for page in term.pages %}
         <article class="box">
           <h2 class="title">
             <a href='{{ page.permalink }}'>
