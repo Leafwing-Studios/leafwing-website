@@ -8,37 +8,25 @@
 {% block content %}
 <section>
   <div class="container">
-    <div class="columns">
-      <div class="column">
-        {% for page in paginator.pages %}
-        <article class="blog-card">
-          <h2 class="title">
-            <a href='{{ page.permalink }}'>
-              {{ page.title }}
-            </a>
-          </h2>
+    {% for page in paginator.pages %}
+    <article class="blog-card">
+      <h2 class="title">
+        <a href='{{ page.permalink }}'>
+          {{ page.title }}
+        </a>
+      </h2>
 
-          <p class="subtitle">{{ page.description }}</p>
-          <div class="columns">
-            <div class="column">
-              {{ macros::page_publish_metadata(page=page) }}
-            </div>
+      <p class="subtitle">{{ page.description }}</p>
 
-            <div class="column has-text-right-desktop">
-              {{ macros::page_content_metadata(page=page) }}
-            </div>
-          </div>
-          <div class="columns">
-            <div class="column has-text-right-desktop">
-              {% if page.taxonomies.tags %}
-              {{ macros::render_tags(tags=page.taxonomies.tags) }}
-              {% endif %}
-            </div>
-          </div>
-        </article>
-        {% endfor %}
-      </div>
-    </div>
+      {{ macros::page_publish_metadata(page=page) }}
+
+      {{ macros::page_content_metadata(page=page) }}
+
+      {% if page.taxonomies.tags %}
+      {{ macros::render_tags(tags=page.taxonomies.tags) }}
+      {% endif %}
+    </article>
+    {% endfor %}
   </div>
 </section>
 {% endblock %}

@@ -24,32 +24,14 @@
             </a>
           </h2>
           <p class="subtitle">{{ page.description }}</p>
-          <div class="columns">
-            <div class="column">
-            </div>
-            <div class="column">
-              <a href='{{ page.permalink }}'>
-                Read More
-              </a>
-            </div>
-          </div>
-          <div class="columns">
-            <div class="column">
-              {{ macros::page_publish_metadata(page=page) }}
-            </div>
-            <div class="column">
-              {{ macros::page_content_metadata(page=page) }}
-            </div>
-          </div>
 
-          <div class="columns">
+          {{ macros::page_publish_metadata(page=page) }}
 
-            <div class="column">
-              {% if page.taxonomies.tags %}
-              {{ macros::render_tags(tags=page.taxonomies.tags) }}
-              {% endif %}
-            </div>
-          </div>
+          {{ macros::page_content_metadata(page=page) }}
+
+          {% if page.taxonomies.tags %}
+          {{ macros::render_tags(tags=page.taxonomies.tags) }}
+          {% endif %}
         </article>
         {% endfor %}
       </div>
