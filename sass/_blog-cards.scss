@@ -1,12 +1,5 @@
 @import "_colors.scss";
 
-.container {
-	flex-grow: 1;
-	margin: 0 auto;
-	position: relative;
-	width: auto
-}
-
 .blog-card {
 	background-color: $box-color;
 	border-left: 10px solid $primary-color;
