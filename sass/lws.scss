@@ -1,6 +1,4 @@
-@import "_utility.scss";
 @import "_text.scss";
-@import "_markdown.scss";
 @import "_layout.scss";
 @import "_pagination.scss";
 @import "_colors.scss";
@@ -13,11 +11,6 @@ body {
     margin: 0;
     box-sizing: border-box;
     background-color: $secondary-color;
-}
-
-// Link style
-a {
-    text-decoration: none;
 }
 
 // Unordered list
@@ -66,14 +59,6 @@ main {
             width: 45px;
             margin: 0 10px 0 0;
         }
-    }
-
-    .nav-item {
-        margin: 0 5px;
-    }
-
-    .hero {
-        padding: 40px 30px;
     }
 
     main {

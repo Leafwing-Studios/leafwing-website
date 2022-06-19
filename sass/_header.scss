@@ -15,7 +15,8 @@ header {
 	color: $primary-text-color;
 	display: flex;
 	align-items: center;
-	margin: 0 40px;
+	margin: 0 20px;
+	letter-spacing: 1px;
 
 	&:hover {
 		color: $secondary-text-color;
@@ -32,8 +33,8 @@ header {
 	margin: 0 10px;
 	text-decoration: none;
 
-	font-family: "Raleway", sans-serif;
-	font-size: 18px;
+	font-family: "Oswald", sans-serif;
+	font-size: 24px;
 	font-weight: bold;
 	color: $primary-text-color;
 

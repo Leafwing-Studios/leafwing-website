@@ -41,7 +41,7 @@ team up with your friends using the game as a first-class virtual-tabletop (VTT)
 then keep playing in our rogue-lite single player modes long after the rest of your party has logged off.
 
 Join our the *Fonts of Power*  [Discord](https://discord.gg/K6SSPvfkne)
-or check out the repo on [Github](https://github.com/leafwing-studios/fonts-of-power)
+or check out the repo on [GitHub](https://github.com/leafwing-studios/fonts-of-power)
 to follow along as we turn our prototypes into a complete game!
 
 ## Planned Games
@@ -63,7 +63,7 @@ We believe that open source is the future of games.
 A significant portion of our work goes towards developing, improving and building open source tools to make building games better.
 
 If you love our [open source tools](https://github.com/leafwing-studios/),
-consider funding this work us on [Github Sponsors](hhttps://github.com/sponsors/alice-i-cecile).
+consider funding this work us on [GitHub Sponsors](hhttps://github.com/sponsors/alice-i-cecile).
 
 ### [Bevy](https://bevyengine.org/)
 
@@ -74,7 +74,7 @@ Alice is one of the core maintainers of Bevy, focusing on product management, do
 We maintain several open source crates in the Bevy ecosystem,
 including [`leafwing_input-manager`](https://github.com/Leafwing-Studios/leafwing_input_manager) and [`leafwing_input_playback`](https://github.com/Leafwing-Studios/leafwing_input_playback).
 
-#### [Taffy](https://github.com/dioxuslabs/taffy)
+### [Taffy](https://github.com/dioxuslabs/taffy)
 
 A pure Rust UI layout library, focused on performance, correctness and a painless developer experience (well, as painless as flexbox can be).
 

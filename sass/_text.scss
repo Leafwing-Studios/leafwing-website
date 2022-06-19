@@ -1,36 +1,48 @@
 @import "_colors.scss";
 
-.heading-text {
-  font-family: "Oswald", sans-serif;
-  font-size: 26px;
-  font-style: italic;
-  font-weight: 600;
-  padding: 0px 0 15px 0;
-  color: $primary-text-color;
-}
-
-h1,
-.title-text {
-  font-family: "Oswald", sans-serif;
-  font-size: 25px;
-  font-weight: 500;
-  color: $primary-text-color;
-}
-
-.subtitle-text {
-  font-family: "Raleway", sans-serif;
-  font-style: italic;
-  font-size: 20px;
-  color: $primary-text-color;
-}
-
-@for $i from 1 through 6 {
+// Sets universal header text style
+// Headings greater than 3 don't play nice with the TOC
+@for $i from 1 through 3 {
   h#{$i} {
     font-family: "Oswald", sans-serif;
     color: $primary-text-color;
   }
 }
 
+// Page headings
+h1,
+.title-text {
+  font-size: 36px;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+// Controls subtitles shown on blog posts
+.subtitle-text {
+  font-family: "Raleway", sans-serif;
+  font-style: italic;
+  font-size: 20px;
+  color: $primary-text-color;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-top: 11px;
+  margin-bottom: 11px;
+}
+
+
+// Main body text
 .text {
   font-family: "Raleway", sans-serif;
   font-size: 18px;
@@ -40,9 +52,25 @@ h1,
   color: $primary-text-color;
 }
 
+// Paragraph configuration
+p {
+  margin-top: 0;
+}
+
+// Smaller informational text
 .subtext {
   font-family: "Raleway", sans-serif;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.1px;
+}
+
+// Link style
+a {
+  text-decoration: none;
+  color: $primary-link-color;
+
+  &:hover {
+    color: $hovered-link-color;
+  }
 }

@@ -8,6 +8,11 @@ template="blog-post.html"
 tags = ["post", "lorem"]
 +++
 
+Like all things, this post starts with a beginning.
+Truly, a beginning full of text, carefully explaining all of the important **things** that must be known.
+
+Perhaps even two paragraphs worth!
+
 ## Heading 2
 
 Content.
@@ -15,8 +20,6 @@ Content.
 ### Heading 3
 
 More content, but now with a [link](http://example.com/)!
-
-### Heading 4
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec libero vel enim vehicula venenatis. Maecenas pharetra, lectus nec commodo venenatis, enim velit elementum neque, ut pellentesque orci ante nec eros. Quisque pretium metus at augue laoreet imperdiet. Mauris scelerisque non ante vitae posuere. Sed et venenatis nunc, a aliquet augue. Vivamus vitae iaculis enim. Maecenas sed ultrices libero. Nam id porttitor metus. Aliquam ut vehicula arcu. Phasellus luctus, nisi sit amet bibendum molestie, arcu magna semper dui, quis posuere sem felis sit amet dui. Donec sit amet nunc feugiat lacus elementum varius eget ac ex. Vivamus a orci eget dolor interdum dictum.
 
