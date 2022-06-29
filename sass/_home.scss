@@ -1,9 +1,23 @@
 .home-columns {
 	display: flex;
-	flex-direction: row;
 	align-items: center;
 }
 
 .home-text {
 	font-size: 22px;
+	flex-shrink: 2;
+}
+
+.home-image {
+	max-width: 450px;
+}
+
+@media screen and (max-width: 768px) {
+	.home-columns {
+		flex-wrap: wrap;
+	}
+
+	.home-image {
+		max-width: 100%;
+	}
 }
