@@ -9,12 +9,15 @@
 }
 
 .home-image {
-	max-width: 100%;
-	flex-grow: 1;
+	max-width: 450px;
 }
 
 @media screen and (max-width: 768px) {
 	.home-columns {
 		flex-wrap: wrap;
+	}
+
+	.home-image {
+		max-width: 100%;
 	}
 }
