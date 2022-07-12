@@ -1,24 +1,38 @@
 @import "_colors.scss";
 
 .toc {
-	max-width: 260px;
-	min-width: 240px;
+	max-width: 300px;
+	min-width: 260px;
 }
 
 .toc-sticky {
-	border-radius: 3px;
-	border-top: 10px solid $primary-color;
+	border-radius: 10px;
+	border-top: 14px solid $primary-color;
 	background-color: $box-color;
 	position: sticky;
 	// Ensure that there's space between TOC and text body
 	margin-right: 30px;
+	padding-bottom: 2px;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 .toc-item {
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	margin-bottom: 6px;
+
+	a {
+		font-size: 16px;
+	}
+}
+
+.toc-item-child {
+	margin-left: 10px;
+	margin-bottom: 8px;
+
+	a {
+		font-size: 14px;
+	}
 }
 
 .toc-item a,
@@ -33,12 +47,4 @@
 .toc-item a.active,
 .toc-item-child a.active {
 	color: $toc-highlight-text-color;
-	font-weight: 200;
-}
-
-.toc-item-child {
-	padding-top: 5px;
-	padding-left: 20px;
-	padding-right: 10px;
-	padding-bottom: 10px;
 }
