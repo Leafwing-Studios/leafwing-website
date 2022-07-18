@@ -63,7 +63,7 @@ We believe that open source is the future of games.
 A significant portion of our work goes towards developing, improving and building open source tools to make building games better.
 
 If you love our [open source tools](https://github.com/leafwing-studios/),
-consider funding this work us on [GitHub Sponsors](hhttps://github.com/sponsors/alice-i-cecile).
+consider funding this work on [GitHub Sponsors](https://github.com/sponsors/alice-i-cecile).
 
 ### [Bevy](https://bevyengine.org/)
 
