@@ -3,7 +3,7 @@ title = "TITLE"
 description = "SUBTITLE"
 date = 2038-01-19
 author = "Alice I. Cecile"
-draft = false
+draft = true
 
 [taxonomies]
 tags = ["TEMPLATE_POST"]
