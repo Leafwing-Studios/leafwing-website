@@ -12,5 +12,9 @@ footer {
 	a {
 		color: $footer-text-color;
 		text-decoration: underline;
+
+		&:hover {
+			color: $footer-hover-color;
+		}
 	}
 }
