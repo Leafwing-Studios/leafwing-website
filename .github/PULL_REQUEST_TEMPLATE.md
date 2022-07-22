@@ -1,9 +1,3 @@
----
-name: Blog Post
-description: Start a draft blog post
-labels: ["content"]
----
-
 # Checklist
 
 ## Spot Checks
