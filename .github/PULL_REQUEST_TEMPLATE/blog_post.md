@@ -26,3 +26,4 @@ labels: ["content"]
 - [ ] Reddit
 - [ ] Twitter
 - [ ] Discord
+- [ ] Mailing list (MailerLite)
