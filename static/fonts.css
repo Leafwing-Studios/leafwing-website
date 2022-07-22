@@ -1,23 +1,23 @@
-    /* OFL: https://fonts.google.com/specimen/Raleway */
-    @font-face {
-        font-family: Raleway;
-        src: url(Raleway-Regular.ttf);
-    }
+/* OFL: https://fonts.google.com/specimen/Raleway */
+@font-face {
+    font-family: Raleway;
+    src: url(Raleway-Regular.ttf);
+}
 
-    /* OFL: https://fonts.google.com/specimen/Oswald */
-    @font-face {
-        font-family: Oswald;
-        src: url(Oswald-Regular.ttf);
-    }
+/* OFL: https://fonts.google.com/specimen/Oswald */
+@font-face {
+    font-family: Oswald;
+    src: url(Oswald-Regular.ttf);
+}
 
-    /* OFL: https://fonts.google.com/specimen/Oswald */
-    @font-face {
-        font-family: OswaldM;
-        src: url(Oswald-Medium.ttf);
-    }
+/* OFL: https://fonts.google.com/specimen/Oswald */
+@font-face {
+    font-family: OswaldM;
+    src: url(Oswald-Medium.ttf);
+}
 
-    /* OFL: https://fonts.google.com/specimen/Alfa+Slab+One */
-    @font-face {
-        font-family: Alfa Slab One;
-        src: url(AlfaSlabOne-Regular.ttf);
-    }
+/* OFL: https://fonts.google.com/specimen/Alfa+Slab+One */
+@font-face {
+    font-family: Alfa Slab One;
+    src: url(AlfaSlabOne-Regular.ttf);
+}
