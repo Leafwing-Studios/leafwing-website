@@ -37,10 +37,10 @@
 
 .toc-item a,
 .toc-item-child a {
-	color: $text-on-primary-color;
+	color: $text-on-secondary-color;
 
 	&:hover {
-		color: $hovered-text-on-primary-color;
+		color: $hovered-text-on-secondary-color;
 	}
 }
 

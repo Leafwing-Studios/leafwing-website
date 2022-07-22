@@ -9,7 +9,7 @@
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/normalize.css">
-    <link rel="icon" href="/logo.png">
+    <link rel="icon" href="/favicon.ico">
     <link rel="stylesheet" href="/lws.css">
     <link rel="stylesheet" href="/fonts.css">
     {% block head %}
@@ -27,8 +27,7 @@
         {% set section = get_section(path="_index.md") %}
         <a href="{{ section.permalink }}">
             <div class="logo">
-                <img src="/logo.png" alt="logo">
-                Leafwing Studios
+                <img src="/Leafwing Studios Logo - Inline.png" alt="Leafwing Studios">
             </div>
         </a>
 
@@ -77,11 +76,13 @@
     {% block pagination %}
     {% if paginator.previous or paginator.next %}
     <nav class="pagination" role="navigation" aria-label="pagination">
-        <a class="pagination-previous" href='{{ paginator.previous }}' {% if not paginator.previous %}disabled{% endif %}> Previous </a>
+        <a class="pagination-previous" href='{{ paginator.previous }}' {% if not paginator.previous %}disabled{% endif
+            %}> Previous </a>
         <ul class="pagination-list">
             {% for page_number in range(start=1, end=paginator.number_pagers+1) %}
             <li>
-                <a class="pagination-link {% if paginator.current_index == page_number %}is-current{% endif %}" href='{{ paginator.base_url }}{{page_number}}' aria-label="Goto page {{page_number}}">
+                <a class="pagination-link {% if paginator.current_index == page_number %}is-current{% endif %}"
+                    href='{{ paginator.base_url }}{{page_number}}' aria-label="Goto page {{page_number}}">
                     {{page_number}}
                 </a>
             </li>
