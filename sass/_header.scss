@@ -1,8 +1,8 @@
 // Top banner
 header {
 	background-color: $primary-color;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
 	padding-left: 0px;
 	padding-right: 30px;
 	display: flex;
@@ -12,20 +12,10 @@ header {
 
 // Logo + wordmark section of banner
 .logo {
-	font-family: "Alfa Slab One", serif;
-	font-size: 32px;
-	color: $text-on-primary-color;
-	display: flex;
-	align-items: center;
 	margin: 0 20px;
-	letter-spacing: 1px;
-
-	&:hover {
-		color: $hovered-text-on-primary-color;
-	}
 
 	img {
-		width: 60px;
+		height: 50px;
 		margin: 0 25px;
 	}
 }

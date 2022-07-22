@@ -1,23 +1,25 @@
 // Color system
 
 /* Primary theme color */
-$primary-color: hsl(120, 17%, 52%);
-$text-on-primary-color: hsl(10, 26%, 26%);
-$hovered-text-on-primary-color: hsl(10, 26%, 10%);
+$primary-color: hsl(95, 60, 25%);
+// Color of logo
+$text-on-primary-color: hsl(95, 60, 63%);
+$hovered-text-on-primary-color: hsl(95, 60, 40%);
 
 /* Link colors */
-$link-color: hsl(145, 100%, 20%);
-$hovered-link-color: hsl(145, 100%, 10%);
+$link-color: $primary-color;
+$hovered-link-color: $text-on-primary-color;
 
 /* Secondary color: the background body color */
 $secondary-color: hsl(40, 40%, 95%);
-$text-on-secondary-color: $text-on-primary-color;
+$text-on-secondary-color: hsl(10, 26%, 26%);
+$hovered-text-on-secondary-color: hsl(10, 26%, 10%);
 
 /* Boxes for TOC and blog cards */
 $box-color: hsl(40, 45%, 90%);
 
 /* Shows where you are in the article */
-$toc-highlight-text-color: hsl(10, 30%, 20%);
+$toc-highlight-text-color: hsl(10, 40%, 20%);
 
 /* Footer body color */
 $footer-color: hsl(145, 5%, 10%);
