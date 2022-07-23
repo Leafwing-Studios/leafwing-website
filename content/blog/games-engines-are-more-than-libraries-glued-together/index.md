@@ -3,31 +3,27 @@ title = "Game engines are more than libraries glued together"
 description = "The value of vision and the cost of external dependencies"
 date = 2022-07-22
 author = "Alice I. Cecile"
-draft = true
 
 [taxonomies]
 tags = ["bevy", "open source"]
 +++
 
 ![SpongeBob, happy: "I'm going to put all these libraries together and make a game engine!" SpongeBob, skeletalized: 10 years later...](sponge-bob-meme.jpeg)
+*Meme from the [Twitter post](https://twitter.com/reduzio/status/1550462229484560385) by Juan Linietsky, creator of [Godot], that inspired this blog post.*
 
-Meme from the [Twitter post](https://twitter.com/reduzio/status/1550462229484560385) by Juan Linietsky, creator of [Godot], that inspired this blog post.
-
-When envisioning a massive, challenging technical project (such as, in our case, a [game engine](https://bevyengine.org/)),
+When starting a massive, challenging technical project (such as, in our case, a [game engine](https://bevyengine.org/)),
 the natural path of least resistance is to take a bunch of working components, glue them all together and then ship it!
 What could be easier?
 
-Unfortunately, it seems, empirically, that this doesn't work.
+Unfortunately, it seems that empirically this simply doesn't work.
 It's not a path to success:
 GitHub is littered with failed projects taking this approach
 while the most promising up-and-coming game engines ([Godot], [Bevy], [Our Machinery])
 eschew this in favor of a much more integrated design.
 
 Why?
-The underlying libraries (like [SDL2]or [OpenGL]) can all be great, high quality pieces of software.
-The engines that develop momentum often rely on these same foundational libraries
-(in Bevy's case, [`wgpu`] and [`winit`] are the big ones)
-that get glued together,
+The underlying libraries (like [SDL2] or [OpenGL]) may all be great, high quality pieces of software.
+In fact, the engines that develop momentum often rely on these same foundational libraries,
 and individual game projects (like [Stellaris](https://www.paradoxinteractive.com/games/stellaris/about)) can succeed
 by doing precisely the thing I'm arguing you shouldn't do!
 
@@ -40,50 +36,39 @@ and why can't we make one by slapping high-quality libraries together in a stick
 [Our Machinery]: https://ourmachinery.com/
 [SDL2]: https://www.libsdl.org/
 [OpenGL]: https://www.opengl.org/
-[`wgpu`]: https://github.com/gfx-rs/wgpu
-[`winit`]: https://github.com/rust-windowing/winit
 [Stellaris]: https://www.paradoxinteractive.com/games/stellaris/about
 
 ## Game engines are defined by their communities
 
-So, let's begin with something controversial:
-*a stack made for a single game (at a time) is not a game engine*.
-What [Factorio] did, what [Minecraft] did, what [the original Unreal game] did:
-cool, but not an engine!
+Let's begin with something controversial:
+*a stack made for a single game is not a game engine*.
 
-Instead, they made something that fills the same need,
-but is qualitatively an extremely different product.
+Even taking the same code base,
+and using it for sequential games from the same studio doesn't work the same way.
+What [Factorio] did, what [Minecraft] did, what [the original Unreal] did?
+Effective, but **not an engine!**
+
+Instead, they made something that could be replaced by a game engine,
+but is a qualitatively different product[^1].
 As a **single-game-stack**, they have one goal:
 make the game they were designed for as effectively as possible.
 
 They don't need to care about:
 
-- attracting users
-- being easy to adapt
-- efficiently teaching new users
-- working on diverse hardware
+- **attracting users**
+- efficiently teaching those new users
+- working on diverse developer hardware
 - managing backwards compatibility
-- supporting diverse use cases without degrading the experience for either
-
-All while keeping iteration times, tech debt, and performance acceptable!
+- **supporting diverse use cases**
 
 In exchange, they don't benefit from:
 
-- game-independent development, either via revenue or open source contributions
-- improvements to modularity driven by having to meet those harsher requirements
-- a thriving ecosystem of learning materials, compatible assets and extensions
+- **pooling development resources**, either via licensing revenue or open source contributions
+- the architectural battle-hardening won by having to meet those **harsher requirements**
+- a **thriving ecosystem** of learning materials, compatible assets and extensions
 
 Engines live and die on the strength of their [communities](https://discord.com/invite/bevy).
 Single-game stacks are judged by how quickly, cheaply and effectively they can make the single game they were made for.
-
-Sure, you can split the difference in both directions.
-Making your game engine tightly focused on a single genre (like [RPGMaker] or [Twine])
-means that you don't have to worry nearly so much about endless feature lists or intense modularity.
-Similarly, reusing your single-game-stack within the same studio means you can amortize its costs across multiple games,
-although woe to you if you try to retrofit it to support a new genre.
-And the more teams you need to train,
-the more simultaneous games you must support,
-the more those choices that served you well at the beginning will start to hurt.
 
 Single-game-stacks and game engines are two distinct things, each with their own strengths and challenges.
 If you take a technique that works well for single-game-stacks (like gluing together libraries)
@@ -96,13 +81,22 @@ past performance, as they say, is not a guarantee of future results.
 [RPGMaker]: https://www.rpgmakerweb.com/
 [Twine]: https://twinery.org/
 
+[^1]: Sure, you can split the difference in both directions.
+Making your game engine tightly focused on a single genre (like [RPGMaker] or [Twine])
+means that you don't have to worry nearly so much about endless feature lists or intense modularity.
+Similarly, reusing your single-game-stack within the same studio means you can amortize its costs across multiple games,
+although woe to you if you try to retrofit it to support a new genre.
+And the more teams you need to train,
+the more simultaneous games you must support,
+the more those choices that served you well at the beginning will start to hurt.
+
 ## Dependencies are great, but glue code sucks
 
-Don't get me wrong: libaries rock, and dependencies are good, actually.
+Don't get me wrong: libaries rock, and dependencies are Good, Actually.
 Bevy has [dozens of them](https://crates.io/crates/bevy/latest/dependencies), both direct and transitive!
 
 Without libraries, your velocity will crawl to a halt,
-and just as importantly, you won't be giving back to the ecosystem.
+and just as importantly, you won't be giving back to [the ecosystem](https://arewegameyet.rs/).
 
 The problem here is the dreaded **glue code**:
 code that exists solely to get everything to play nice together and talk to each other.
@@ -117,8 +111,10 @@ Glue code is brutal to maintain because:
 4. It makes the cost of switching dependencies incredibly high.
    1. Swapping an integration layer for a complex library is often nearly as much work as writing the code yourself.
    2. Abstractions are lossy, and nothing will make you realize it faster than trying to swap a "quick and easy" integration.
+5. Maintaining glue code won't get you promoted, so it'll be [neglected and left to rot](https://rmurphey.com/posts/eng-ladder-glue-work/).
+   1. Open source may not care about promotions, but boy do contributors *hate* volunteering for tedious tasks.
 
-If your entire engine is glue code: guess what all of your issues will be.
+If your entire engine is glue code: guess what the vast majority of your work will be.
 
 ## Tight cross-org coordination sucks more
 
@@ -126,7 +122,7 @@ It gets so much worse though.
 Suppose you *need* that bug fix from your dependency,
 or worse, want a shiny new feature to unblock your work?
 
-Roll a d12 to determine what happens:
+**Roll a d12** to determine what happens:
 
 1. You open an issue. It's ignored, then closed by [stalebot] after two years.
 2. You open an issue, but find that the work is blocked on a rewrite that's been ongoing for the past 18 months.
@@ -144,7 +140,7 @@ Roll a d12 to determine what happens:
 Truly, can't you see all the time you're saving?
 It's so Agile™!
 
-So what makes a dependency Good?
+So **what makes a dependency Good?**[^2]
 
 - permissive (or at least compatible) licensing
 - contributor-friendly culture
@@ -152,17 +148,20 @@ So what makes a dependency Good?
 - high bus factor
 - small or unopinionated scope
 - far from your core domain-specific logic
-- handles a lot of annoying edge cases for you (thanks [`winit`]...)
-
-**Aside:** you might think stability is good.
-Fewer breaking changes!
-But that *also* means that any breaking changes that you need are less likely to be accepted.
+- handles a lot of annoying edge cases for you (thanks [`wgpu`] and [`winit`]...)
+- aligned with your vision of what the library should be
 
 Unfortunately, if you're just gluing together libraries, you don't get to make that choice.
 You can't pick good dependencies or bad ones (except between competitors):
 you're stuck with what they give you.
 
 [stalebot]: https://drewdevault.com/2021/10/26/stalebot.html
+[`wgpu`]: https://github.com/gfx-rs/wgpu
+[`winit`]: https://github.com/rust-windowing/winit
+
+[^2]: You might think stability is good.
+Fewer breaking changes!
+But that *also* means that any breaking changes that you need are less likely to be accepted.
 
 ## Game engines need a competitive edge
 
@@ -180,7 +179,7 @@ it simply closes the gap between you and the decade of work ahead of you to catc
 with the entrenched, multi-million dollar companies that you're hoping to compete with.
 
 You cannot beat an entrenched competitor by playing their own game,
-but getting there faster.
+but catching up faster.
 So what makes your engine different?
 Who would use it, and why?
 
@@ -192,22 +191,24 @@ you must either write your own, or smooth over the differences.
 API design, [data flow], [general philosophy](https://ourmachinery.com/post/the-anti-feature-dream/), programming language:
 you *must* coordinate here, or your engine will be:
 
-- harder to learn
-- harder to use
-- harder to maintain
-- harder to optimize
+- harder to **learn**
+- harder to **use**
+- harder to **maintain**
+- harder to **optimize**
 
 And once you've glued libraries together,
-you've rendered your test scene blazingly fast, with ultra-high HDR and a billion particles,
+and you've rendered your test scene with blazing fast hyperrealistic shadows and a billion particles,
 doing the [second 90%] of the work feels brutal.
 You're taking working code,
 performing an unending series of cosmetic tweaks to it,
 and throwing away all of the advantages you've gained by reusing already working tools.
 
-Pick your poison.
+You're left with two options:
 
 1. **Don't refactor for a unified UX:** Fail to accquire users, struggle to execute any grand vision, watch the tech debt pile higher.
 2. **Refactor for a unified UX:** Burn out your team, constantly break your users, frustrate investors with the lack of progress.
+
+Pick your poison.
 
 [Unity]: https://unity.com/
 [Unreal]: https://www.unrealengine.com/en-US
@@ -220,12 +221,14 @@ Pick your poison.
 Ultimately, if you want to make the Next Great Game Engine (I do!),
 your project needs a vision that will attract users, investors, toolmakers and contributors.
 
-It needs things that sets it apart,
-problems it can solve better than any of the titans,
-and a clear, unified model of "how stuff works" that it can teach to users and use to keep tech debt at bay.
+It needs **features that set it apart**,
+**problems it can solve better** than any of the titans,
+and a **clear, unified model** that it can teach to users and point at to keep tech debt at bay.
 
 For [Godot], that's a pervasive focus on user-friendliness, the enduring value of open source and the value of a great editor-first workflow.
+
 For [Our Machinery], that's an emphasis on hackability, the importance of performance, and the benefits of being able to build your own tools.
+
 And for [Bevy], that's a belief in [ECS as a general-purpose paradigm], the ease of writing correct code in Rust, and the benefits of a thriving intercompatible ecosystem.
 
 If you want to join us in shaping the future of game development looks like,
