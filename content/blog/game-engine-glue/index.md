@@ -88,7 +88,7 @@ past performance, as they say, is not a guarantee of future results.
 ## Dependencies are great, but glue code sucks
 
 Don't get me wrong: libaries rock, and dependencies are Good, Actually.
-Bevy has [dozens of them](https://crates.io/crates/bevy/latest/dependencies), both direct and transitive!
+Bevy has [dozens of them](https://crates.io/crates/bevy/0.7.0/dependencies), both direct and transitive!
 
 Without libraries, your velocity will crawl to a halt,
 and just as importantly, you won't be giving back to [the ecosystem](https://arewegameyet.rs/).
