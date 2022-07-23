@@ -234,6 +234,6 @@ For [Our Machinery], that's an emphasis on hackability, the importance of perfor
 And for [Bevy], that's a belief in [ECS as a general-purpose paradigm], the ease of writing correct code in Rust, and the benefits of a thriving intercompatible ecosystem.
 
 If you want to join us in shaping the future of game development,
-I hope you can tell me: **what does that shiny future look like?**
+you better be able to tell me: **what does that shiny future look like?**
 
 [ECS as a general-purpose paradigm]: https://ajmmertens.medium.com/ecs-from-tool-to-paradigm-350587cdf216
