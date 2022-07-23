@@ -54,7 +54,7 @@ What [Factorio] did, what [Minecraft] did, what [the original Unreal] did?
 Effective, but **not an engine!**
 
 Instead, they made something that could be replaced by a game engine,
-but is a qualitatively different product.[^1]
+but is a qualitatively different product.
 As a **single-game-stack**, they have one goal:
 make the game they were designed for as effectively as possible.
 
@@ -85,15 +85,6 @@ past performance, as they say, is not a guarantee of future results.
 [the original Unreal game]: https://en.wikipedia.org/wiki/Unreal_(1998_video_game)
 [RPGMaker]: https://www.rpgmakerweb.com/
 [Twine]: https://twinery.org/
-
-[^1]: Sure, you can split the difference in both directions.
-Making your game engine tightly focused on a single genre (like [RPGMaker] or [Twine])
-means that you don't have to worry nearly so much about endless feature lists or intense modularity.
-Similarly, reusing your single-game-stack within the same studio means you can amortize its costs across multiple games,
-although woe to you if you try to retrofit it to support a new genre.
-And the more teams you need to train,
-the more simultaneous games you must support,
-the more those choices that served you well at the beginning will start to hurt.
 
 ## Dependencies are great, but glue code sucks
 
@@ -145,7 +136,7 @@ or worse, want a shiny new feature to unblock your work?
 Truly, can't you see all the time you're saving?
 It's so Agile™!
 
-So **what makes a dependency Good?**[^2]
+So **what makes a dependency Good?**
 
 - permissive (or at least compatible) licensing
 - contributor-friendly culture
@@ -163,10 +154,6 @@ you're stuck with what they give you.
 [stalebot]: https://drewdevault.com/2021/10/26/stalebot.html
 [`wgpu`]: https://github.com/gfx-rs/wgpu
 [`winit`]: https://github.com/rust-windowing/winit
-
-[^2]: You might think stability is good.
-Fewer breaking changes!
-But that *also* means that any breaking changes that you need are less likely to be accepted.
 
 ## Game engines need a competitive edge
 
