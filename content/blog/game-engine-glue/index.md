@@ -47,9 +47,7 @@ and why can't we make one by slapping high-quality libraries together in a stick
 Let's begin with something controversial:
 *a stack made for a single game is not a game engine*.
 
-Even taking the same code base,
-and using it for sequential games from the same studio doesn't work the same way.
-What [Factorio] did, what [Minecraft] did, what [the original Unreal] did?
+What [Factorio] did, what [Minecraft] did, what [Quake] did?
 Effective, but **not an engine!**
 
 Instead, they made something that could be replaced by a game engine,
@@ -81,14 +79,14 @@ past performance, as they say, is not a guarantee of future results.
 
 [Factorio]: https://www.factorio.com/
 [Minecraft]: https://www.minecraft.net/en-us
-[the original Unreal]: https://en.wikipedia.org/wiki/Unreal_(1998_video_game)
+[Quake]: https://www.gamedeveloper.com/design/classic-tools-retrospective-tim-sweeney-on-the-first-version-of-the-unreal-editor
 [RPGMaker]: https://www.rpgmakerweb.com/
 [Twine]: https://twinery.org/
 
 ## Dependencies are great, but glue code sucks
 
 Don't get me wrong: libaries rock, and dependencies are Good, Actually.
-Bevy has [dozens of them](https://crates.io/crates/bevy/latest/dependencies), both direct and transitive!
+Bevy has [dozens of them](https://crates.io/crates/bevy/0.7.0/dependencies), both direct and transitive!
 
 Without libraries, your velocity will crawl to a halt,
 and just as importantly, you won't be giving back to [the ecosystem](https://arewegameyet.rs/).
