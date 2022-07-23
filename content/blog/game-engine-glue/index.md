@@ -10,8 +10,7 @@ tags = ["bevy", "open source"]
 
 {{ blog_image(
    path="blog/game-engine-glue/sponge-bob-meme.jpeg",
-   alt="SpongeBob, happy: I'm going to put all these libraries together and make a game engine! SpongeBob, skeletalized: 10 years later...",
-   caption="Meme from the Twitter post by Juan Linietsky, creator of Godot, that inspired this blog post."
+   alt="SpongeBob, happy: I'm going to put all these libraries together and make a game engine! SpongeBob, skeletalized: 10 years later..."
 ) }}
 
 *Meme from the [Twitter post](https://twitter.com/reduzio/status/1550462229484560385) by Juan Linietsky, creator of [Godot], that inspired this blog post.*
