@@ -36,16 +36,6 @@ main {
   display: block;
 }
 
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
-
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
 /* Grouping content
    ========================================================================== */
 
@@ -138,7 +128,7 @@ small {
 
 sub,
 sup {
-  font-size: 75%;
+  font-size: 80%;
   line-height: 0;
   position: relative;
   vertical-align: baseline;

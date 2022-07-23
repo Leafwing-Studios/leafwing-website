@@ -5,14 +5,13 @@
 - [ ] File name
 - [ ] Date
 - [ ] Author
-- [ ] Not in draft mode
 - [ ] Tags
 
 ## Editing passes
 
 - [ ] Edited for clarity
 - [ ] Proof-reading
-- [ ] Internal and external links
+- [ ] Internal and external links exist and work
 
 ## Social
 
