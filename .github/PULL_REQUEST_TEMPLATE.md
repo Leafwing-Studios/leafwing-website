@@ -5,7 +5,6 @@
 - [ ] File name
 - [ ] Date
 - [ ] Author
-- [ ] Not in draft mode
 - [ ] Tags
 
 ## Editing passes
