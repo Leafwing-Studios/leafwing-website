@@ -15,8 +15,8 @@ tags = ["bevy", "open source"]
 
 *Meme from the [Twitter post](https://twitter.com/reduzio/status/1550462229484560385) by Juan Linietsky, creator of [Godot], that inspired this blog post.*
 
-When starting a massive, challenging technical project (such as, in our case, a [game engine](https://bevyengine.org/)),
-the natural path of least resistance is to take a bunch of working components, glue them all together and then ship it!
+When starting a massive technical project (such as, in our case, a [game engine](https://bevyengine.org/)),
+the path of least resistance is to take a bunch of working components, glue them all together and then ship it!
 What could be easier?
 
 Unfortunately, it seems that empirically this simply doesn't work.
