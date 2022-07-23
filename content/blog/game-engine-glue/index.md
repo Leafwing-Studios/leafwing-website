@@ -81,7 +81,7 @@ past performance, as they say, is not a guarantee of future results.
 
 [Factorio]: https://www.factorio.com/
 [Minecraft]: https://www.minecraft.net/en-us
-[the original Unreal game]: https://en.wikipedia.org/wiki/Unreal_(1998_video_game)
+[the original Unreal]: https://en.wikipedia.org/wiki/Unreal_(1998_video_game)
 [RPGMaker]: https://www.rpgmakerweb.com/
 [Twine]: https://twinery.org/
 
