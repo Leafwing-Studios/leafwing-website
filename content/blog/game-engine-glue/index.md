@@ -8,7 +8,12 @@ author = "Alice I. Cecile"
 tags = ["bevy", "open source"]
 +++
 
-![SpongeBob, happy: "I'm going to put all these libraries together and make a game engine!" SpongeBob, skeletalized: 10 years later...](sponge-bob-meme.jpeg)
+{{ blog_image(
+   path="blog/game-engine-glue/sponge-bob-meme.jpeg",
+   alt="Spange",
+   caption="Meme from the Twitter post by Juan Linietsky, creator of Godot, that inspired this blog post."
+) }}
+
 *Meme from the [Twitter post](https://twitter.com/reduzio/status/1550462229484560385) by Juan Linietsky, creator of [Godot], that inspired this blog post.*
 
 When starting a massive, challenging technical project (such as, in our case, a [game engine](https://bevyengine.org/)),
@@ -49,7 +54,7 @@ What [Factorio] did, what [Minecraft] did, what [the original Unreal] did?
 Effective, but **not an engine!**
 
 Instead, they made something that could be replaced by a game engine,
-but is a qualitatively different product[^1].
+but is a qualitatively different product.[^1]
 As a **single-game-stack**, they have one goal:
 make the game they were designed for as effectively as possible.
 
