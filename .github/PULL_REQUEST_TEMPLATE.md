@@ -12,7 +12,7 @@
 
 - [ ] Edited for clarity
 - [ ] Proof-reading
-- [ ] Internal and external links
+- [ ] Internal and external links exist and work
 
 ## Social
 
