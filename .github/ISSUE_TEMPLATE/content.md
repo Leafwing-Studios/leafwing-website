@@ -6,10 +6,6 @@ labels: content
 assignees: ''
 ---
 
-## Title
-
-Pithy and clear!
-
 ## Subtitle
 
 Snark and clarification goes here.
