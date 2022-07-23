@@ -32,7 +32,7 @@ What *is* a game engine,
 and why can't we make one by slapping high-quality libraries together in a sticky, gluey blob?
 
 [Godot]: https://godotengine.org/
-[Bevy]: htttps://bevyengine.org/
+[Bevy]: https://bevyengine.org/
 [Our Machinery]: https://ourmachinery.com/
 [SDL2]: https://www.libsdl.org/
 [OpenGL]: https://www.opengl.org/
@@ -188,7 +188,7 @@ instead, it makes the problem worse.
 Every library is opinonated:
 you must either write your own, or smooth over the differences.
 
-API design, [data flow], [general philosophy](https://ourmachinery.com/post/the-anti-feature-dream/), programming language:
+API design, [data flow], [core philosophy], [programming language]:
 you *must* coordinate here, or your engine will be:
 
 - harder to **learn**
@@ -213,6 +213,8 @@ Pick your poison.
 [Unity]: https://unity.com/
 [Unreal]: https://www.unrealengine.com/en-US
 [data flow]: https://github.com/bevyengine/bevy/tree/main/crates/bevy_ecs
+[core philosophy]: https://ourmachinery.com/post/the-anti-feature-dream/
+[programming language]: https://www.rust-lang.org/
 [general philosophy]: https://ourmachinery.com/post/the-anti-feature-dream/
 [second 90%]: https://en.wikipedia.org/wiki/Ninety%E2%80%93ninety_rule
 
