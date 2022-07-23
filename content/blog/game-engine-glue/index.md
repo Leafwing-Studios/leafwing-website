@@ -60,6 +60,7 @@ They don't need to care about:
 - **attracting users**
 - efficiently teaching those new users
 - working on diverse developer hardware
+- prioritizing flexibility, even when it comes at a performance premium
 - managing backwards compatibility
 - **supporting diverse use cases**
 
