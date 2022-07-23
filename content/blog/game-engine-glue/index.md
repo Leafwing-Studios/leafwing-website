@@ -47,8 +47,6 @@ and why can't we make one by slapping high-quality libraries together in a stick
 Let's begin with something controversial:
 *a stack made for a single game is not a game engine*.
 
-Even taking the same code base,
-and using it for sequential games from the same studio doesn't work the same way.
 What [Factorio] did, what [Minecraft] did, what [Quake] did?
 Effective, but **not an engine!**
 
