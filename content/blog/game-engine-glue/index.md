@@ -49,7 +49,7 @@ Let's begin with something controversial:
 
 Even taking the same code base,
 and using it for sequential games from the same studio doesn't work the same way.
-What [Factorio] did, what [Minecraft] did, what [the original Unreal] did?
+What [Factorio] did, what [Minecraft] did, what [Quake] did?
 Effective, but **not an engine!**
 
 Instead, they made something that could be replaced by a game engine,
@@ -81,7 +81,7 @@ past performance, as they say, is not a guarantee of future results.
 
 [Factorio]: https://www.factorio.com/
 [Minecraft]: https://www.minecraft.net/en-us
-[the original Unreal]: https://en.wikipedia.org/wiki/Unreal_(1998_video_game)
+[Quake]: https://www.gamedeveloper.com/design/classic-tools-retrospective-tim-sweeney-on-the-first-version-of-the-unreal-editor
 [RPGMaker]: https://www.rpgmakerweb.com/
 [Twine]: https://twinery.org/
 
