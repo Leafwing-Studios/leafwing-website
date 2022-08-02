@@ -5,7 +5,7 @@ date = 2022-07-22
 author = "Alice I. Cecile"
 
 [taxonomies]
-tags = ["bevy", "open source"]
+tags = ["bevy", "open source", "development philosophy"]
 +++
 
 {{ blog_image(
@@ -28,7 +28,7 @@ eschew this in favor of a much more integrated design.
 Why?
 The underlying libraries (like [SDL2] or [OpenGL]) may all be great, high quality pieces of software.
 In fact, the engines that develop momentum often rely on these same foundational libraries,
-and individual game projects (like [Stellaris](https://www.paradoxinteractive.com/games/stellaris/about)) can succeed
+and individual game projects (like [Stellaris]) can succeed
 by doing precisely the thing I'm arguing you shouldn't do!
 
 So what's the difference?
@@ -81,8 +81,6 @@ past performance, as they say, is not a guarantee of future results.
 [Factorio]: https://www.factorio.com/
 [Minecraft]: https://www.minecraft.net/en-us
 [Quake]: https://www.gamedeveloper.com/design/classic-tools-retrospective-tim-sweeney-on-the-first-version-of-the-unreal-editor
-[RPGMaker]: https://www.rpgmakerweb.com/
-[Twine]: https://twinery.org/
 
 ## Dependencies are great, but glue code sucks
 
@@ -205,7 +203,6 @@ Pick your poison.
 [data flow]: https://github.com/bevyengine/bevy/tree/main/crates/bevy_ecs
 [core philosophy]: https://ourmachinery.com/post/the-anti-feature-dream/
 [programming language]: https://www.rust-lang.org/
-[general philosophy]: https://ourmachinery.com/post/the-anti-feature-dream/
 [second 90%]: https://en.wikipedia.org/wiki/Ninety%E2%80%93ninety_rule
 
 ## Game engines need vision
