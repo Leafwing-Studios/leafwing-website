@@ -96,7 +96,7 @@ The basic data model here is:
 6. This is converted to actions via an [`InputMap`](https://docs.rs/leafwing-input-manager/latest/leafwing_input_manager/input_map/struct.InputMap.html).
 7. These actions are checked in the test again in [`ActionState`](https://docs.rs/leafwing-input-manager/latest/leafwing_input_manager/action_state/struct.ActionState.html).
 
-The failure was occuring at step 7, because that's where the assertions,
+The failure was occuring at step 7, because that's where the assertions are,
 but I a) had a robust test suite for core `InputMap` -> `ActionState` path
 and b) had proof via manual verification that things were *kinda* working.
 
