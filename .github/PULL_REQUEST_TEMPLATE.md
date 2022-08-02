@@ -19,4 +19,3 @@
 - [ ] Reddit
 - [ ] Twitter
 - [ ] Discord
-- [ ] Mailing list (MailerLite)
