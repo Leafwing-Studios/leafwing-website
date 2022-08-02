@@ -1,6 +1,6 @@
 +++
-title = "Lessons I learned from my marathon Rust debuggging session"
-description = "How to squash bugs for good"
+title = "Lessons from my marathon Rust debuggging session"
+description = "A methodical approach to squashing bugs for good"
 date = 2022-08-02
 author = "Alice I. Cecile"
 
@@ -10,7 +10,7 @@ tags = ["bevy", "rust", "development philosophy"]
 
 With the [release of Bevy 0.8](https://bevyengine.org/news/bevy-0-8/),
 I decided that it was finally time to release the next version of [leafwing-input-manager](https://github.com/leafwing-studios/leafwing-input-manager).
-It was going to be great! Mouse wheel support, gamepad axes, virtual dpads: just crammed with features that users have been asking for since the very beginning.
+It was going to be great! Support for mouse wheel, gamepad axes, virtual dpads: just crammed with features that users have been asking for since the very beginning.
 
 The [examples](https://github.com/Leafwing-Studios/leafwing-input-manager/tree/main/examples) were behaving as expected,
 the [migration to Bevy 0.8](https://github.com/Leafwing-Studios/leafwing-input-manager/pull/170) was painless,
@@ -58,7 +58,8 @@ I couldn't ship like this, but was overwhelmed and frustrated by the bug.
 I *knew* I shouldn't have been so yee-haw about the lack of tests earlier!
 
 I spent a few days ignoring the project, embarassed and annoyed.
-But, swallowing my pride, I decided I should ask for help, and asked [Brian Merchant](https://github.com/bzm3r) to pair program with me on the bug as a junior.
+But, swallowing my pride, I decided I should ask for help,
+and asked [Brian Merchant](https://github.com/bzm3r) to pair program with me on the bug as a junior.
 
 Having someone to talk to helped soothe my nerves and keep me motivated.
 And like always, being forced to *explain* the code base made it clear which parts needed love.
@@ -78,7 +79,8 @@ and [swapping away from a lazy tuple type](https://github.com/Leafwing-Studios/l
 
 This helped! The code was easier to work with, I had a refreshed mental model of what was going on.
 
-Rather than empty-handed frustration, I had several nice fixes to show for my time, and was definitely getting closer to solving the bug.
+Rather than ending the day in empty-handed frustration, I had several nice fixes to show for my time.
+We're definitely getting closer to solving the bug(s).
 
 ## Lesson 5: bisect your bug by adding more tests
 
@@ -86,13 +88,13 @@ Tests were still failing though.
 So let's think through this.
 The basic data model here is:
 
-1. The test tells the app to send a [`UserInput`].
-2. This is decomposed into its [`RawInputs`].
+1. The test tells the app to send a [`UserInput`](https://docs.rs/leafwing-input-manager/latest/leafwing_input_manager/user_input/enum.UserInput.html).
+2. This is decomposed into its [`RawInputs`](https://docs.rs/leafwing-input-manager/latest/leafwing_input_manager/user_input/struct.RawInputs.html).
 3. These raw inputs are sent as events.
-4. The events are processed by Bevy's [`InputPlugin`].
-5. The [`InputManagerPlugin`] reads the processed [`Input`] or [`Axis`] data.
-6. This is converted to actions via an [`InputMap`].
-7. These actions are checked in the test again in [`ActionState`].
+4. The events are processed by Bevy's [`InputPlugin`](https://docs.rs/bevy/latest/bevy/input/struct.InputPlugin.html).
+5. The [`InputManagerPlugin`](https://docs.rs/leafwing-input-manager/latest/leafwing_input_manager/plugin/struct.InputManagerPlugin.html) reads the processed [`Input`](https://docs.rs/bevy/latest/bevy/input/struct.Input.html) or [`Axis`](https://docs.rs/bevy/latest/bevy/input/struct.Axis.html) data.
+6. This is converted to actions via an [`InputMap`](https://docs.rs/leafwing-input-manager/latest/leafwing_input_manager/input_map/struct.InputMap.html).
+7. These actions are checked in the test again in [`ActionState`](https://docs.rs/leafwing-input-manager/latest/leafwing_input_manager/action_state/struct.ActionState.html).
 
 The failure was occuring at step 7, because that's where the assertions,
 but I a) had a robust test suite for core `InputMap` -> `ActionState` path
@@ -118,7 +120,8 @@ Of course, that wasn't the last problem...
 ## Lesson 7: split your tests to improve debugging
 
 Long tests suck.
-While they can save you on setup, they're much less useful for actually debugging.
+While they can reduce the amount of setup boilerplate you need to write and maintain,
+they're much less useful for actually debugging.
 Tests have two purposes: they should alert you to problems, but they should allow you to quickly isolate causes.
 Lumping together long strings of logic makes the latter harder
 (especially because Rust stops the test on the first failing assert).
@@ -138,10 +141,11 @@ Let's fix that, and... oh hey, more of our tests are passing!
 Mouse wheel and motion tests are all good, but the [equivalent gamepad tests](https://github.com/Leafwing-Studios/leafwing-input-manager/blob/main/tests/gamepad_axis.rs) are broken??
 
 Ah of course, how foolish of me: I'm sending an undocumented [`GamepadEvent`](https://docs.rs/bevy/latest/bevy/input/gamepad/struct.GamepadEvent.html),
-not the undocumented [`GamepadEventRaw`](https://docs.rs/bevy/latest/bevy/input/gamepad/struct.GamepadEventRaw.html).
+not an undocumented [`GamepadEventRaw`](https://docs.rs/bevy/latest/bevy/input/gamepad/struct.GamepadEventRaw.html).
 Thank goodness I've looked at the upstream source for that before.
+
 That one gets an [issue](https://github.com/bevyengine/bevy/issues/5544).
-And, because the community rocks, [a PR](https://github.com/bevyengine/bevy/pull/5548).
+And, because the Bevy community rocks, [a PR](https://github.com/bevyengine/bevy/pull/5548) appeared almost immediately.
 
 [Tests are green](https://github.com/Leafwing-Studios/leafwing-input-manager/pull/207), and it's time to ship!
 I am so, so happy that that was the last bug.
@@ -151,13 +155,13 @@ I am so, so happy that that was the last bug.
 So, that was "fun".
 I can't say I'm pleased with letting that slip in, or the amount of time and frustration that involved, but it could have been much, much worse.
 
-Things I did wrong:
+**Things I did wrong:**
 
 - accepting a feature without automated tests
 - thinking that manual testing was a subistute
 - building on a feature I was suspicious of
 
-Things I did right:
+**Things I did right:**
 
 - having robust docs and test suite to begin with
 - asking for help
