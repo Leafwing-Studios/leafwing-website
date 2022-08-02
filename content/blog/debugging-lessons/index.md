@@ -5,7 +5,7 @@ date = 2022-08-02
 author = "Alice I. Cecile"
 
 [taxonomies]
-tags = ["bevy", "rust"]
+tags = ["bevy", "rust", "development philosophy"]
 +++
 
 With the [release of Bevy 0.8](https://bevyengine.org/news/bevy-0-8/),

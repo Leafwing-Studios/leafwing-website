@@ -5,7 +5,7 @@ date = 2022-07-22
 author = "Alice I. Cecile"
 
 [taxonomies]
-tags = ["bevy", "open source"]
+tags = ["bevy", "open source", "development philosophy"]
 +++
 
 {{ blog_image(
