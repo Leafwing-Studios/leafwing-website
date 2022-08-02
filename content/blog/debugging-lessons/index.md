@@ -1,5 +1,5 @@
 +++
-title = "Lessons from my marathon Rust debuggging session"
+title = "Lessons from my marathon Rust debugging session"
 description = "A methodical approach to squashing bugs for good"
 date = 2022-08-02
 author = "Alice I. Cecile"
