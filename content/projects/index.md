@@ -57,7 +57,7 @@ and evolve your organisms to fit the exact niche you've imagined for them.
 
 Join our the *Emergence*  [Discord](https://discord.com/invite/GyTG5KT352)
 or check out the repo on [GitHub](https://github.com/leafwing-studios/emergence)
-to follow along---and contribute!---as we turn our prototype into a complete game!
+to follow along—and contribute!—as we turn our prototype into a complete game!
 
 ## Open Source Contributions
 
