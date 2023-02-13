@@ -55,9 +55,8 @@ figure {
 // Main content of document
 main {
     display: flex;
-    padding-top: 30px;
-    padding-bottom: 15px;
     flex-grow: 1;
+    padding: 1rem;
 }
 
 // Ensure footer is pushed to bottom
@@ -84,14 +83,6 @@ html {
         img {
             margin: 0;
         }
-    }
-
-    main {
-        padding: 30px;
-    }
-
-    .content {
-        padding: 0;
     }
 
     .explore-more,
