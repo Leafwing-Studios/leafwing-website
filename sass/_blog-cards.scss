@@ -1,8 +1,8 @@
 @import "_colors.scss";
 
 .blog-card {
-	background-color: $box-color;
-	border-left: 14px solid $primary-color;
+	background-color: var( --box-color);
+	border-left: 14px solid var( --primary-color);
 	border-radius: 10px;
 	display: block;
 	padding-left: 20px;

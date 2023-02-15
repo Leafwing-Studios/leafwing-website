@@ -1,27 +1,69 @@
-// Color system
+// Add variables that work on css4 or css3 using a mixin, css function, and 
+//  mapping variables between preprocessor variables and CSS custom properties.
+// Modified from https://codepen.io/vank0/pen/ZpXvqW
 
-/* Primary theme color */
-$primary-color: hsl(95, 80%, 5%);
-// Color of logo
-$text-on-primary-color: hsl(95, 60%, 63%);
-$hovered-text-on-primary-color: hsl(95, 60%, 40%);
+$css4: true;
+$compatibility: true;
+// It is necessary to define the variables in a sass map instead of :root, for compatibility reasons.
+$variables: (
+  /* Main theme color */
+  --primary-color: hsl(95, 80%, 5%),
+  /* Logo and lighter text */
+  --text-on-primary-color: hsl(95, 60%, 63%),
+  --hovered-text-on-primary-color: hsl(95, 60%, 40%),
 
-/* Link colors */
-$link-color: hsl(95, 60%, 40%);
-$hovered-link-color: hsl(95, 60%, 20%);
+  /* Link colors */ 
+  --link-color: hsl(95, 60%, 40%),
+  --hovered-link-color: hsl(95, 60%, 20%),
 
-/* Secondary color: the background body color */
-$secondary-color: hsl(40, 40%, 95%);
-$text-on-secondary-color: hsl(10, 26%, 26%);
-$hovered-text-on-secondary-color: hsl(10, 26%, 10%);
+  /* Secondary color: the background body color */
+  --secondary-color: hsl(40, 40%, 95%),
+  --text-on-secondary-color: hsl(10, 26%, 26%),
+  --hovered-text-on-secondary-color: hsl(10, 26%, 10%),
 
-/* Boxes for TOC and blog cards */
-$box-color: hsl(40, 45%, 90%);
+  /* Boxes for TOC and blog cards */
+  --box-color: hsl(41, 37%, 82%),
 
-/* Shows where you are in the article */
-$toc-highlight-text-color: hsl(10, 40%, 20%);
+  /* Shows where you are in the article */
+  --toc-highlight-text-color: hsl(10, 40%, 20%),
 
-/* Footer body color */
-$footer-color: $primary-color;
-$footer-text-color: hsl(145, 10%, 90%);
-$footer-hover-color: $link-color;
+  /* Footer body color */
+  --footer-color: var(--primary-color),
+  --footer-text-color: hsl(145, 10%, 90%),
+  --footer-hover-color: var(--link-color),
+);
+
+// Here we transfer the variables from the map to the :root element
+@if($css4) {
+  :root {
+    @each $variable, $value in $variables {
+      #{$variable}: $value;
+    }
+  }
+}
+
+// This is the "magic" function
+@function var($variable) {
+  @if($css4) {
+    @return unquote('var(' + $variable + ')');
+  } @else {
+    @return map-get($variables, $variable);
+  }
+}
+
+// The mixin temporally sets the $css4 variable to false, compiles the css3 fallback, then makes the variable true again and compiles the css4 code. It should contain properties that use css4 variables, otherwise there will be unnessesary duplication of properties.
+@mixin css4 {
+  @if ($css4) {
+    $css4-backup: $css4;
+    @if($compatibility) {
+      $css4: false !global;
+      @content;
+    }
+    $css4: true !global;
+    @content;
+    $css4: $css4-backup;
+  } 
+  @else {
+    @content;
+  }
+}
