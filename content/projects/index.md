@@ -23,7 +23,24 @@ Work together (or don’t) to discuss **proposals** on the **agenda** as you def
 Will you desperately try to patch the broken process before everyone has **Something Better to Do**?
 Or will you revel in the chaos, embracing your personal **hidden agenda** as you **gather information**, **build solidarity** and enforce the rules through judicious use of **Points of Order**?
 
-## Actively Developed Games
+## Currently in Development
+
+### [Emergence](https://github.com/leafwing-studios/emergence)
+
+While humanity may not have made it to Earth's micro-scale post-apocalyptic future, life *did*.
+As a new symbiotic civilization of plants, fungi and insects emerges,
+they must evolve and adapt to face the challenges of the ever-shifting world around them.
+
+Currently in the design phase, *Emergence* is an organic factory builder
+that explores themes of complexity, robustness and indirect control.
+Explore a dynamic living world, carefully orchestrate an intricate web of eco-industrial activity,
+and evolve your organisms to fit the exact niche you've imagined for them.
+
+Join the *Emergence*  [Discord](https://discord.com/invite/GyTG5KT352)
+or check out the repo on [GitHub](https://github.com/leafwing-studios/emergence)
+to follow along—and contribute!—as we turn our prototype into a complete game!
+
+## Planned Projects
 
 ### [Fonts of Power](https://github.com/leafwing-studios/fonts-of-power)
 
@@ -43,22 +60,6 @@ then keep playing in our rogue-lite single player modes long after the rest of y
 Join our the *Fonts of Power*  [Discord](https://discord.gg/K6SSPvfkne)
 or check out the repo on [GitHub](https://github.com/leafwing-studios/fonts-of-power)
 to follow along as we turn our prototypes into a complete game!
-
-### [Emergence](https://github.com/leafwing-studios/emergence)
-
-While humanity may not have made it to Earth's micro-scale post-apocalyptic future, life *did*.
-As a new symbiotic civilization of plants, fungi and insects emerges,
-they must evolve and adapt to face the challenges of the ever-shifting world around them.
-
-Currently in the design phase, *Emergence* is an organic factory builder
-that explores themes of complexity, robustness and indirect control.
-Explore a dynamic living world, carefully orchestrate an intricate web of eco-industrial activity,
-and evolve your organisms to fit the exact niche you've imagined for them.
-
-Join the *Emergence*  [Discord](https://discord.com/invite/GyTG5KT352)
-or check out the repo on [GitHub](https://github.com/leafwing-studios/emergence)
-to follow along—and contribute!—as we turn our prototype into a complete game!
-
 ## Open Source Contributions
 
 We believe that open source is the future of games.
