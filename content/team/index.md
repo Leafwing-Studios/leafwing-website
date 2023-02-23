@@ -17,7 +17,7 @@ template="team.html"
 
 **Fun fact:** Despite the world's best efforts, somehow not dead yet!
 
-**Follow:** [Twitter](https://twitter.com/AliceICecile), [Twitch](https://www.twitch.tv/ivylashes), [Github](https://github.com/alice-i-cecile)
+**Follow:** [Mastodon](https://tech.lgbt/@alice_i_cecile), [Twitch](https://www.twitch.tv/ivylashes), [Github](https://github.com/alice-i-cecile)
 
 **Email:** [alice@leafwing-studios.com](mailto:alice@leafwing-studios.com)
 

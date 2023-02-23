@@ -59,9 +59,8 @@ figure {
 // Main content of document
 main {
     display: flex;
-    padding-top: 1.85rem;
-    padding-bottom: 0.9rem;
     flex-grow: 1;
+    padding: 1rem; // per Tim's suggestion https://github.com/Leafwing-Studios/leafwing-website/pull/228
 }
 
 // Ensure footer is pushed to bottom
@@ -93,14 +92,6 @@ html {
         img {
             margin: 0;
         }
-    }
-
-    main {
-        padding: 1.85rem;
-    }
-
-    .content {
-        padding: 0.2rem;
     }
 
     .explore-more,
