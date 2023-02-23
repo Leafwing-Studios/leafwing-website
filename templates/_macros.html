@@ -8,16 +8,16 @@
 
 {% macro page_content_metadata(page) %}
 <span>
-  <span>{{ page.reading_time }} minutes,</span>
-  <span>{{ page.word_count }} words</span>
+  <span>{{ page.reading_time }} minute read,</span>
+  <span>{{ page.word_count }} words </span>
 </span>
 {% endmacro %}
 
 {% macro render_tags(tags) %}
 <p>
-  <a href="/tags/" style="font-weight:bold"> Tags: </a>
+  <a class="stretched-link _pos-rel", href="/tags/" style="font-weight:bold"> Tags: </a>
   {% for tag in tags %}
-  <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}">
+  <a class="stretched-link _pos-rel", href="{{ get_taxonomy_url(kind='tags', name=tag) }}">
     <span>{{tag}}, </span>
   </a>
   {% endfor %}
@@ -29,19 +29,19 @@
   <div class="top-card-row">
     <div>
       <h2>
-        <a href='{{ page.permalink }}'>
+        <a class="stretched-link", href='{{ page.permalink }}'>
           {{ page.title }}
         </a>
+        
       </h2>
       <p class="subtitle">{{ page.description }}</p>
     </div>
 
-    {{ macros::page_publish_metadata(page=page) }}
+    {{ macros::page_publish_metadata(page=page) }}  
   </div>
 
   <div class="bottom-card-row">
     {{ macros::page_content_metadata(page=page) }}
-
     {{ macros::render_tags(tags=page.taxonomies.tags) }}
   </div>
 </article>

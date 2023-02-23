@@ -22,7 +22,9 @@ $variables: (
   --hovered-text-on-secondary-color: hsl(10, 26%, 10%),
 
   /* Boxes for TOC and blog cards */
-  --box-color: hsl(41, 37%, 82%),
+  --box-color: hsl(41, 32%, 86%),
+  /* On hover color for blog cards */
+  --hover-box-color: hsl(41, 36%, 78%),
 
   /* Shows where you are in the article */
   --toc-highlight-text-color: hsl(10, 40%, 20%),
@@ -33,33 +35,7 @@ $variables: (
   --footer-hover-color: var(--link-color),
 );
 
-@media (prefers-color-scheme: dark) {
-  $variables: (
-    /* Logo and lighter text */
-    --text-on-primary-color: hsl(95, 60%, 63%),
-    --hovered-text-on-primary-color: hsl(95, 60%, 19%),
 
-    /* Link colors */ 
-    --link-color: hsl(95, 60%, 40%),
-    --hovered-link-color: hsl(95, 60%, 20%),
-
-    /* Secondary color: the background body color */
-    --secondary-color: rgb(73, 71, 65),
-    --text-on-secondary-color: hsl(10, 24%, 50%),
-    --hovered-text-on-secondary-color: hsl(10, 33%, 51%),
-
-    /* Boxes for TOC and blog cards */
-    --box-color: hsl(43, 15%, 39%),
-
-    /* Shows where you are in the article */
-    --toc-highlight-text-color: hsl(10, 40%, 20%),
-
-    /* Footer body color */
-    --footer-color: var(--primary-color),
-    --footer-text-color: hsl(145, 10%, 90%),
-    --footer-hover-color: var(--link-color),
-  );
-}
 // Here we transfer the variables from the map to the :root element
 @if($css4) {
   :root {
