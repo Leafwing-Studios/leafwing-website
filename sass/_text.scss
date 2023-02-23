@@ -5,14 +5,14 @@
 @for $i from 1 through 3 {
   h#{$i} {
     font-family: "Oswald", sans-serif;
-    line-height: 2rem;
   }
 }
 
 // Page headings
 h1,
 .title-text {
-  font-size: 36px;
+  font-size: 2rem;
+  line-height: 2rem;
   font-weight: 800;
   margin-top: 0;
   margin-bottom: 0.5rem;
@@ -28,27 +28,25 @@ h1,
 }
 
 h2 {
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: 800;
-  margin-top: 14px;
-  margin-bottom: 14px;
+  margin: 1rem 0;
 }
 
 h3 {
-  font-size: 22px;
+  font-size: 1.35rem;
   font-weight: 800;
-  margin-top: 11px;
-  margin-bottom: 11px;
+  margin: .85rem 0;
 }
 
 
 // Main body text
 .text {
   font-family: "Raleway", sans-serif;
-  font-size: 18px;
+  font-size: 1.105rem;
   font-weight: 400;
-  line-height: 1.5rem;
-  letter-spacing: 0.2px;
+  line-height: 1.65rem;
+  letter-spacing: 0.013rem;
   color: var( --text-on-secondary-color);
 }
 
@@ -65,9 +63,9 @@ p {
 // Smaller informational text
 .subtext {
   font-family: "Raleway", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
-  letter-spacing: 0.1px;
+  letter-spacing: 0.006rem;
 }
 
 // Link style

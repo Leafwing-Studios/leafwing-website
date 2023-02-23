@@ -1,18 +1,19 @@
 @import "_colors.scss";
 
 .toc {
-	max-width: 300px;
-	min-width: 260px;
+	max-width: 18rem;
+	min-width: 16.4rem;
 }
 
 .toc-sticky {
 	border-radius: 10px;
 	border-top: 14px solid var( --primary-color);
 	background-color: var( --box-color);
-	position: sticky;  
+	position: sticky;
+	top: 0.13rem;  
 	// Ensure that there's space between TOC and text body
 	margin: 0 1rem 0 0.2rem;
-	padding: 15px 15px 2px;
+	padding: 0.9rem 0.9rem 0.13rem;
 	overflow: auto;
 }
 

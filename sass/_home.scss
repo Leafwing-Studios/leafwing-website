@@ -1,38 +1,20 @@
 .home-columns {
-	// display: flex;
+	display: flex;
 	align-items: center;
-	
 }
 
-.hero-text {
-	margin: auto;
-	padding: 1%;
-	width: 50%;
-	font-size: 22px;
-	// flex-shrink: 2;
-	padding: 1rem 1rem;
-	border-radius: 0.4rem;
-	background-color: var( --box-color);
-	color: var( --text-on-secondary-color);
+.home-text {
+	font-size: 1.3rem;
+	flex-shrink: 2;
 }
 
-.hero-image {
-	margin: auto;
-	padding: 1%;
-	width: 50%;
-}
-
-.hero-image figcaption {
-	text-align: center;
+.home-image {
+	max-width: 27rem;
 }
 
 @media screen and (max-width: 768px) {
 	.home-columns {
 		flex-wrap: wrap;
-	}
-
-	.hero-text {
-		
 	}
 
 	.home-image {
