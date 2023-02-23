@@ -60,6 +60,7 @@ then keep playing in our rogue-lite single player modes long after the rest of y
 Join our the *Fonts of Power*  [Discord](https://discord.gg/K6SSPvfkne)
 or check out the repo on [GitHub](https://github.com/leafwing-studios/fonts-of-power)
 to follow along as we turn our prototypes into a complete game!
+
 ## Open Source Contributions
 
 We believe that open source is the future of games.

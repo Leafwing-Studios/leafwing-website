@@ -57,7 +57,7 @@ I knew that it had to be on the input-mocking side: manual verification of the f
 I couldn't ship like this, but was overwhelmed and frustrated by the bug.
 I *knew* I shouldn't have been so yee-haw about the lack of tests earlier!
 
-I spent a few days ignoring the project, embarassed and annoyed.
+I spent a few days ignoring the project, embarrassed and annoyed.
 But, swallowing my pride, I decided I should ask for help,
 and asked [Brian Merchant](https://github.com/bzm3r) to pair program with me on the bug as a junior.
 
@@ -96,7 +96,7 @@ The basic data model here is:
 6. This is converted to actions via an [`InputMap`](https://docs.rs/leafwing-input-manager/latest/leafwing_input_manager/input_map/struct.InputMap.html).
 7. These actions are checked in the test again in [`ActionState`](https://docs.rs/leafwing-input-manager/latest/leafwing_input_manager/action_state/struct.ActionState.html).
 
-The failure was occuring at step 7, because that's where the assertions are,
+The failure was occurring at step 7, because that's where the assertions are,
 but I a) had a robust test suite for core `InputMap` -> `ActionState` path
 and b) had proof via manual verification that things were *kinda* working.
 
@@ -113,7 +113,7 @@ Oh. Oh. We're [not actually inserting a critical resource](https://github.com/Le
 Well, that will make it very hard to pass that test.
 
 When something strange is happening, be *sure* to check that the problem isn't in the test itself.
-Writing related tests, adding debugging tools, and good old-fasioned manual inspection can go a long way.
+Writing related tests, adding debugging tools, and good old-fashioned manual inspection can go a long way.
 
 Of course, that wasn't the last problem...
 
@@ -158,7 +158,7 @@ I can't say I'm pleased with letting that slip in, or the amount of time and fru
 **Things I did wrong:**
 
 - accepting a feature without automated tests
-- thinking that manual testing was a subistute
+- thinking that manual testing was a substitute
 - building on a feature I was suspicious of
 
 **Things I did right:**
