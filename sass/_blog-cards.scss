@@ -11,20 +11,9 @@
 	position: relative;
 
 	&:hover {
-		transform: scale(1.05);
+		background-color: var(--hovered-box-color);
 	}
 
-}
-
-// modified from https://codepen.io/MartijnCuppens/pen/YavXJQ under MIT license
-.stretched-link::after {
-	position: absolute;
-	top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-	z-index: 1;
-	content: "";
 }
 
 .top-card-row {
