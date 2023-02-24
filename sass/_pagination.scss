@@ -49,7 +49,7 @@ ul.pagination-list {
 }
 
 .pagination-link.is-current {
-	color: $hovered-link-color;
+	color: var( --hovered-link-color);
 }
 
 .pagination-ellipsis {

@@ -11,7 +11,7 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: $secondary-color;
+    background-color: var( --secondary-color);
     height: 100%;
     display: flex;
     flex-flow: column;
@@ -21,7 +21,11 @@ body {
     flex-grow: 1;
     margin: 0 auto;
     position: relative;
-    width: auto
+    width: auto;
+}
+
+.content {
+	padding: 0 0.75rem;
 }
 
 // Unordered list
@@ -47,7 +51,7 @@ figure {
     }
 
     figcaption {
-        margin-top: 10px;
+        margin-top: 0.6rem;
         text-align: center;
     }
 }
@@ -55,9 +59,8 @@ figure {
 // Main content of document
 main {
     display: flex;
-    padding-top: 30px;
-    padding-bottom: 15px;
     flex-grow: 1;
+    padding: 1rem; // per Tim's suggestion https://github.com/Leafwing-Studios/leafwing-website/pull/228
 }
 
 // Ensure footer is pushed to bottom
@@ -65,16 +68,33 @@ html {
     height: 100%;
 }
 
+._pos-rel {
+    position: relative!important;
+}
+
+// modified from https://codepen.io/MartijnCuppens/pen/YavXJQ under MIT license
+.stretched-link::after {
+	position: absolute;
+	top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+	z-index: 1;
+	content: "";
+}
+
+
 @media screen and (min-width: 1280px) {
     .content {
+        min-width: 48rem;
         max-width: 60%;
-        min-width: 800px;
     }
 }
 
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 824px) {
     header {
-        padding: 10px 30px;
+        padding: 1rem 0.3rem;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -84,14 +104,6 @@ html {
         img {
             margin: 0;
         }
-    }
-
-    main {
-        padding: 30px;
-    }
-
-    .content {
-        padding: 0;
     }
 
     .explore-more,

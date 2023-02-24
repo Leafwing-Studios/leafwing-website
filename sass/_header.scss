@@ -1,6 +1,6 @@
 // Top banner
 header {
-	background-color: $primary-color;
+	background-color: var( --primary-color);
 	padding-top: 15px;
 	padding-bottom: 15px;
 	padding-left: 0px;
@@ -14,7 +14,7 @@ header {
 .logo {
 	margin: 0 20px;
 
-	img {
+	img { 
 		height: 50px;
 		margin: 0 25px;
 	}
@@ -28,9 +28,9 @@ header {
 	font-family: "Oswald", sans-serif;
 	font-size: 24px;
 	font-weight: bold;
-	color: $text-on-primary-color;
+	color: var( --text-on-primary-color);
 
 	&:hover {
-		color: $hovered-text-on-primary-color;
+		color: var( --hovered-text-on-primary-color);
 	}
 }

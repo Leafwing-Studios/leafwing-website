@@ -11,11 +11,11 @@
 // Page headings
 h1,
 .title-text {
-  font-size: 36px;
-  line-height: 42px;
+  font-size: 2rem;
+  line-height: 2rem;
   font-weight: 800;
   margin-top: 0;
-  margin-bottom: 18px;
+  margin-bottom: 0.5rem;
 }
 
 // Controls subtitles shown on blog posts
@@ -23,33 +23,31 @@ h1,
   font-family: "Raleway", sans-serif;
   font-style: italic;
   font-size: 20px;
-  color: $text-on-secondary-color;
+  color: var( --text-on-secondary-color);
   margin-top: 0;
 }
 
 h2 {
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: 800;
-  margin-top: 14px;
-  margin-bottom: 14px;
+  margin: 1rem 0;
 }
 
 h3 {
-  font-size: 22px;
+  font-size: 1.35rem;
   font-weight: 800;
-  margin-top: 11px;
-  margin-bottom: 11px;
+  margin: .85rem 0;
 }
 
 
 // Main body text
 .text {
   font-family: "Raleway", sans-serif;
-  font-size: 18px;
+  font-size: 1.105rem;
   font-weight: 400;
-  line-height: 26px;
-  letter-spacing: 0.2px;
-  color: $text-on-secondary-color;
+  line-height: 1.65rem;
+  letter-spacing: 0.013rem;
+  color: var( --text-on-secondary-color);
 }
 
 // Call to action
@@ -65,17 +63,17 @@ p {
 // Smaller informational text
 .subtext {
   font-family: "Raleway", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
-  letter-spacing: 0.1px;
+  letter-spacing: 0.006rem;
 }
 
 // Link style
 a {
   text-decoration: none;
-  color: $link-color;
+  color: var( --link-color);
 
   &:hover {
-    color: $hovered-link-color;
+    color: var( --hovered-link-color);
   }
 }

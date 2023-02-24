@@ -6,15 +6,15 @@ footer {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: $footer-color;
-	color: $footer-text-color;
+	background-color: var( --footer-color);
+	color: var( --footer-text-color);
 
 	a {
-		color: $footer-text-color;
+		color: var( --footer-text-color);
 		text-decoration: underline;
 
 		&:hover {
-			color: $footer-hover-color;
+			color: var( --footer-hover-color);
 		}
 	}
 }

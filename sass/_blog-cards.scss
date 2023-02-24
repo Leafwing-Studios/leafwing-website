@@ -1,14 +1,19 @@
 @import "_colors.scss";
 
 .blog-card {
-	background-color: $box-color;
-	border-left: 14px solid $primary-color;
+	background-color: var( --box-color);
+	border-left: 14px solid var( --primary-color);
 	border-radius: 10px;
 	display: block;
-	padding-left: 20px;
-	padding-right: 20px;
-	margin-bottom: 30px;
+	padding: 0.2rem 1rem;
+	margin-bottom: 1.25rem;
 	flex-direction: column;
+	position: relative;
+
+	&:hover {
+		background-color: var(--hovered-box-color);
+	}
+
 }
 
 .top-card-row {
@@ -16,18 +21,20 @@
 	flex-wrap: wrap;
 	align-items: flex-start;
 	justify-content: space-between;
-	padding-top: 14px;
+	padding-top: .8rem;
 
 	h2 {
 		margin-top: 0px;
+	}
+
+	span {
+		padding-top: 0.4rem;
 	}
 }
 
 .bottom-card-row {
 	display: flex;
 	flex-wrap: wrap;
-	align-items: bottom;
 	justify-content: space-between;
-
-	column-gap: 16px;
+	column-gap: 0.4rem;
 }

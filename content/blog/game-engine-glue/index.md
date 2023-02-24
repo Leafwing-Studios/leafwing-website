@@ -84,7 +84,7 @@ past performance, as they say, is not a guarantee of future results.
 
 ## Dependencies are great, but glue code sucks
 
-Don't get me wrong: libaries rock, and dependencies are Good, Actually.
+Don't get me wrong: libraries rock, and dependencies are Good, Actually.
 Bevy has [dozens of them](https://crates.io/crates/bevy/0.7.0/dependencies), both direct and transitive!
 
 Without libraries, your velocity will crawl to a halt,
@@ -120,7 +120,7 @@ or worse, want a shiny new feature to unblock your work?
 2. You open an issue, but find that the work is blocked on a rewrite that's been ongoing for the past 18 months.
 3. You open an issue, and find that the bug is "working as intended".
 4. Your dependency has been abandoned because the solo maintainer burned out.
-5. Your dependency has been abandoned because the VC-backed company behind it was accquired.
+5. Your dependency has been abandoned because the VC-backed company behind it was acquired.
 6. You open a PR, which is promptly closed for failing to follow the coding style guide for the project.
 7. You open a PR, and it sits unreviewed.
 8. You open a PR, but the maintainer disagrees with your architectural choice. Spend 3 months in review discussions.
@@ -173,7 +173,7 @@ Who would use it, and why?
 
 Gluing libraries together doesn't help here:
 instead, it makes the problem worse.
-Every library is opinonated:
+Every library is opinionated:
 you must either write your own, or smooth over the differences.
 
 API design, [data flow], [core philosophy], [programming language]:
@@ -193,7 +193,7 @@ and throwing away all of the advantages you've gained by reusing already working
 
 You're left with two options:
 
-1. **Don't refactor for a unified UX:** Fail to accquire users, struggle to execute any grand vision, watch the tech debt pile higher.
+1. **Don't refactor for a unified UX:** Fail to acquire users, struggle to execute any grand vision, watch the tech debt pile higher.
 2. **Refactor for a unified UX:** Burn out your team, constantly break your users, frustrate investors with the lack of progress.
 
 Pick your poison.
