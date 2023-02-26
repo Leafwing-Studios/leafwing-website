@@ -18,6 +18,8 @@ build_search_index = false
 
 # Configure the link checker
 [link_checker]
+
+# Set the message for dead links to external sites as a warning, not error
 external_level = "warn"
 
 # Configuration of the Markdown rendering
