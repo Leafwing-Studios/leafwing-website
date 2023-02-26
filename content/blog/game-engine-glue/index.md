@@ -111,7 +111,7 @@ If your entire engine is glue code: guess what the vast majority of your work wi
 ## Tight cross-org coordination sucks more
 
 It gets so much worse though.
-Suppose you *need* that bug fix from your dependency,
+Suppose you *need* that bugfix from your dependency,
 or worse, want a shiny new feature to unblock your work?
 
 **Roll a d12** to determine what happens:
