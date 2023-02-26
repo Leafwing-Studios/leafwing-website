@@ -16,6 +16,10 @@ compile_sass = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
 
+# Configure the link checker
+[link_checker]
+external_level = "warn"
+
 # Configuration of the Markdown rendering
 [markdown]
 # Whether to do syntax highlighting
