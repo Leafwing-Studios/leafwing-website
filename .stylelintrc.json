@@ -2,7 +2,6 @@
     "extends": "stylelint-config-standard-scss",
     "rules": {
         "at-import-partial-leading-underscore": false,
-        "at-import-partial-extension": false,
-        "indentation": null
+        "at-import-partial-extension": false
     }
 }
