@@ -15,9 +15,9 @@
 
 {% macro render_tags(tags) %}
 <p>
-  <a class="stretched-link _pos-rel", href="/tags/" style="font-weight:bold"> Tags: </a>
+  <a class="stretched-link _posRel", href="/tags/" style="font-weight:bold"> Tags: </a>
   {% for tag in tags %}
-  <a class="stretched-link _pos-rel", href="{{ get_taxonomy_url(kind='tags', name=tag) }}">
+  <a class="stretched-link _posRel", href="{{ get_taxonomy_url(kind='tags', name=tag) }}">
     <span>{{tag}}, </span>
   </a>
   {% endfor %}

@@ -39,14 +39,14 @@ ul {
 }
 
 // List elements that are the children of an ordered list
-ul>li {
+ul > li {
     padding: 0.3rem 0;
 }
 
 // Images inside of a paragraph
 figure {
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
 
     img {
         display: block;
@@ -73,8 +73,8 @@ html {
     height: 100%;
 }
 
-._pos-rel {
-    position: relative!important;
+._posRel {
+    position: relative !important;
 }
 
 // modified from https://codepen.io/MartijnCuppens/pen/YavXJQ under MIT license
@@ -88,14 +88,12 @@ html {
 	content: "";
 }
 
-
 @media screen and (min-width: 1280px) {
     .content {
         min-width: 48rem;
         max-width: 60%;
     }
 }
-
 
 @media screen and (max-width: 824px) {
     header {
