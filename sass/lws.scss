@@ -16,7 +16,7 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: var( --secondary-color);
+    background-color: var(--secondary-color);
     height: 100%;
     display: flex;
     flex-flow: column;
@@ -73,7 +73,7 @@ html {
     height: 100%;
 }
 
-._posRel {
+.-pos-rel {
     position: relative !important;
 }
 
