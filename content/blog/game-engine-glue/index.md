@@ -37,7 +37,7 @@ and why can't we make one by slapping high-quality libraries together in a stick
 
 [Godot]: https://godotengine.org/
 [Bevy]: https://bevyengine.org/
-[Our Machinery]: https://ourmachinery.com/
+[Our Machinery]: https://web.archive.org/web/20220812130006/https://ourmachinery.com/
 [SDL2]: https://www.libsdl.org/
 [OpenGL]: https://www.opengl.org/
 [Stellaris]: https://www.paradoxinteractive.com/games/stellaris/about
@@ -111,7 +111,7 @@ If your entire engine is glue code: guess what the vast majority of your work wi
 ## Tight cross-org coordination sucks more
 
 It gets so much worse though.
-Suppose you *need* that bug fix from your dependency,
+Suppose you *need* that bugfix from your dependency,
 or worse, want a shiny new feature to unblock your work?
 
 **Roll a d12** to determine what happens:
@@ -201,7 +201,7 @@ Pick your poison.
 [Unity]: https://unity.com/
 [Unreal]: https://www.unrealengine.com/en-US
 [data flow]: https://github.com/bevyengine/bevy/tree/main/crates/bevy_ecs
-[core philosophy]: https://ourmachinery.com/post/the-anti-feature-dream/
+[core philosophy]: https://web.archive.org/web/20220726001135/https://ourmachinery.com/post/the-anti-feature-dream/
 [programming language]: https://www.rust-lang.org/
 [second 90%]: https://en.wikipedia.org/wiki/Ninety%E2%80%93ninety_rule
 

@@ -7,11 +7,16 @@
 @import "_home.scss";
 @import "_table-of-contents.scss";
 
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
 body {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
-    background-color: var( --secondary-color);
+    background-color: var(--secondary-color);
     height: 100%;
     display: flex;
     flex-flow: column;
@@ -34,14 +39,14 @@ ul {
 }
 
 // List elements that are the children of an ordered list
-ul>li {
+ul > li {
     padding: 0.3rem 0;
 }
 
 // Images inside of a paragraph
 figure {
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
 
     img {
         display: block;
@@ -60,7 +65,7 @@ figure {
 main {
     display: flex;
     flex-grow: 1;
-    padding: 1rem; // per Tim's suggestion https://github.com/Leafwing-Studios/leafwing-website/pull/228
+    padding: 1rem; // per Tim's suggestion "https://github.com/Leafwing-Studios/leafwing-website/pull/228"
 }
 
 // Ensure footer is pushed to bottom
@@ -68,8 +73,8 @@ html {
     height: 100%;
 }
 
-._pos-rel {
-    position: relative!important;
+.pos-rel {
+    position: relative !important;
 }
 
 // modified from https://codepen.io/MartijnCuppens/pen/YavXJQ under MIT license
@@ -83,14 +88,12 @@ html {
 	content: "";
 }
 
-
 @media screen and (min-width: 1280px) {
     .content {
         min-width: 48rem;
         max-width: 60%;
     }
 }
-
 
 @media screen and (max-width: 824px) {
     header {
