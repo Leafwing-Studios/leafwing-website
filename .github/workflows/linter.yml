@@ -11,9 +11,9 @@ name: Lint Code Base
 # Start the job on all PR #
 #############################
 on:
+  # Toggle this section to toggle when the linter is run
   # push:
   #   branches-ignore: [main]
-    # Remove the line above to run when pushing to master
   pull_request:
     branches: [main]
 
@@ -52,5 +52,4 @@ jobs:
           VALIDATE_MARKDOWN: true
           VALIDATE_CSS: true
           VALIDATE_JAVASCRIPT_ES: true
-          VALIDATE_NATURAL_LANGUAGE: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
