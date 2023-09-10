@@ -60,7 +60,7 @@ First, as a maintainer: every community review cuts down on the time you have to
 It's not just about the hours saved: latency in reviews is one of the biggest causes of dead PRs and contributor burnout.
 
 Next, the act of reviewing helps build skills and confidence in the *reviewers*.
-As you read more code, ask questions and critically analyze how things are done, your skills and familiarity with the code base grow rapidly.
+As you read more code, ask questions and critically analyze how things are done, your skills and familiarity with the codebase grow rapidly.
 That's how I learned most of what I know about Rust!
 
 Finally: this process builds a sense of shared ownership.
