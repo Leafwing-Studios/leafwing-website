@@ -17,7 +17,7 @@ Accordingly, if your code review process sucks, helping out your open source pro
 There's a lot of different ways it could suck, to be fair: you could be [drowning in triage and backlog hell](https://www.leafwing-studios.com/blog/triage-by-controversy/), or you could simply have a [terrible person or three](https://geekfeminism.fandom.com/wiki/Missing_stair) making everything miserable.
 
 But this post isn't about that.
-It's about the talented and principled engineers who through their well-intentioned suggestions and feedback grind contributions to a halt.
+It's about the talented and principled engineers who, through their well-intentioned suggestions and feedback, grind contributions to a halt.
 
 You see, the limiting factor in open source isn't time, and it isn't effort.
 It's "give-a-fuck".
