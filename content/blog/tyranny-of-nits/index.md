@@ -1,5 +1,5 @@
 +++
-title = "The tyranny of nits"
+title = "The Tyranny of Nits"
 description = "How open source work sputters and dies"
 date = 2023-09-23
 author = "Alice I. Cecile"
@@ -9,8 +9,8 @@ tags = ["open source", "development philosophy"]
 +++
 
 Open source software development runs on code review.
-It's a great way to transfer knowledge about what's going on and best practices,
-to align on goals and vision,
+It's a great way to transfer knowledge and best practices,
+align on goals and vision,
 and perhaps most importantly, it's one of the only tools to avoid [complete chaos](https://helixpedia.fandom.com/wiki/Twitch_Plays_Pokemon) when literally anyone could change your code.
 
 Accordingly, if your code review process sucks, helping out your open source project is going to suck.
@@ -61,7 +61,7 @@ If you want to implement *any* of these changes effectively you need automation:
 
 ## A taxonomy of code concerns
 
-Nits are in the eye of the beholder (we would make a joke here, but then [WotC](https://en.wikipedia.org/wiki/Wizards_of_the_Coast) would sue us for [trademark infringement](https://en.wikipedia.org/wiki/Beholder_(Dungeons_%26_Dragons))).
+Nits are in the eye of the beholder (ow!).
 Ultimately it comes down to the question of "what should be blocking".
 
 Let's make the **Leafwing Taxonomy of Code Concerns** (your PMs are more likely to use it if it has a fancy title).
@@ -112,7 +112,7 @@ And even [very protracted discussions](https://github.com/bevyengine/rfcs/pull/4
 But interminable debate is a huge risk factor for burnout, which often leads to no solution at all, and can even make trying to tackle the problem again radioactive.
 Your objections can be as civil, clear and reasonable as you'd like: keep at it long enough and both the author and everyone who wants this feature will hate you.
 
-So how do we keep these essential conflicts healthy for everyone involved.
+So how do we keep these essential conflicts healthy for everyone involved?
 I think there's three key elements:
 
 1. Have a process lifecycle for important changes, and don't regress without extremely good reason.
@@ -136,11 +136,11 @@ Hash it out on paper, maybe even build some prototypes if needed to test some th
 Then come together and build something, even if your preferred design didn't win.
 
 Finally, it comes to evaluating the final implementation.
-In Rust, this tends to be the stabiliation process, but in most projects, this is just PR review.
+In Rust, this tends to be the stabilization process, but in most projects, this is just PR review.
 Here, you should be focusing on clear bugs and polish problems: compromise conflicts are already hashed out and future work has already been written up as you work.
 
 The key thing to learn here is shouldn't go backwards in that process without *very* good reason, especially when a lot of effort has been invested at previous stages: it will waste time, threaten projects and burn people out like a sparkler.
-Don't, by way of hypothetical example, pick a fight in on a stabilization report (stage 3), after years of implementation work, to argue about whether the feature should exist at all (a stage 1 concern).
+Don't, by way of hypothetical example, pick a fight in a stabilization report (stage 3), after years of implementation work, to argue about whether the feature should exist at all (a stage 1 concern).
 It doesn't matter if you think you're right (or even if you *are* right): this is fundamentally damaging to the project and to the team, and that will almost certainly outweigh the delta caused by a bad decision.
 
 ## Setting the stakes: consequences and reversability
@@ -157,7 +157,7 @@ When I think about this, I use two axes:
 At Bevy, these are two of the most important factors involved in [marking a PR as Controversial](https://www.leafwing-studios.com/blog/triage-by-controversy/), forcing a higher standard of review.
 
 Obviously, these are important to consider for maintainers, when deciding whether to merge a PR or move a discussion forward.
-But they're really helpful for people in the thick of the process to consider to!
+But they're really helpful for people in the thick of the process to consider too!
 Talk about these things clearly and explicitly when you're writing up your design docs or giving feedback.
 It'll help set the stakes, get you taken more seriously, and communicate to the poor author why you're being a pain in the ass.
 
