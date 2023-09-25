@@ -75,10 +75,11 @@ If your project works like this, your project **can't make decisions about the t
 You have to keep making decisions, day after day, or your momentum will die and everything will slowly rot.
 It doesn't even matter if they're "right": the very fact that a decision was made staves off this decay.
 
-The classical solution here is to have a BDFL, or code owner, who can shut down discussion, merge PRs over objections and close issues as "not planned".
-As long as they're not overworked (never happens), things function smoothly.
+The classical solution here is to have a BDFL, or perhaps a code owner, who can shut down discussion, merge PRs over objections and close issues as "not planned".
+As long as they're not overworked (never happens), things function pretty smoothly.
 
 But that's not the only patch: delegation, binding votes or [more sophisticated consensus-based decision making processes](https://www.sociocracyforall.org/sociocracy/) all offer another way.
+Debate these and experiment: I think any of them can work just fine.
 Just don't ignore this problem!
 
 ## Nit-pick arithme-tick
