@@ -103,10 +103,12 @@ By the way, if you want to implement *any* of these changes effectively you need
 
 ## A taxonomy of code concerns
 
-Nits are in the eye of the beholder (ow!).
+But nits are in the eye of the beholder (ow!).
 Ultimately it comes down to the question of "what should be blocking".
+As the work grows in impact and scope (say, an RFC or a rewrite), more and more concerns are (justly) raised,
+and the need to distinguish between the things that matter and those that can (not should) be ignored becomes critical.
 
-Let's make the **Leafwing Taxonomy of Code Concerns** (your PMs are more likely to use it if it has a fancy title).
+To tackle this, let's invent the **Leafwing Taxonomy of Code Concerns** (your PMs are more likely to use it if it has a fancy title).
 Years of painstaking fieldwork and sample collection have led me to the identification of four categories.
 
 1. **Clear mistakes:** the code doesn't work as intended.
