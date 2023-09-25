@@ -8,7 +8,18 @@ author = "Alice I. Cecile"
 tags = ["open source", "development philosophy"]
 +++
 
-Open source software development runs on code review.
+Time and again, I've seen good open source work die, sputtering and gasping, as it's bogged down in a cacophony of complaints, and left to bit rot with no one willing to stick out their neck and say "this is good enough".
+Over time, the rotten fruits of labor pile up: your [in-flight features accumulate](https://deterministic.space/rust-2018.html) as key steps fail for nebulous reasons, and your best contributors quietly burn out, fed up with not being able to actually get things *done*.
+
+But why does this actually happen?
+No one is acting *maliciously* after all.
+How can a team of people, working towards a shared goal, screw things up in such a pervasive and predictable pattern?
+
+And that right there is the key insight: stop thinking about these problems as something that is caused by (or can be fixed by!) individual behavior.
+**Systematic problems demand systematic analysis and systematic solutions.**
+So what's the underlying system here, and how is it broken?
+
+Day-to-day, open source software development runs on code review.
 It's a great way to transfer knowledge and best practices,
 align on goals and vision,
 and perhaps most importantly, it's one of the only tools to avoid [complete chaos](https://helixpedia.fandom.com/wiki/Twitch_Plays_Pokemon) when literally anyone could change your code.
@@ -37,23 +48,53 @@ It's really tempting, and really easy, to just blame the reviewer here.
 If they just chilled, just let the nits slide, just fixed them themselves, didn't scope creep: then everything would be okay!
 
 But that's not a real solution for anyone other than "the nitpicking reviewer".
-Around here, **we believe in systematic solutions to systematic problems.**
-And if reading this post has left you with as many bitter memories of [great ideas that may never be](https://soasis.org/posts/a-mirror-for-rust-a-plan-for-generic-compile-time-introspection-in-rust/) as writing it left in me,
-you can be assured this is a systematic problem.
+Why does questionable but well-intenioned behavior quietly derail important work?
 
-## Automation for humans
+## Overruling objections: naive consensus is terrible actually
 
-Axiomatically, there are two ways to solve nitpicking in code review.
-First, reduce the amount of nits that need picking.
-Ensure that code that comes in is free of obvious trivial mistakes.
+To understand this, we need to examine the decision making process of open source projects, as they *actually* exist.
+Once a PR is opened, what happens to it?
+
+Open source projects tend to run on **naive consensus by default.**
+The operating semantics are simple:
+
+1. If everyone says "LGTM", the work gets merged.
+2. If someone reasis a concern, we wait for the author to fix it.
+3. If the author doesn't fix the concern, the PR stays open (or gets closed as stale).
+4. If the author comes back and says "that's not a problem actually", then we get orgnizational undefined behavior.
+
+We even made a [witty, heart-breaking game](
+https://leafwing-studios.itch.io/consensus-together) you can play with your friends/teammates/worst enemies, if you don't believe that naive consensus itself is at fault here.
+
+These rules make open source pretty good at saying yes to uncontroversial things,
+and extremely good at saying no to controversial things, because a conflict-driven stalemate or a timeout due to excessive revisions is still a no.
+
+But that's a *problem*: you have to be able to say yes to controversial decisions too!
+Axiomatically: to make a decision, you have to both be able to say no, and to say yes.
+If your project works like this, your project **can't make decisions about the things that matter.**
+You have to keep making decisions, day after day, or your momentum will die and everything will slowly rot.
+It doesn't even matter if they're "right": the very fact that a decision was made staves off this decay.
+
+The classical solution here is to have a BDFL, or code owner, who can shut down discussion, merge PRs over objections and close issues as "not planned".
+As long as they're not overworked (never happens), things function smoothly.
+
+But that's not the only patch: delegation, binding votes or [more sophisticated consensus-based decision making processes](https://www.sociocracyforall.org/sociocracy/) all offer another way.
+Just don't ignore this problem!
+
+## Nit-pick arithme-tick
+
+As you might guess, there are two ways to solve nitpicking in code review: reduces the nits that need to be picked, and reduce the rate at which pickable nits are picked at.
+
+The first strategy is quite effective:
+ensure that code that comes in is free of obvious trivial mistakes.
 Linters and formatters are great for that!
 
 But just as importantly: invest in paying off your tech debt and clarifying your architecture.
 If it's *obvious* how to do something, you won't have to waste everyone's time explaining that someone did something the wrong way.
 Get those eager new contributors to help, seriously.
 
-Secondly, you can reduce the maount of nits that are picked.
-I don't actually think that telling reviewers "don't worry about this stuff" is generally a useful strategy.
+On the other hand, you could try to reduce the maount of nits that are picked.
+I don't actually think that telling reviewers "don't worry about this stuff" is generally a useful strategy: it tends to breed resentment and makes them stay quiet on helpful low-cost improvements.
 Instead, get them to focus on splitting apart their "would be nice" feedback from "this must be fixed" feedback.
 
 If you want to implement *any* of these changes effectively you need automation: whether that's CI for the machines or written guidelines for humans.
@@ -160,39 +201,6 @@ Obviously, these are important to consider for maintainers, when deciding whethe
 But they're really helpful for people in the thick of the process to consider too!
 Talk about these things clearly and explicitly when you're writing up your design docs or giving feedback.
 It'll help set the stakes, get you taken more seriously, and communicate to the poor author why you're being a pain in the ass.
-
-## Overruling objections: naive consensus is terrible actually
-
-Ultimately though, we want to move proposals through that lifecycle or kill them explicitly.
-
-Instead though, these concerns, both nits and serious architectural complaints, tend to just kill momentum and the thread goes dark.
-Why?
-
-It's because your project **can't make decisions.**
-You have to keep making decisions, day after day, or your momentum will die and everything will slowly rot.
-It doesn't even matter if they're "right": the very fact that a decision was made staves off this decay.
-
-Axiomatically: to make a decision, you have to both be able to say no, and to say yes.
-Open source projects are really good at saying no because they tend to run on naive consensus by default.
-The operating semantics of open source are simple:
-
-1. If everyone says "LGTM", the work gets merged.
-2. If someone reasis a concern, we wait for the author to fix it.
-3. If the author doesn't fix the concern, the PR stays open (or gets closed as stale).
-4. If the author comes back and says "that's not a problem actually", then we get orgnizational undefined behavior.
-
-We even made a [witty, heart-breaking game](
-https://leafwing-studios.itch.io/consensus-together) you can play with your friends/teammates/worst enemies, if you don't believe that naive consensus itself is at fault here.
-
-These rules make open source pretty good at saying yes to uncontroversial things,
-and extremely good at saying no to controversial things, because a conflict-driven stalemate or a timeout due to excessive revisions is still a no.
-
-But that's a *problem*: you have to be able to say yes to controversial decisions too!
-The classical solution here is to have a BDFL, or code owner, who can shut down discussion, merge PRs over objections and close issues as "not planned".
-As long as they're not overworked (never happens), things function smoothly.
-
-But that's not the only patch: delegation, binding votes or [more sophisticated consensus-based decision making processes](https://www.sociocracyforall.org/sociocracy/) all offer another way.
-Just don't ignore this problem!
 
 ## Putting it all together
 
