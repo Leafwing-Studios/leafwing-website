@@ -112,9 +112,10 @@ To tackle this, let's invent the **Leafwing Taxonomy of Code Concerns** (your PM
 Years of painstaking fieldwork and sample collection have led me to the identification of four categories.
 
 1. **Clear mistakes:** the code doesn't work as intended.
-2. **Future work:** there's something cool that's related that we could or should do!
-3. **Polish problems:** documentation, formatting, micro-scale code quality problems.
-4. **Compromise conflict:** the change sacrifices some desirable property in favor of another one, but the reviewer doesn't agree that it's the right choice.
+2. **Architectural insights:** pointlessly inconsistent patterns, deep flaws or concerns for how this proposal will limit future work.
+3. **Future work:** there's something cool that's related that we could or should do!
+4. **Polish problems:** documentation, formatting, micro-scale code quality problems.
+5. **Compromise conflict:** the change deliberately sacrifices some desirable property in favor of another one, but the reviewer doesn't agree that it's the right choice.
 
 Which of these should be blocking?
 
@@ -122,9 +123,16 @@ Clear mistakes should be blocking: your code should work, and should have the te
 If the reviewer can produce a failing test case, and that test either wouldn't have failed before or wouldn't be more than an hour to fix, the change should be blocked until it's fixed.
 When it *can't* be, it evolves into a compromise conflict.
 
-Future work shouldn't block.
+Architectural insights by contrast should be carefully considered, but not strictly blocking.
+There may be more pressing concerns (tech debt can be useful!), a good reason for an inconsistency, or the hypothetical future work may not matter all that much.
+But the very act of discussing these things can be a great way to teach the most important and subtle lessons to newcomers,
+and generally speaking these complaints don't tend to lead to bitter fights and stalled work.
+Either the changes get made, there's an agreement on "eh it's fine actually", or the author closes the PR as something that's currently beyond them.  
+
+On the other hand, future work simply shouldn't block.
+That's the whole idea!
 Just make a follow-up issue and go talk about it over there to avoid derailing the thread.
-If you *can* make your PRs smaller: do.
+If you *can* make your PRs smaller, *do*.
 If you absolutely can't ship a "half-finished" feature to users (you probably can), then put it behind a feature flag and merge the PR anyways rather than exploding its scope.
 Merging and moving on maintains momentum and morale.
 
