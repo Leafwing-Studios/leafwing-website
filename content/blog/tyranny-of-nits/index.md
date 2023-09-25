@@ -98,7 +98,7 @@ On the other hand, you could try to reduce the maount of nits that are picked.
 I don't actually think that telling reviewers "don't worry about this stuff" is generally a useful strategy: it tends to breed resentment and makes them stay quiet on helpful low-cost improvements.
 Instead, get them to focus on splitting apart their "would be nice" feedback from "this must be fixed" feedback.
 
-If you want to implement *any* of these changes effectively you need automation: whether that's CI for the machines or written guidelines for humans.
+By the way, if you want to implement *any* of these changes effectively you need automation: whether that's CI for the machines or written guidelines for humans.
 [I gave a whole talk about this](https://www.youtube.com/watch?v=u3PJaiSpbmc): go watch it!
 
 ## A taxonomy of code concerns
