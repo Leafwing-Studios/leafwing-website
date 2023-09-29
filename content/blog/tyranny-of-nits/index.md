@@ -2,7 +2,7 @@
 title = "The Tyranny of Nits"
 description = "How open source work sputters and dies"
 date = 2023-09-23
-author = "Alice I. Cecile"
+author = "Alice I. Cecile, Rose Peck"
 
 [taxonomies]
 tags = ["open source", "development philosophy"]
