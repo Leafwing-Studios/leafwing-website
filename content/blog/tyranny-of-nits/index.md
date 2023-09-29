@@ -59,7 +59,7 @@ Open source projects tend to run on **naive consensus by default.**
 The operating semantics are simple:
 
 1. If everyone says "LGTM", the work gets merged.
-2. If someone reasis a concern, we wait for the author to fix it.
+2. If someone raises a concern, we wait for the author to fix it.
 3. If the author doesn't fix the concern, the PR stays open (or gets closed as stale).
 4. If the author comes back and says "that's not a problem actually", then we get orgnizational undefined behavior.
 
@@ -100,7 +100,7 @@ But just as importantly: invest in paying off your tech debt and clarifying your
 If it's *obvious* how to do something, you won't have to waste everyone's time explaining that someone did something the wrong way.
 Get those eager new contributors to help, seriously.
 
-On the other hand, you could try to reduce the maount of nits that are picked.
+On the other hand, you could try to reduce the amount of nits that are picked.
 I don't actually think that telling reviewers "don't worry about this stuff" is generally a useful strategy: it tends to breed resentment and makes them stay quiet on helpful low-cost improvements.
 Instead, get them to focus on splitting apart their "would be nice" feedback from "this must be fixed" feedback.
 
