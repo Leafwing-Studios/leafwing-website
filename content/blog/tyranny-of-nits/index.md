@@ -67,11 +67,11 @@ We even made a [witty, heart-breaking game](
 https://leafwing-studios.itch.io/consensus-together) you can play with your friends/teammates/worst enemies, if you don't believe that naive consensus itself is at fault here.
 
 These rules make open source pretty good at saying yes to uncontroversial things,
-and extremely good at saying no to controversial things, because a conflict-driven stalemate or a timeout due to excessive revisions is still a no.
+and extremely good at saying *no* to controversial things, because a conflict-driven stalemate or a timeout due to excessive revisions is still a no.
 
 But that's a *problem*: you have to be able to say yes to controversial decisions too!
 Axiomatically: to make a decision, you have to both be able to say no, and to say yes.
-If your project works like this, your project **can't make decisions about the things that matter.**
+If your project works as described above, your project **can't make decisions about the things that matter.**
 You have to keep making decisions, day after day, or your momentum will die and everything will slowly rot.
 It doesn't even matter if they're "right": the very fact that a decision was made staves off this decay.
 
@@ -109,7 +109,7 @@ As the work grows in impact and scope (say, an RFC or a rewrite), more and more 
 and the need to distinguish between the things that matter and those that can (not should) be ignored becomes critical.
 
 To tackle this, let's invent the **Leafwing Taxonomy of Code Concerns** (your PMs are more likely to use it if it has a fancy title).
-Years of painstaking fieldwork and sample collection have led me to the identification of four categories.
+Years of painstaking fieldwork and sample collection have led me to the identification of five categories.
 
 1. **Clear mistakes:** the code doesn't work as intended.
 2. **Architectural insights:** pointlessly inconsistent patterns, deep flaws or concerns for how this proposal will limit future work.
