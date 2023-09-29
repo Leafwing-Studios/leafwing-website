@@ -84,7 +84,7 @@ Just don't ignore this problem!
 
 ## Nit-pick arithme-tick
 
-That's all well and good, and it'll doing those things can solve a *lot* of deadlocks, 
+That's all well and good, and it'll doing those things can solve a *lot* of deadlocks,
 but it doesn't necessarily prevent cycles of endless back-and-forth with overly stringent or fussy reviewers.
 Your PR is *technically* getting a lot of activity, but it's not actually *going* anywhere.
 It's a [spirograph](https://en.wikipedia.org/wiki/Spirograph).
