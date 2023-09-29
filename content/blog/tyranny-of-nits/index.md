@@ -104,9 +104,6 @@ On the other hand, you could try to reduce the maount of nits that are picked.
 I don't actually think that telling reviewers "don't worry about this stuff" is generally a useful strategy: it tends to breed resentment and makes them stay quiet on helpful low-cost improvements.
 Instead, get them to focus on splitting apart their "would be nice" feedback from "this must be fixed" feedback.
 
-By the way, if you want to implement *any* of these changes effectively you need automation: whether that's CI for the machines or written guidelines for humans.
-[I gave a whole talk about this](https://www.youtube.com/watch?v=u3PJaiSpbmc): go watch it!
-
 ## A taxonomy of code concerns
 
 But nits are in the eye of the beholder (ow!).
@@ -155,6 +152,9 @@ But if it can't be automated, focus on maintaining a pretty lenient bar for qual
 Use Github's suggestion feature in your code reviews, or make PRs to their branch, and make it painless for the author to clean things up.
 When it comes time to merge: apply any suggestions or clean it up yourself.
 Don't let polish nits kill useful features and bug fixes!
+
+And you *will* need automation, if you want to implement *any* of these changes effectively: whether that's CI for the machines or written guidelines for humans.
+[I gave a whole talk about this](https://www.youtube.com/watch?v=u3PJaiSpbmc): go watch it!
 
 Compromise conflicts are where it gets tricky: there *is* no right answer, so it's very easy for discussion to go around in a circle rehashing disagreement until somone burns out and quits the thread or project.
 Last woman standing! Very Darwinian, but incredibly wasteful and "how far is each advocate from throwing up their hands" is a poor grounds on which to make technical decisions.
