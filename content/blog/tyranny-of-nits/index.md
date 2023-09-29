@@ -1,7 +1,7 @@
 +++
 title = "The Tyranny of Nits"
 description = "How open source work sputters and dies"
-date = 2023-09-23
+date = 2023-09-29
 author = "Alice I. Cecile, Rose Peck"
 
 [taxonomies]
