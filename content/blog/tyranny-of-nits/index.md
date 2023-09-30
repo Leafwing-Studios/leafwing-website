@@ -197,7 +197,7 @@ Finally, it comes to evaluating the final implementation.
 In Rust, this tends to be the stabilization process, but in most projects, this is just PR review.
 Here, you should be focusing on clear bugs and polish problems: compromise conflicts are already hashed out and future work has already been written up as you work.
 
-The key thing to learn here is shouldn't go backwards in that process without *very* good reason, especially when a lot of effort has been invested at previous stages: it will waste time, threaten projects and burn people out like a sparkler.
+The key thing to learn here is that you shouldn't go backwards in that process without *very* good reason, especially when a lot of effort has been invested at previous stages: it will waste time, threaten projects and burn people out like a sparkler.
 Don't, by way of hypothetical example, pick a fight in a stabilization report (stage 3), after years of implementation work, to argue about whether the feature should exist at all (a stage 1 concern).
 It doesn't matter if you think you're right (or even if you *are* right): this is fundamentally damaging to the project and to the team, and that will almost certainly outweigh the delta caused by a bad decision.
 
