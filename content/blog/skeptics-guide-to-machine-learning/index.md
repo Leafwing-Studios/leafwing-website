@@ -1,5 +1,5 @@
 +++
-title = "A skeptic's guide to adding machine learning to products"
+title = "A skeptic's guide to productionizing machine learning"
 description = "Delivering value in the face of hype"
 date = 2023-10-03
 author = "Alice I. Cecile"
@@ -15,13 +15,13 @@ Unlike [blockchain](https://web3isgoinggreat.com/), AI is definitely the future:
 Your company *can't* be left behind.
 
 Unfortunately, you work at a company that makes video games. Or meeting software. Or does consumer banking.
-You don't have any clue how to actually build "an AI", or how to integrate it into your product in a way that actually makes it better.
+You don't have any clue how to actually build "an AI" or how to integrate it into your product in a way that actually makes it better.
 
 Fortunately for you, machine learning experts at Google have developed an [excellent set of guidelines](https://developers.google.com/machine-learning/guides/rules-of-ml) that anyone can understand.
 The most important of these is sometimes called "the first law of machine learning", and it is very simple:
 **don't do machine learning.**
 
-## You're Still Here?
+## You're still here?
 
 Unfortunately, if you're still reading this post, you don't have the power to change this decree.
 Or maybe you weren't convinced, and *really* want to do machine learning anyways.
@@ -29,20 +29,22 @@ Or maybe you weren't convinced, and *really* want to do machine learning anyways
 Okay, cool.
 We can work with that.
 It may be a dumb, counterproductive choice that distracts you from solving the real problems your company is facing, but ultimately, **constraints breed creativity.**
-And machine learning is genuinely wonderful and terrible: despite the cynical tone above, I love it and think it can be used in a lot of incredible ways.
+And despite the cynical tone, machine learning is genuinely wonderful and terrible.
+I love it and think it can be used in a lot of incredible ways.
+Some of which might even make you money!
 
 ## Machine learning fundamentals
 
 If you've never been exposed to the [fundamentals of machine learning](https://hastie.su.domains/Papers/ESLII.pdf) before, there are only three key technical lessons you need to know as a PM for a machine learning team:
 
 1. **Machine learning is trained on data,** and reproduces the patterns in that data.
-2. There are four key uses of machine learning: **prediction**, **causal inference**, **generation** and **reinforcement learning.**
+2. There are four core ways to use machine learning: **prediction**, **causal inference**, **generation** and **reinforcement learning.**
 3. Machine learning is **expensive and unreliable**: only use it when you have no other choice!
 
 All of that stuff about the relative performance of [models with names from the Muppets](https://www.theverge.com/2019/12/11/20993407/ai-language-models-muppets-sesame-street-muppetware-elmo-bert-ernie), [deep learning architectures](https://journalofbigdata.springeropen.com/articles/10.1186/s40537-021-00444-8), [federated learning](https://blog.research.google/2017/04/federated-learning-collaborative.html), [representation learning](https://paperswithcode.com/task/representation-learning), [Wasserstein metrics](https://en.wikipedia.org/wiki/Wasserstein_metric) and dozens of other impressive sounding technical terms?
 Really cool, but most of it doesn't matter to you: focus on the fundamentals and you'll be able to ask your engineers the questions that matter.
 
-## Machine learning is trained on data
+## Machine learning models are trained on data
 
 Unsurprisingly, there are no little men [trapped in a box](https://en.wikipedia.org/wiki/Mechanical_Turk) drawing anime girls, making up weird factoids and writing cold intros for recruiters.
 While machine learning models may have [emergent properties](https://en.wikipedia.org/wiki/Emergence), they're not human, and modelling them as such is counterproductive.
@@ -80,7 +82,7 @@ Let's go over the broad possibilities:
    3. Traditionally the domain of statistics: use traditional methods when you can!
    4. Very hard to automatically scale: generally the impact will be in shaping decisions that you make and act on.
 3. **Generation:** create more samples that look like your training data, but different.
-   1. This is the current wave of LLM and image generation hype.
+   1. This is the current wave of LLM and image generation and voice cloning hype.
    2. Make art! Or voices! Or reams of eerily quasi-accurate text! Summarize documents!
    3. Generally requires a ton of data and expensive computation.
 4. **Reinforcement learning:** create an agent that learns and responds to a challenging or dynamic environment.
@@ -107,9 +109,9 @@ Let me prepare a short and non-exhaustive list:
 7. Deploying machine learning models in production is very complicated and flaky.
 
  Seriously: these aren't new or controversial problems.
- If you want to make a good product, machine learning should be a last resort,sprinkled in carefully to acheive things no other technique can do.
+ If you want to make a good product, machine learning should be a last resort, sprinkled in carefully to achieve things no other technique can do.
 
- But to be more optimistic, there's a whole range of possible approaches you can take, to slowly test out the technology in a lower risk way.
+ But more optimisticly, there's a whole range of possible approaches you can take, to slowly test out the technology in a lower risk way.
 
  1. Just build a simple baseline solution, that doesn't use AI.
  2. Use an interpretable statistical model. Anything from linear regression to generalized additive models works great here.
@@ -121,7 +123,7 @@ Let me prepare a short and non-exhaustive list:
  8. Invent a new model architecture, validate that it works on a [standard benchmark](https://biodatamining.biomedcentral.com/articles/10.1186/s13040-017-0154-4) or three, and then train it on your own data.
 
 Realistically, most problems only require level 1 or 2.
-But, if you use anything beyond level 2, you can honestly (grading on a curve) claim that your product is "made with AI" and "ML-powered"!
+But, if you use anything beyond level 2, you can honestly (grading on a curve, okay?) claim that your product is "made with AI" and "ML-powered"!
 The lower on this scale you stay, the easier, cheaper, faster and lower risk your project will be.
 Sure, you could probably squeeze out another 1% of performance by playing with bleeding edge model architectures.
 But is that really the thing that will help your business most?
@@ -159,4 +161,4 @@ The problems that are particularly suited to machine learning will:
 No matter how hyped AI might (or [might not](https://en.wikipedia.org/wiki/AI_winter)) be, I genuinely believe that there's real value in the technology.
 But ultimately, I don't think that most of the competetive edge comes from raw technological prowess: bigger models, better benchmarks, cheaper inference.
 Instead, like always in business, it comes down to picking the right problem and building what your users actually need.
-Hopefully, even if you don't know your f-score from your L1 norm, this was a helpful read: demystifying machine learning and helping you see how it might (and might not) actually do the things you care about.
+Hopefully, even if you don't know your f-score from your Lp norm, this was a helpful read: demystifying machine learning and helping you see how it might (and might not) help you actually do the things you care about.
