@@ -61,7 +61,7 @@ The operating semantics are simple:
 1. If everyone says "LGTM", the work gets merged.
 2. If someone raises a concern, we wait for the author to fix it.
 3. If the author doesn't fix the concern, the PR stays open (or gets closed as stale).
-4. If the author comes back and says "that's not a problem actually", then we get orgnizational undefined behavior.
+4. If the author comes back and says "that's not a problem actually", then we get organizational undefined behavior.
 
 We even made a [witty, heart-breaking game](
 https://leafwing-studios.itch.io/consensus-together) you can play with your friends/teammates/worst enemies, if you don't believe that naive consensus itself is at fault here.
@@ -84,7 +84,7 @@ Just don't ignore this problem!
 
 ## Nit-pick arithme-tick
 
-That's all well and good, and it'll doing those things can solve a *lot* of deadlocks,
+That's all well and good, and simply doing those things can solve a *lot* of deadlocks,
 but it doesn't necessarily prevent cycles of endless back-and-forth with overly stringent or fussy reviewers.
 Your PR is *technically* getting a lot of activity, but it's not actually *going* anywhere.
 It's a [spirograph](https://en.wikipedia.org/wiki/Spirograph).
