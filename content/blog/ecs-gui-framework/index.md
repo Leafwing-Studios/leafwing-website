@@ -5,7 +5,7 @@ date = 2022-11-26
 author = "Alice I. Cecile & Rose Peck"
 
 [taxonomies]
-tags = ["bevy", "bavy", "ecs", "ui"]
+tags = ["bevy", "ecs", "ui"]
 +++
 
 So you want to build a UI in Rust.
