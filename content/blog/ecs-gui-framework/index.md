@@ -319,7 +319,7 @@ Controversial tasks are ones that we have a clear understanding of and broad agr
 6. Add an [abstraction like bundles](https://github.com/bevyengine/bevy/issues/2565), but for multi-enitity hierachical assemblages.
    1. Add a `bsn!` macro to make it easier to instantiate Bevy entities and especially entity hierarchies with less boilerplate.
    2. Add a way to generate these from a struct with a derive macro.
-   3. Prior art includes [`bevy_proto`](https://docs.rs/bevy_proto/latest/bevy_proto/) and [moonshine-spawn](https://crates.io/crates/moonshine-spawn).
+   3. Prior art includes [`bevy_proto`](https://docs.rs/bevy_proto/latest/bevy_proto/), [`belly`](https://github.com/jkb0o/belly) and [`moonshine-spawn`](https://crates.io/crates/moonshine-spawn).
 7. Add ways to [interpolate colors](https://github.com/bevyengine/bevy/issues/1402) to facilitate UI animation.
 8. Create a [UI-specific transform type](https://github.com/bevyengine/bevy/issues/7876) for faster layout and a clearer, more type-safe API.
 9. Add support for blending layout strategies in a single tree to `taffy`.
