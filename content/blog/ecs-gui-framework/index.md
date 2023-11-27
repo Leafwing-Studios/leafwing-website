@@ -98,7 +98,7 @@ Some potential splits that I've seen:
 
 I'm sure you can think of more: schisms are easy and fun!
 We could [pull a Unity](https://forum.unity.com/threads/why-is-unity-creating-yet-another-ui-system.1148585/), and create multiple competing UI frameworks within Bevy!
-This would be very bad because:
+This would be [very](https://www.reddit.com/r/Unity3D/comments/no6j19/a_unity_rant_from_a_small_studio/) [bad](https://arstechnica.com/information-technology/2014/10/googles-product-strategy-make-two-of-everything/) because:
 
 1. It's very confusing for users.
 2. It splits developer attention.
@@ -113,6 +113,7 @@ We have good tools to manage this at an architectural level:
   - third-party UI libraries currently exist, and will continue to exist
 - extensibility: ensure that internals are accessible and can be built on
   - again, public components and resources are really helpful here
+  - Bevy has a [thriving ecosystem](https://bevyengine.org/assets/#ui) of third-party UI solutions: these will keep working
   - imagine a rich ecosystem of `bevy_ui` interoperable extension libraries, all of which build on our core rendering, interaction and layout paradigms
 - [progressive disclosure](https://www.uxpin.com/studio/blog/what-is-progressive-disclosure) in abstraction design
   - widgets are built out of nodes
@@ -232,7 +233,7 @@ By hooking into Bevy, a fully-featured (but not yet complete) game engine, `bevy
 
 So why is it overwhelming viewed as more Bavy than Bevy?
 [Having used](https://github.com/bevyengine/bevy/discussions/2235), worked on, and listened to users using `bevy_ui`, here are the key problems, as of Bevy 0.12.
-These are loosely ranked in order of importance.
+These are loosely ranked in order of subjective impact on user experience.
 
 1. Spawning entities with tons of custom properties requires a lot of boilerplate.
    1. Endless nesting and `..Default::default()` *everywhere*.
