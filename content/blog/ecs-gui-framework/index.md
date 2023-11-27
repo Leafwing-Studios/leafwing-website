@@ -10,24 +10,27 @@ tags = ["bevy", "ecs", "ui"]
 
 So you want to build a UI in Rust.
 What better tool than an Enity-Component-System (ECS) framework to do so?
-It'll be type-safe, trendy, and most importantly: blazing fast.
+It's a type-safe, trendy solution for state management and most importantly: it'll be blazing fast (no need for benchmarks obviously).
 
-In all seriousness Bevy is doing just this! Well, has been, for several years.
+In all seriousness [Bevy](https://bevyengine.org/) is doing just this! Well, it has been, for several years.
 Why hasn't it dominated the competition, and obsoleted [areweguiyet.rs](https://areweguiyet.com/)?
 
 Before we get too deep in the weeds, an important disclaimer.
 Alice is a maintainer of Bevy, but not the project lead or even a UI subject-matter-expert.
+Rose is an employee at [Foresight](https://www.foresightmining.com/), and uses Bevy to build GUI-heavy applications for her day job.
 **These opinions are purely our own, and are not the final or official word!**
 
 This post aims to record *how* you might make a GUI framework, *why* we're using an ECS at all, and *what* we need to fix to make `bevy_ui` genuinely good.
-There's been a lot of discussion, in far too many places, with far too little clarity.
-By writing up a comprehensive document on the requirements, vision and progress, the hope is that the Bevy community will be able to come together to make clear improvements, rule out options and propose solid designs for the critical missing pieces.
+There's been a lot of reshashed discussion, in [far](https://github.com/bevyengine/bevy/issues/254) [too](https://github.com/bevyengine/bevy/discussions/9538) [many]((https://github.com/bevyengine/bevy/discussions/5604)) [places](https://discord.com/channels/691052431525675048/743663673393938453), with far too little clarity and very little tangible movement (except [ickshonpe](https://github.com/bevyengine/bevy/pulls/ickshonpe), you rock).
+It's easy to say "`bevy_ui` should work just like my favorite UI framework", but actually turning that into a workable design that advances the state of the art and is something you can get consensus on and *build* is much harder.
 
-And who knows? Maybe a decade from now *you're* reading this post, dreaming of writing your own ECS-powered GUI framework.
+By writing up an up-to-date, comprehensive, low-buzzword document on the requirements, vision and progress, we hope that the Bevy community will be able to come together to make clear improvements, rule out options and propose solid designs for the critical missing pieces.
+
+And who knows? Maybe it's a decade later and *you're* reading this post, dreaming of writing your own ECS-powered GUI framework.
 
 ## Why not just use `egui` or `dioxus` or `tauri` or `iced` or...?
 
-There are [a lot](https://areweguiyet.com/) of Rust UI frameworks already!
+There are [a lot](https://blog.logrocket.com/state-of-rust-gui-libraries/) of Rust UI frameworks already.
 Some of them are even actively maintained, documented and basically useful!
 
 There's [good interop crates](https://github.com/mvlabat/bevy_egui) for some of them, and people have made [complex production applications](https://github.com/bevyengine/bevy/discussions/5522) using them.
@@ -37,7 +40,7 @@ Why should scarce developer efforts go to this,
 blocking critical development on the Bevy Editor?
 After all, [we could just officially partner with Dioxus](https://github.com/bevyengine/bevy/discussions/9538#discussioncomment-6984809).
 
-Here's our answer to that, which is both technical and social:
+Here's why we think we shouldn't do that, for both both technical and social reasons:
 
 1. Consistency with the rest of the engine is valuable in its own right:
    1. Better learning experience.
@@ -53,23 +56,63 @@ Here's our answer to that, which is both technical and social:
 4. None of the existing Rust GUI projects have a great answer to the fact that the borrow checker really hates graphs and split mutability.
    1. Bevy's systems are a flexible, fast, sound and flexbile solution for sharing mutable access to world state.
    2. With the addition of [relations](https://github.com/bevyengine/bevy/issues/3742), Bevy promises a uniquely powerful approach to dealing with graphs in Rust.
-5. Other projects are not run by the Bevy project.
+5. Game UI [often wants to closely integrate with game world state and have unusual artistic effects](https://forum.unity.com/threads/i-look-forward-to-a-better-ui-system.1156304/).
+6. Other projects are not run by the Bevy project.
    1. Our goals may diverge: [`egui`](https://www.egui.rs/) for example is deliberately focused on simple, quick-to-build UIs, and trades off performance and customizability to get that.
    2. Changes become harder to coordinate: migration PRs are needed, and we can't quickly add features needed by the editor.
    3. The upstream crate may become abandoned (again). If Bevy is planning to stay around for decades, will the UI solutions be there too?
    4. We can't ensure the quality of one of our critical dependencies.
-6. There is no single clear winner in this space (unlike rendering or windowing).
-7. Users who prefer these solutions can and will use them anyways.
+7. Many third-part GUI libraries suggested significantly complicate the build and distribution process, commonly by relying on C/C++ or JS dependencies.
+8. Users who prefer these solutions can and will use them anyways.
+
+An ECS-based GUI shouldn't be *impossible*: [flecs](https://www.flecs.dev/flecs/) [implements many of the key ideas in this post](https://www.flecs.dev/flecs/md_docs_FlecsScriptTutorial.html) and existing experiments like [`belly`](https://github.com/jkb0o/belly), [`bevy_lunex`](https://github.com/bytestring-net/bevy-lunex), [`bevy_ui_dsl`](https://github.com/Anti-Alias/bevy_ui_dsl), [`cuicui_layout`](https://github.com/nicopap/cuicui_layout) and [`kayak_ui`](https://github.com/StarArawn/kayak_ui) show a ton of promise using Bevy's ECS.
+There's even an independent ECS-first GUI library written in Javascript called [Polyphony](https://github.com/traffaillac/traffaillac.github.io/issues/1)!
+
+## One GUI framework to rule them all?
+
+A common thread in discussion of `bevy_ui` is "can we really meet the needs of all of our users with a single UI framework"?
+
+Some potential splits:
+
+- [people who love CSS and the web versus those that hate it](https://github.com/bevyengine/bevy/issues/254#issuecomment-850216295)
+- [application UI vs simple game UI vs complex game UI](https://github.com/bevyengine/bevy/issues/254#issuecomment-886235989)
+- [procedural programmer-friendly GUIs vs asset-driven artist-friendly GUIs](https://github.com/bevyengine/bevy/discussions/9538#discussioncomment-7388170)
+- immediate UI vs retained mode UI
+
+I'm sure you can think of more: schisms are both fun and easy!
+We could pull a Unity, and create multiple competing UI frameworks within Bevy!
+
+This would be very bad because:
+
+1. It's very confusing for users.
+2. It splits developer attention.
+3. Tradeoffs are not always clear to users choosing which solution to use.
+4. Migrating between two competing solutions is very painful.
+
+Fortunately, "navigating the needs of multiple user groups with distinct needs" is not a problem unique to UI.
+
+We have good tools to manage this at an architectural level:
+
+- modularity: ensure that users can take or leave parts of the solution that they don't like
+  - components, systems, plugins and feature flags are great for this!
+  - third-party UI libraries currently exist, and will continue to exist
+- extensibility: ensure that internals are accessible and can be built on
+  - again, public components and resources are really helpful here
+  - imagine a rich ecosystem of `bevy_ui` interoperable extension libraries, all of which build on our core rendering, interaction and layout paradigms
+- [progressive disclosure](https://www.uxpin.com/studio/blog/what-is-progressive-disclosure) in abstraction design
+  - widgets are built out of nodes
+  - nodes are just entities
+  - there's nothing stopping you from hooking in at a lower level
 
 ## The making of a GUI
 
-Unfortunately, GUI frameworks are wildly complex beasts.
+Unfortunately for us, GUI frameworks are wildly complex beasts.
 There are several parts that are so essential that without them, it's hard to argue you have a GUI framework at all:
 
 1. Storing a tree of nodes
-   1. Virtually every non-trivial UI paradigm has nested tree of elements
+   1. Virtually every non-trivial UI paradigm has one or more nested trees of elements
    2. A "node" is one of these elements: the smallest indivisible atom of UI
-   3. You need to store this data somewhere
+   3. You need to store this data somewhere!
    4. In `bevy_ui`, this is stored in the `World`: each node is an entity with the `Node` component
 2. Layout
    1. Once you have a collection of nodes, you want to be able to describe where they go on the screen.
@@ -79,8 +122,9 @@ There are several parts that are so essential that without them, it's hard to ar
    5. `morphorm` is another great choice if you're not tied to Web layout algorithms
 3. Input
    1. Collects user input in the form of keyboard presses, mouse clicks, mouse movement, touches, gamepad inputs and so on
-   2. Ideally builds some nice abstractions for this, to cover things like hovering and pressing / releasing buttons
-   3. `bevy_ui` relies on `bevy_input`, which in turn gets data from `winit` and `gilrs`
+   2. Generally paired with "picking": figure out the elements that a pointer event is associated with based on position
+   3. Ideally builds some nice abstractions for this, to cover things like hovering and pressing / releasing buttons
+   4. `bevy_ui` relies on `bevy_input`, which in turn gets data from `winit` and `gilrs`
 4. Text
    1. Converts strings into pixels that we can draw on the screen
    2. Lays out text within the bounds of the node it is contained within
@@ -95,9 +139,9 @@ There are several parts that are so essential that without them, it's hard to ar
    2. Bevy uses `bevy_render` and thus `wgpu` here
    3. If you're building your own Rust GUI framework, check out `vello`!
 7. Data binding
-   1. Transferring data to and from other data stores
-   2. In the context of Bevy, this is the ECS `World` that stores all of your game / app state
-   3. Currently, `bevy_ui` uses systems to send data back and forth from the `World`
+   1. Transferring data from the UI to other data stores and vice versa
+   2. In the context of Bevy, the "other data store" is the ECS `World` that stores all of your game / app state
+   3. Currently, `bevy_ui` uses systems to send data back and forth from the rest of the `World`
 8. State management
    1. Keeping track of the state of persistent features of your UI
    2. Filled text, radio buttons, animation progress and more
@@ -145,8 +189,12 @@ On top of this base, you might want to add:
    3. Widgets may be represented by one or more nodes
    4. The number of nodes per widget can change dynamically: think about a growing to-do list
    5. `bevy_ui` currently uses the `Bundle` type for this, but it fails badly
+7. Asynchronous tasks
+   1. Sometimes, work is triggered by the UI that will take quite a while to complete
+   2. You don't want your program to freeze while this happens!
+   3. In `bevy_ui`, this uses `bevy_tasks`
 
-## Why isn't "it's all just entities and systems" good enough?
+## Why does `bevy_ui` suck?
 
 By hooking into Bevy, a fully-featured game engine, `bevy_ui` actually has preliminary solutions to most of these problems!
 
@@ -156,38 +204,44 @@ Here are the key problems, as of Bevy 0.12.
 1. Spawning entities with tons of custom properties requires a lot of boilerplate.
    1. Endless nesting and `..Default::default()` *everywhere*.
    2. This gets so, so much worse [when working with multiple entities arranged in a tree](https://github.com/bevyengine/bevy/blob/v0.12.0/examples/ui/ui.rs).
-   3. A data-driven workflow isn't widely used, because Bevy's scenes are verbose and inadequately documented.
-2. Bevy is missing a styling abstraction.
-   1. Implementation could be done today: just modify components!
-   2. Alice wrote a very old [RFC](https://github.com/bevyengine/rfcs/pull/1) for how this might work, and viridia's [`quill`](https://github.com/viridia/quill) experiment has a great proposal too.
-3. Bevy needs a real abstraction for widgets.
+   3. A data-driven workflow isn't widely used, because Bevy's scenes are [verbose and inadequately documented](https://github.com/bevyengine/bevy/discussions/9538).
+2. Bevy needs a real abstraction for widgets.
    1. Not all widgets can be meaningfully represented as a single entity.
    2. Basic widgets are missing: we only have buttons and images.
-   3. Because we lack a standardized abstraction, even adding the simplest, most useful widgets is controversial and gets bogged down.
-4. Using systems in a schedule is not a great fit for data binding.
+   3. Because we lack a standardized abstraction, even [adding the simplest, most useful widgets is controversial and gets bogged down](https://github.com/bevyengine/bevy/pull/7116).
+3. Using systems in a schedule is not a great fit for data binding.
    1. UI behavior is almost always one-off, extremely lightweight tasks.
    2. We really want to be able to reference a single, specific entity plus its parent and children.
       1. Getting around this requires the creation of dozens and dozens of marker components: virtually one for each button.
    3. 99% of the time, these systems will be doing no work. This wastes time, as the schedule must
-5. Bevy's input handling for UI is very primitive.
+4. Managing and traversing hierarchies (up, down and sideways) in `bevy_ecs` really sucks.
+   1. [Relations](https://github.com/bevyengine/bevy/issues/3742) can't come soon enough.
+5. Bevy is missing a styling abstraction.
+   1. Implementation could be done today: just modify components!
+6. Bevy's input handling for UI is very primitive.
    1. The [`Interaction`](https://docs.rs/bevy/0.12.0/bevy/ui/enum.Interaction.html) component for dealing with pointer input [is too limited](https://github.com/bevyengine/bevy/issues/7371).
-   2. Multi-touch support for mobile is quite limited.
+   2. [Multi-touch support](https://github.com/bevyengine/bevy/issues/15) for mobile is [quite limited](https://github.com/bevyengine/bevy/issues/2333).
    3. [Keyboard and gamepad navigation](https://github.com/bevyengine/rfcs/pull/41) is currently missing.
-6. Adding non-trivial visuals to `bevy_ui` is too hard.
+   4. There is no first party support for an [action abstraction](https://github.com/leafwing-studios/leafwing-input-manager) for configurable keybindings.
+   5. Bevy's picking support is very simplistic, and isn't easily extended to non-rectangular elements or those in world-space.
+7. Adding non-trivial visuals to `bevy_ui` is too hard.
    1. We're missing [rounded corners](https://github.com/bevyengine/bevy/pull/8973): essential for good-looking code-defined UI.
    2. We're missing [nine-patch support](https://github.com/bevyengine/bevy/pull/10588): essential for good-looking but flexible asset-defined UI.
    3. Until Bevy 0.12's UI materials, there was no escape hatch that let you add your own rendering abstractions within `bevy_ui`.
-7. Font rendering in `bevy_ui` is sometimes remarkably ugly, due to a [just fixed bug](https://github.com/bevyengine/bevy/pull/10537).
-8. [World-space UI](https://github.com/bevyengine/bevy/issues/5476) is very poorly supported, and uses an [entirely different set of tools](https://github.com/bevyengine/bevy/blob/v0.12.0/examples/2d/text2d.rs).
+8. Font rendering in `bevy_ui` is sometimes remarkably ugly, due to a [just fixed bug](https://github.com/bevyengine/bevy/pull/10537).
+9. [World-space UI](https://github.com/bevyengine/bevy/issues/5476) is very poorly supported, and uses an [entirely different set of tools](https://github.com/bevyengine/bevy/blob/v0.12.0/examples/2d/text2d.rs).
    1. This is essential for games (healthbars, unit frames), but is also really useful for things like markers and labels in GIS or CAD applications.
-9. Managing and traversing hierarchies (up, down and sideways) in `bevy_ecs` really sucks.
-   1. [Relations](https://github.com/bevyengine/bevy/issues/3742) can't come soon enough.
 10. `bevy_ui` has no first-class animation support.
 11. `bevy_ui` nodes all have `Transform` and `GlobalTransform` components, but you're not allowed to touch them.
 12. Building UIs in pure code or by typing out a scene file is painful and error-prone: a visual editor would be great.
+13. The ergonomics of working with async tasks in Bevy is not good.
+14. Flexbox (and to a much lesser extent CSS Grid) are [hard to learn and have frustrating edge cases and a terrible API](https://elk.zone/mastodon.gamedev.place/@alice_i_cecile/111349519044271857).
 
-Of these problems, 3, 4 and 9 are the most challenging to solve in the context of using an ECS to build a GUI framework.
-However, we don't think they're unsolvable!
+Of these problems, only 1 (ECS boilerplate), 2 (widget abstraction), 3 (systems are not a good fit for callbacks) and 4 (hierarchy pain) are caused by our choice to use an ECS architecture.
+And critically, *every single one of those problems* is something that Bevy should fix for other use cases.
+There's no impedance mismatch or architectural incompatibility beween ECS and GUIs: `bevy_ecs` (and `bevy_scene`) [simply aren't good enough yet](https://elk.zone/mastodon.gamedev.place/@alice_i_cecile/111349511360164259).
+
+The rest of these problems are bog-standard GUI problems: they need to be solved no matter what paradigm you're using.
 
 ## The path forward for `bevy_ui`
 
@@ -209,35 +263,51 @@ Currently these include:
 6. Add support for [world-space UI](https://github.com/bevyengine/bevy/issues/5476), beginning by reviewing and merging the [Camera-driven UI PR](https://github.com/bevyengine/bevy/pull/10559).
 7. Add support for varying [UI opacity](https://github.com/bevyengine/bevy/issues/6956).
 8. Add more documentation, examples and tests to `bevy_scene` to make it easier to extend and learn.
-9. Add better examples and functionality for working with multitouch input in Bevy.
-10. Add dozens of widgets (blocked on a good widget abstraction).
+9. Add better examples and functionality for [working with multitouch input](https://github.com/bevyengine/bevy/issues/15) in Bevy.
+10. Improve the ergonomics of working with async tasks in Bevy.
+11. Add a [Morphorm](https://github.com/DioxusLabs/taffy/issues/308) and/or [`cuicui_layout`](https://cuicui.nicopap.ch/layout/index.html) layout strategy to `taffy`, and expose it in Bevy.
+12. Add dozens of widgets (blocked on consensus around a good widget abstraction).
 
 Controversial tasks are ones that we have a clear understanding of and broad agreement on, but have significant architectural implications and tradeoffs:
 
 1. Create a styling abstraction, which works by modifying component values.
+   1. Alice wrote a very old [RFC](https://github.com/bevyengine/rfcs/pull/1) for how this might work, [`bevy_kot`](https://github.com/UkoeHB/bevy_kot) has a style cascading approach, and viridia's [`quill`](https://github.com/viridia/quill) experiment has a great proposal too.
 2. Upstream [bevy_fluent](https://github.com/kgv/bevy_fluent), taking it under the wings of the Bevy project for long term maintenance.
 3. Add support for [keyboard and gamepad navigation](https://github.com/bevyengine/rfcs/pull/41), and integrate it into `bevy_a11y`
-4. Add a [proper abstraction for how to handle pointer events and states](https://github.com/bevyengine/bevy/issues/7371)
-5. Refine and implement [Cart's `bsn` proposal](https://github.com/bevyengine/bevy/discussions/9538) to improve the usability of scenes
-6. Add an [abstraction like bundles](https://github.com/bevyengine/bevy/issues/2565), but for multi-enitity hierachical assemblages
-   1. Add a `bsn!` macro to make it easier to instantiate Bevy entities and especially entity hierarchies with less boilerplate
-   2. Add a way to generate these from a struct with a derive macro
-   3. Prior art includes [`bevy_proto`](https://docs.rs/bevy_proto/latest/bevy_proto/) and [moonshine-spawn](https://crates.io/crates/moonshine-spawn)
-7. Add ways to [interpolate colors](https://github.com/bevyengine/bevy/issues/1402), to facilitate UI animation
-8. Create a [UI-specific transform type](https://github.com/bevyengine/bevy/issues/7876) for faster layout and a clearer, more type-safe API
-9. Implement [relations](https://github.com/bevyengine/bevy/issues/3742), and use them inside of `bevy_ui`
+4. Add a [proper abstraction for how to handle pointer events and states](https://github.com/bevyengine/bevy/issues/7371).
+5. Refine and implement [Cart's `bsn` proposal](https://github.com/bevyengine/bevy/discussions/9538) to improve the usability of scenes.
+   1. This is inspired by and closely related to existing work, like [`cuicui_`]
+6. Add an [abstraction like bundles](https://github.com/bevyengine/bevy/issues/2565), but for multi-enitity hierachical assemblages.
+   1. Add a `bsn!` macro to make it easier to instantiate Bevy entities and especially entity hierarchies with less boilerplate.
+   2. Add a way to generate these from a struct with a derive macro.
+   3. Prior art includes [`bevy_proto`](https://docs.rs/bevy_proto/latest/bevy_proto/) and [moonshine-spawn](https://crates.io/crates/moonshine-spawn).
+7. Add ways to [interpolate colors](https://github.com/bevyengine/bevy/issues/1402) to facilitate UI animation.
+8. Create a [UI-specific transform type](https://github.com/bevyengine/bevy/issues/7876) for faster layout and a clearer, more type-safe API.
+9. Add support for blending layout strategies in a single tree to `taffy`.
+10. Add support for easing/tweening for animations, following [`bevy_easings`](https://github.com/vleue/bevy_easings) and [`bevy_tweening`](https://github.com/djeedai/bevy_tweening).
+11. Upstream [`leafwing-input-manager`](https://github.com/leafwing-studios/leafwing-input-manager) to create a keybinding abstraction.
+12. Upstream [`bevy_mod_picking`](https://github.com/aevyrie/bevy_mod_picking) to unlock high performance, flexible element selection.
+13. Implement [relations](https://github.com/bevyengine/bevy/issues/3742), and use them inside of `bevy_ui`.
 
-Research tasks are areas that will require significant design expertise, and may not have clear requirements:
+Research tasks will require significant design expertise, careful consideration of wildly different proposals and may not have clear requirements:
 
-1. Define a standard widget abstraction. This should be:
-   1. composable
-   2. flexible
-   3. May map to one Bevy entity or many, in a way that is dynamically updated using ordinary systems
-   4. Serializable to and from Bevy scenes
-2. figure out how we want to handle UI behavior and data binding to avoid the problems involved with just using systems
-   1. Callbacks, event-bubbling and various reactive UI experiments are all promising
+1. Define and implement a [standard widget abstraction](https://github.com/bevyengine/bevy/discussions/5604). This should be:
+   1. Composable: widgets can be combined with other widgets to create a new widget type
+   2. Flexible: we should be able to support everything from a button to a list to a tab view using this abstraction
+   3. Configurable: users can change important properties of how a widget works without having to make their own type
+   4. May map to one Bevy entity or many, in a way that is dynamically updated using ordinary systems
+   5. Serializable to and from Bevy scenes
+2. Figure out how we want to handle UI behavior (and data binding) to avoid the problems involved with just using systems
+   1. This was Alice's original motivation behind creating [one shot systems](https://github.com/bevyengine/bevy/blob/v0.12.0/examples/ecs/one_shot_systems.rs)
+   2. [Event bubbling](https://github.com/aevyrie/bevy_eventlistener) and [various](https://github.com/viridia/quill) [sundry](https://github.com/UkoeHB/bevy_kot) and[assorted](https://crates.io/crates/futures-signals) [reactive](https://github.com/aevyrie/bevy_rx) [UI](https://github.com/TheRawMeatball/ui4) experiments seem like interesting potential tools.
+   3. [Raph Levien's post on Xilem](https://raphlinus.github.io/rust/gui/2022/05/07/ui-architecture.html) is an interesting read, although not always directly applicable
+   4. Data model is the key challenge here: it's very easy to get into trouble with ownership
 3. Figure out how to integrate data binding logic into Bevy scenes
-   1. The [`Callback` as `Asset` PR is quite promising here](https://github.com/bevyengine/bevy/pull/10711)
-4. Build the Bevy Editor, and add support for building GUI scenes using it
+   1. The [`Callback` as `Asset` PR](https://github.com/bevyengine/bevy/pull/10711) looks quite promising
+   2. [Vultix proposed](https://github.com/bevyengine/bevy/discussions/9538#discussioncomment-7667372) a syntax and strategy for defining this with `.bsn` files.
+4. Build the [Bevy Editor](https://github.com/orgs/bevyengine/projects/12), and add support for building GUI scenes using it
+   1. There's something of a circular dependency here: the better `bevy_ui` is, the easier this is to build
 
-Easy!
+Obviously, there's a ton of work to be done!
+But critically, none of it is *impossible*.
+If we (as the Bevy developer community) can come together, and steadily fix these problems, one at a time, we (Alice and Rose) genuinely think `bevy_ui` will one day live up to the standard for quality, flexibility and ergonomics that we expect out of the rest of the engine.
