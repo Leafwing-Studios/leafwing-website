@@ -85,7 +85,7 @@ Here's why we think Bevy shouldn't do that, for both technical and social reason
    1. There's a lot of passable options, but they all have non-trivial drawbacks. No one has really risen to the top as a clear winner.
    2. There's a reason that [areweguiyet.rs](https://areweguiyet.com/) says "the roots aren't deep but the seeds are planted".
    3. Deep down, we all know that we can do better, and we *should*.
-9.  Users who prefer third-party GUI solutions can and will use them anyways.
+9. Users who prefer third-party GUI solutions can and will use them anyways.
 
 Will we learn from other GUI frameworks? Absolutely.
 Will we adopt them officially wholesale? Absolutely not.
@@ -116,9 +116,9 @@ Fortunately, "navigating the requirements of multiple user groups with distinct 
 We have good tools to manage this at an architectural level:
 
 - This problem is hypothetical and has literally already been solved on the web.
-   - We're not going to argue that web UI is the greatest UI solution ever created (it has many flaws, both obvious and not).
-   - But people have successfully built virtually any kind of UI you can think of using HTML/CSS/JavaScript: web pages, code editors, games (both in the browser and standalone), CAD applications, terminals, and so on. There's a common joke about how "everything is chrome in the future" (Thanks [Electron](https://www.electronjs.org/))
-   - And in case it needs saying, the web UI stack was *not* designed for most of these use cases. Arguably, it wasn't designed for any of them!
+  - We're not going to argue that web UI is the greatest UI solution ever created (it has many flaws, both obvious and not).
+  - But people have successfully built virtually any kind of UI you can think of using HTML/CSS/JavaScript: web pages, code editors, games (both in the browser and standalone), CAD applications, terminals, and so on. There's a common joke about how "everything is chrome in the future" (Thanks [Electron](https://www.electronjs.org/))
+  - And in case it needs saying, the web UI stack was *not* designed for most of these use cases. Arguably, it wasn't designed for any of them!
 - Modularity: ensure that users can take or leave parts of the solution that they don't like.
   - Components, systems, plugins and feature flags are great for this!
   - Third-party UI libraries currently exist, and will continue to exist.
@@ -144,42 +144,42 @@ There are several parts that are so essential that their removal cripples the en
 1. Storing a tree of nodes
    1. Virtually every non-trivial UI paradigm has one or more nested trees of elements
    2. A "node" is one of these elements: the smallest indivisible atom of UI
-   4. You need to store this data somewhere!
-   5. In `bevy_ui`, this is stored in the `World`: each node is an entity with the `Node` component
-   6. UI entities are joined together with using the `Parent` and `Children` components
+   3. You need to store this data somewhere!
+   4. In `bevy_ui`, this is stored in the `World`: each node is an entity with the `Node` component
+   5. UI entities are joined together with using the `Parent` and `Children` components
 2. Layout
    1. Once you have a collection of nodes, you want to be able to describe where they go on the screen.
    2. Simply specifying absolute size and position is not very robust: it breaks when nodes are added / removed, or when screen size changes.
    3. In `bevy_ui`, this is specified via the `Style` component (blame CSS for the name, sorry).
    4. `bevy_ui` uses `taffy` (which Alice helps maintain!): it supports `flexbox` and `css-grid`
    5. `morphorm` is (in our opinion) simply a better choice if you're not tied to Web layout algorithms
-4. Input
+3. Input
    1. Collecting user input in the form of keyboard presses, mouse clicks, mouse movement, touchscreen taps, gamepad inputs and so on
    2. Generally paired with "picking": figure out the elements that a pointer event is associated with based on position
    3. Ideally build some nice abstractions for this, to cover things like hovering and pressing, releasing, and long-pressing buttons
    4. `bevy_ui` relies on `bevy_input`, which in turn gets data from `winit` and `gilrs`
-5. Text
+4. Text
    1. Converts strings into pixels that we can draw on the screen
    2. Lays out text within the bounds of the node it is contained within
    3. The exact pixels matter for rendering, but the size is important as an input for node layout
    4. `bevy_ui` currently uses `fontbrush`
    5. `cosmic-text` has much better shaping support for non-Latin scripts
-6. Window management
+5. Window management
    1. Actually creating a window (or three) to draw your UI in
    2. `bevy` uses `winit`, and you should too!
-7. Rendering
+6. Rendering
    1. Taking the elements of your UI, and drawing them to a user's screen
    2. Bevy uses `bevy_render` and thus `wgpu` here
    3. If you're building your own Rust GUI framework, check out `vello`!
-8. State management
+7. State management
    1. Keeping track of the state of persistent features of your UI
    2. Filled text, radio buttons, animation progress, whether menus are open or closed, dark/light mode, etc.
    3. In `bevy_ui`, state is stored as components on entities (or rarely, as global resources). This works extremely well!
-9.  Data transfer
-   1. Transferring data from the UI to other data stores and vice versa
-   2. In the context of Bevy, the "other data store" is the ECS `World` that stores all of your game / app state
-   3. Data binding is an abstraction used to automate this process: automatically and granularly transmitting changes
-   4. Currently, `bevy_ui` uses systems to send data back and forth from the rest of the `World`
+8. Data transfer
+    1. Transferring data from the UI to other data stores and vice versa
+    2. In the context of Bevy, the "other data store" is the ECS `World` that stores all of your game / app state
+    3. Data binding is an abstraction used to automate this process: automatically and granularly transmitting changes
+    4. Currently, `bevy_ui` uses systems to send data back and forth from the rest of the `World`
 
 On top of this base, you likely want to add:
 
@@ -216,7 +216,7 @@ On top of this base, you likely want to add:
    2. Generally hooks into keyboard navigation
    3. This API is used by tools like screen readers, which present an alternative user interface that meets the needs of disabled users
    4. `bevy_a11y` hooks into `accesskit`, and your GUI framework should too
-   5.  There's a lot to potentially talk about with accessability that we unfortunately don't have the word count to do here
+   5. There's a lot to potentially talk about with accessability that we unfortunately don't have the word count to do here
 6. Localization
    1. There is more than one language: you need a way to swap out elements of your UI (especially text) to meet the needs of users who prefer a different language
    2. Some languages are read right-to-left instead of left-to-right, and often certain UI designs will end up backwards if this isn't taken into account
@@ -235,20 +235,20 @@ On top of this base, you likely want to add:
    2. This is extremely useful for catching bugs and twiddling styles
    3. `bevy_ui` has no solution for this, but `bevy_inspector_egui` is great
 10. UI serialization (in-memory object to file) and deserialization (file to in-memory object)
-   1. If we can build our UIs based on a definition stored in a file, we can:
-      1. Make it way easier for external tools (like a game editor) to build UIs
-      2. Make the UIs easier for end users to customize (think Greasemonkey and game mods)
-      3. Makes it easier to build debug tools
-      4. Reduce time spent compiling: just hot-reload the asset
-      5. Allows full control over the format and syntax used to define objects
-      6. Offers the potential for better, modular tooling to create [higher level abstractions](https://github.com/bevyengine/bevy/issues/3877) and automated migrations without modifying source code
-   2. In games, this is called a "data-driven" approach
-   3. `bevy_ui` currently uses scenes (from `bevy_scene`) for this
-   4. Cart, Bevy's project lead, is working on a [revamp of scenes](https://github.com/bevyengine/bevy/discussions/9538) with the `bsn` file format, targeted at this use case.
+    1. If we can build our UIs based on a definition stored in a file, we can:
+        1. Make it way easier for external tools (like a game editor) to build UIs
+        2. Make the UIs easier for end users to customize (think Greasemonkey and game mods)
+        3. Makes it easier to build debug tools
+        4. Reduce time spent compiling: just hot-reload the asset
+        5. Allows full control over the format and syntax used to define objects
+        6. Offers the potential for better, modular tooling to create [higher level abstractions](https://github.com/bevyengine/bevy/issues/3877) and automated migrations without modifying source code
+    2. In games, this is called a "data-driven" approach
+    3. `bevy_ui` currently uses scenes (from `bevy_scene`) for this
+    4. Cart, Bevy's project lead, is working on a [revamp of scenes](https://github.com/bevyengine/bevy/discussions/9538) with the `bsn` file format, targeted at this use case.
 11. Asynchronous tasks
-   1. Sometimes, work is triggered by the UI that will take quite a while to complete
-   2. You don't want your program to freeze while this happens!
-   3. In `bevy_ui`, this uses `bevy_tasks`
+    1. Sometimes, work is triggered by the UI that will take quite a while to complete
+    2. You don't want your program to freeze while this happens!
+    3. In `bevy_ui`, this uses `bevy_tasks`
 
 ## Why does `bevy_ui` suck?
 
