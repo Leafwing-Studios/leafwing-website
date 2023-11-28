@@ -1,7 +1,7 @@
 +++
 title = "So you want to build an ECS-backed GUI framework"
 description = "Challenges and opportunities in the future of `bevy_ui`"
-date = 2022-11-27
+date = 2023-11-27
 author = "Alice I. Cecile, Rose Peck"
 
 [taxonomies]
