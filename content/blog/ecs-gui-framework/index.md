@@ -174,7 +174,7 @@ There are several parts that are so essential that their removal cripples the en
 8. State management
    1. Keeping track of the state of persistent features of your UI
    2. Filled text, radio buttons, animation progress, whether menus are open or closed, dark/light mode, etc.
-   3. In `bevy_ui`, state is stored as components on entities (or rarely, as global resources)
+   3. In `bevy_ui`, state is stored as components on entities (or rarely, as global resources). This works extremely well!
 9.  Data transfer
    1. Transferring data from the UI to other data stores and vice versa
    2. In the context of Bevy, the "other data store" is the ECS `World` that stores all of your game / app state
@@ -311,7 +311,7 @@ There's no fundamental impedance mismatch or architectural incompatibility bewee
 ## The path forward for `bevy_ui`
 
 There is a long path to making `bevy_ui` genuinely great, but we can walk it one step at a time.
-There are some big open questions still, and upcoming rewrites to core components, but that *doesn't* mean that all of `bevy_ui` is going to be burnt to the ground.
+There are some big open questions still, and upcoming rewrites to core components, but that *doesn't* mean that all of `bevy_ui` is going to be burned to the ground.
 GUI frameworks involve a large number of complex, mostly independent subcomponents: improvements in one area will not be invalidated by a rewrite in others!
 
 We can split the work to be done into three categories: **straightforward**, **controversial** and **research**.
@@ -375,4 +375,4 @@ Research tasks will require significant design expertise, careful consideration 
 
 Obviously, there's a ton of work to be done!
 But critically, none of it is *impossible*.
-If we (as the Bevy developer community) can come together, and steadily fix these problems, one at a time, we (Alice and Rose) genuinely think `bevy_ui` will one day live up to the standard for quality, flexibility and ergonomics that we expect out of the rest of the engine.
+If we (the Bevy developer community) can come together and steadily fix these problems, one at a time, we (Alice and Rose) genuinely think `bevy_ui` will one day live up to the standard for quality, flexibility and ergonomics that we expect out of the rest of the engine.
