@@ -2,14 +2,14 @@
 title = "So you want to build an ECS-backed GUI framework"
 description = "Challenges and opportunities in the future of `bevy_ui`"
 date = 2022-11-26
-author = "Alice I. Cecile & Rose Peck"
+author = "Alice I. Cecile, Rose Peck"
 
 [taxonomies]
 tags = ["bevy", "ecs", "ui"]
 +++
 
 So you want to build a UI in Rust.
-What better tool than an Enity-Component-System (ECS) framework to do so?
+What better tool than an [Enity-Component-System (ECS)](https://en.wikipedia.org/wiki/Entity_component_system) framework to do so?
 It's a type-safe, trendy solution for state management and most importantly: it'll be blazing fast (no need for benchmarks obviously).
 
 Well, [Bevy](https://bevyengine.org/) is doing just this! Actually, it has been, for several years.
@@ -20,67 +20,72 @@ While an ECS-based GUI may be unconventional, there's prior art showing it's not
 There's even an independent ECS-first GUI library written in Javascript called [Polyphony](https://github.com/traffaillac/traffaillac.github.io/issues/1)!
 
 It turns out, most of the problems that plague `bevy_ui` *aren't* driven by the decision to use an ECS, or even to use Rust.
-They're the boring, tedious and frustrating ones: writing GUI frameworks is a lot of work with many moving parts, and the bugs, boilerplate and missing features crushes any will for users and devs to actually make things better incrementally.
+They're the boring, tedious and frustrating ones: writing GUI frameworks is a lot of work with many moving parts.
+Bugs, boilerplate, and missing features crush the will of both users and devs to actually make things better incrementally.
 
-Before we get too deep in the weeds, an important disclaimer.
+But before we get too deep in the weeds, an important disclaimer.
 Alice is a maintainer of Bevy, but not the project lead or even a UI subject-matter-expert.
-Rose is an employee at [Foresight](https://www.foresightmining.com/), and uses Bevy to build GUI-heavy applications for her day job.
+Rose is an employee at the [Foresight Spatial Labs](https://www.foresightmining.com/), and uses both Bevy and traditional web frameworks (React) to build GUI-heavy applications for her day job.
 **These opinions are purely our own, and are not the final or official word!**
 
 This post aims to record *how* you might make a GUI framework, *why* we're using an ECS at all, and *what* we need to fix to make `bevy_ui` genuinely good.
 There's been a lot of reshashed discussion, in [far](https://github.com/bevyengine/bevy/issues/254) [too](https://github.com/bevyengine/bevy/discussions/9538) [many]((https://github.com/bevyengine/bevy/discussions/5604)) [places](https://discord.com/channels/691052431525675048/743663673393938453), but very little tangible movement (except [ickshonpe](https://github.com/bevyengine/bevy/pulls/ickshonpe), you rock).
 It's easy to say "`bevy_ui` should work just like my favorite UI framework", but actually turning that into a workable design, getting consensus, and *building* it is much harder.
 
-By writing up an up-to-date, comprehensive, low-buzzword document on the requirements, vision and progress, we hope that the Bevy community will be able to come together to fix the problems `bevy_ui` has today, conclusively rule out possibilities and propose solid designs for the critical missing pieces.
+By writing an up-to-date, comprehensive, low-buzzword document on the requirements, vision and progress, we hope that the Bevy community will be able to come together to fix the problems `bevy_ui` has today, conclusively rule out possibilities and propose solid designs for the critical missing pieces.
 
 And who knows? Maybe it's a decade later and *you're* reading this post, dreaming of writing your own ECS-powered GUI framework.
 
-## Why not just use `egui` or `dioxus` or `tauri` or `iced` or...?
-
 In my very weary experience, there are three common ways that conversations about `bevy_ui` get derailed:
 
-1. You can't build a GUI framework in the ECS.
-2. Bevy should just use an existing GUI framework.
-3. A single GUI framework that works for both games and applications is impossible.
+1. Bevy should just use an existing GUI framework.
+2. A single GUI framework that works for both games and applications is impossible.
+3. You can't build a GUI framework in the ECS.
 
-Before we dive into that first question, let's talk about the latter two.
+## Why not just use `egui`? (or `dioxus` or `tauri` or `iced` or...?)
 
 There are [a lot](https://blog.logrocket.com/state-of-rust-gui-libraries/) of Rust UI frameworks already.
-Some of them are even actively maintained, documented and basically useful!
+Some of them are even actively maintained, documented and basically functional!
 
-The community has made [good interop crates](https://github.com/mvlabat/bevy_egui) for some of them, and companies have even made [complex production applications](https://github.com/bevyengine/bevy/discussions/5522) using these third-party GUI frameworks.
+The community has made [great interop crates](https://github.com/mvlabat/bevy_egui) for some of them, and companies like Foresight have even made [complex production applications](https://github.com/bevyengine/bevy/discussions/5522) using these third-party GUI frameworks.
 
 Bevy trying to write our own must be a critical case of Not Invented Here syndrome.
 Why should scarce energy (and decision-making) go towards this,
-blocking development on the critical Bevy Editor?
-After all, [we could just officially partner with Dioxus](https://github.com/bevyengine/bevy/discussions/9538#discussioncomment-6984809).
+when we could instead write the upcoming Bevy Editor using an existing solution?
+After all, [we could just officially partner with Dioxus](https://github.com/bevyengine/bevy/discussions/9538#discussioncomment-6984809) and skip years of work.
 
-Here's why we think we shouldn't do that, for both both technical and social reasons:
+Here's why we think Bevy shouldn't do that, for both technical and social reasons:
 
 1. Consistency with the rest of the engine is valuable in its own right.
-   1. Better learning experience.
-   2. Easier maintenance.
-   3. Improvements made to other areas of the engine benefit UI, and vice versa. Cart believes that many of the challenges are not unique to UI, and so do we!
+   1. It makes for an easier and more consistent learning experience for new users.
+   2. It makes the system easier to maintain.
+   3. It keeps all the changes in the same repository, eliminating the need for carefully coordinated releases down the dependency tree.
+   4. Improvements made to other areas of the engine benefit UI, and vice versa. Cart believes that many of the challenges are not unique to UI, and we agree!
 2. Bevy already has a good solution to *many* of the core tasks that a GUI library needs to do.
    1. Rendering, state management, assets, inputs, windowing, async...
    2. Why should we pull in duplicate, subtly incompatible ways to do these tasks?
 3. Sending data to and from an external UI framework is inherently error-prone, complex, hard to maintain and heavy on boilerplate.
    1. There's an inescapable floor due to the need for an integration layer and mismatched data models.
-   2. This isn't unique to UI: `bevy_rapier` runs into the same problems with physics.
+   2. This isn't unique to UI: `bevy_rapier` runs into similar problems with physics (although it is still an excellent library).
 4. Breaking out of the standard "boxes on a screen" design for UI becomes much harder.
-   1. Game UI [often wants to closely integrate with game world state and have unusual artistic effects](https://forum.unity.com/threads/i-look-forward-to-a-better-ui-system.1156304/).
-   2. World-space UI is a key feature for games: unit overlays, VR menus, diagetic computer screens...
+   1. World-space UI is a key feature for games: unit overlays, VR menus, diagetic computer screens...
+   2. Game UI [often wants to closely integrate with game world state and have unusual artistic effects](https://forum.unity.com/threads/i-look-forward-to-a-better-ui-system.1156304/).
    3. Writing custom shaders to overwrite the behavior of some nodes is dramatically harder with a third-party solution.
 5. None of the existing Rust GUI projects have a great answer to the fact that the borrow checker really hates graphs and really hates split mutability.
    1. With the addition of [relations](https://github.com/bevyengine/bevy/issues/3742), Bevy promises a uniquely powerful approach to dealing with graphs in Rust.
-   2. Bevy's systems are a flexible, fast, sound and flexbile solution for sharing mutable access to world state.
+   2. Bevy's systems are a flexible, panic-free, fast, and sound solution for sharing mutable access to world state. There's a lot of black magic under the hood powering this, and dear god do we not want to write it twice.
 6. Other projects are not run by the Bevy project.
    1. Our goals may diverge: [`egui`](https://www.egui.rs/) for example is deliberately focused on simple, quick-to-build UIs, and trades off performance and customizability to get that.
    2. Changes become harder to coordinate: migration PRs are needed, and we can't quickly add features needed by the editor.
    3. The upstream crate may become abandoned (again). If Bevy is planning to stay around for decades, will the UI solutions be there too?
    4. We can't ensure the quality of one of our critical dependencies.
-7. Many third-part GUI libraries suggested significantly complicate the build and distribution process, commonly by relying on C/C++ or JS dependencies.
-8. Users who prefer third-party GUI solutions can and will use them anyways.
+   5. It puts a lot of maintainership pressure on smaller third-party dependencies to have such a large client making requests of them.
+7. Many of the commonly suggested third-party GUI libraries significantly complicate Bevy's build and distribution process, commonly by relying on C, C++, or JavaScript dependencies.
+8. Not to be too harsh, but a lot of the existing Rust GUI solutions... just aren't very good.
+   1. There's a lot of passable options, but they all have non-trivial drawbacks. No one has really risen to the top as a clear winner.
+   2. There's a reason that [areweguiyet.rs](https://areweguiyet.com/) says "the roots aren't deep but the seeds are planted".
+   3. Deep down, we all know that we can do better, and we *should*.
+9.  Users who prefer third-party GUI solutions can and will use them anyways.
 
 Will we learn from other GUI frameworks? Absolutely.
 Will we adopt them officially wholesale? Absolutely not.
@@ -91,138 +96,155 @@ Another common good-faith question in discussion of `bevy_ui` is "can we really 
 
 Some potential splits that I've seen:
 
-- [people who love CSS and the web versus those that hate it](https://github.com/bevyengine/bevy/issues/254#issuecomment-850216295)
-- [application UI vs simple game UI vs complex game UI](https://github.com/bevyengine/bevy/issues/254#issuecomment-886235989)
-- [procedural programmer-friendly GUIs vs asset-driven artist-friendly GUIs](https://github.com/bevyengine/bevy/discussions/9538#discussioncomment-7388170)
-- immediate UI vs retained mode UI
+- [Application UI vs simple game UI vs complex game UI](https://github.com/bevyengine/bevy/issues/254#issuecomment-886235989)
+- [People who love CSS and the web vs those that hate it](https://github.com/bevyengine/bevy/issues/254#issuecomment-850216295)
+- [Procedural programmer-friendly GUIs vs asset-driven artist-friendly GUIs](https://github.com/bevyengine/bevy/discussions/9538#discussioncomment-7388170)
+- Immediate UI vs retained mode UI
 
 I'm sure you can think of more: schisms are easy and fun!
-We could [pull a Unity](https://forum.unity.com/threads/why-is-unity-creating-yet-another-ui-system.1148585/), and create multiple competing UI frameworks within Bevy!
+In theory, we could [pull a Unity](https://forum.unity.com/threads/why-is-unity-creating-yet-another-ui-system.1148585/), and create multiple competing UI frameworks within Bevy.
 This would be [very](https://www.reddit.com/r/Unity3D/comments/no6j19/a_unity_rant_from_a_small_studio/) [bad](https://arstechnica.com/information-technology/2014/10/googles-product-strategy-make-two-of-everything/) because:
 
 1. It's very confusing for users.
 2. It splits developer attention.
 3. Tradeoffs are not always clear to users choosing which solution to use.
 4. Migrating between two competing solutions is very painful.
+5. Using multiple solutions within the same project is fundamentally untenable.
+6. Takes twice as long (if you're lucky).
 
 Fortunately, "navigating the requirements of multiple user groups with distinct needs" is not a problem unique to UI.
 We have good tools to manage this at an architectural level:
 
-- modularity: ensure that users can take or leave parts of the solution that they don't like
-  - components, systems, plugins and feature flags are great for this!
-  - third-party UI libraries currently exist, and will continue to exist
-- extensibility: ensure that internals are accessible and can be built on
-  - again, public components and resources are really helpful here
-  - Bevy has a [thriving ecosystem](https://bevyengine.org/assets/#ui) of third-party UI solutions: these will keep working
-  - imagine a rich ecosystem of `bevy_ui` interoperable extension libraries, all of which build on our core rendering, interaction and layout paradigms
-- [progressive disclosure](https://www.uxpin.com/studio/blog/what-is-progressive-disclosure) in abstraction design
-  - widgets are built out of nodes
-  - nodes are just entities
-  - throughout the process, there's nothing stopping you from hooking in at a lower level
+- This problem is hypothetical and has literally already been solved on the web.
+   - We're not going to argue that web UI is the greatest UI solution ever created (it has many flaws, both obvious and not).
+   - But people have successfully built virtually any kind of UI you can think of using HTML/CSS/JavaScript: web pages, code editors, games (both in the browser and standalone), CAD applications, terminals, and so on. There's a common joke about how "everything is chrome in the future" (Thanks [Electron](https://www.electronjs.org/))
+   - And in case it needs saying, the web UI stack was *not* designed for most of these use cases. Arguably, it wasn't designed for any of them!
+- Modularity: ensure that users can take or leave parts of the solution that they don't like.
+  - Components, systems, plugins and feature flags are great for this!
+  - Third-party UI libraries currently exist, and will continue to exist.
+- Extensibility: ensure that internals are accessible and can be built on.
+  - Public components and resources are really helpful here.
+  - Imagine a rich ecosystem of `bevy_ui` interoperable extension libraries, all of which build on our core rendering, interaction and layout paradigms.
+- [Progressive disclosure](https://www.uxpin.com/studio/blog/what-is-progressive-disclosure) in abstraction design.
+  - Widgets are built out of nodes.
+  - Nodes are just entities.
+  - Throughout the process, there's nothing stopping you from hooking in at a lower level.
 
 If users can use the same ECS and rendering tools for everything from pixel art platformers to cell-shaded visual novels to PBR arena shooters,
 we can make a UI solution that is flexible and pleasant enough to work for everyone.
 
-## The making of a GUI
+## GUI in ECS: How does `bevy_ui` actually work?
 
-So, now that we've gotten back on the rails,
-let's think about our actual product requirements, so we can see where `bevy_ui` falls short.
+With those common objections addressed, we can hopefully talk about how to actually build our UI framework.
+Let's think about our actual product requirements, so we can see where `bevy_ui` falls short.
 
 Unfortunately for us, GUI frameworks are wildly complex beasts.
-There are several parts that are so essential that without them, it's hard to argue you have a GUI framework at all:
+There are several parts that are so essential that their removal cripples the entire system:
 
 1. Storing a tree of nodes
    1. Virtually every non-trivial UI paradigm has one or more nested trees of elements
    2. A "node" is one of these elements: the smallest indivisible atom of UI
-   3. You need to store this data somewhere!
-   4. In `bevy_ui`, this is stored in the `World`: each node is an entity with the `Node` component
+   4. You need to store this data somewhere!
+   5. In `bevy_ui`, this is stored in the `World`: each node is an entity with the `Node` component
+   6. UI entities are joined together with using the `Parent` and `Children` components
 2. Layout
    1. Once you have a collection of nodes, you want to be able to describe where they go on the screen.
    2. Simply specifying absolute size and position is not very robust: it breaks when nodes are added / removed, or when screen size changes.
    3. In `bevy_ui`, this is specified via the `Style` component (blame CSS for the name, sorry).
-   4. `bevy_ui` uses `taffy` (which Alice helps maintain!): it supports `flexbox` and `grid`
-   5. `morphorm` is another great choice if you're not tied to Web layout algorithms
-3. Input
-   1. Collects user input in the form of keyboard presses, mouse clicks, mouse movement, touches, gamepad inputs and so on
+   4. `bevy_ui` uses `taffy` (which Alice helps maintain!): it supports `flexbox` and `css-grid`
+   5. `morphorm` is (in our opinion) simply a better choice if you're not tied to Web layout algorithms
+4. Input
+   1. Collecting user input in the form of keyboard presses, mouse clicks, mouse movement, touchscreen taps, gamepad inputs and so on
    2. Generally paired with "picking": figure out the elements that a pointer event is associated with based on position
-   3. Ideally builds some nice abstractions for this, to cover things like hovering and pressing / releasing buttons
+   3. Ideally build some nice abstractions for this, to cover things like hovering and pressing, releasing, and long-pressing buttons
    4. `bevy_ui` relies on `bevy_input`, which in turn gets data from `winit` and `gilrs`
-4. Text
+5. Text
    1. Converts strings into pixels that we can draw on the screen
    2. Lays out text within the bounds of the node it is contained within
    3. The exact pixels matter for rendering, but the size is important as an input for node layout
    4. `bevy_ui` currently uses `fontbrush`
-   5. `cosmic-text` has much better shaping support for non-Latin languages
-5. Window management
+   5. `cosmic-text` has much better shaping support for non-Latin scripts
+6. Window management
    1. Actually creating a window (or three) to draw your UI in
-   2. `bevy` uses `winit`, and you should too
-6. Rendering
+   2. `bevy` uses `winit`, and you should too!
+7. Rendering
    1. Taking the elements of your UI, and drawing them to a user's screen
    2. Bevy uses `bevy_render` and thus `wgpu` here
    3. If you're building your own Rust GUI framework, check out `vello`!
-7. Data transfer
+8. State management
+   1. Keeping track of the state of persistent features of your UI
+   2. Filled text, radio buttons, animation progress, whether menus are open or closed, dark/light mode, etc.
+   3. In `bevy_ui`, state is stored as components on entities (or rarely, as global resources)
+9.  Data transfer
    1. Transferring data from the UI to other data stores and vice versa
    2. In the context of Bevy, the "other data store" is the ECS `World` that stores all of your game / app state
    3. Data binding is an abstraction used to automate this process: automatically and granularly transmitting changes
    4. Currently, `bevy_ui` uses systems to send data back and forth from the rest of the `World`
-8. State management
-   1. Keeping track of the state of persistent features of your UI
-   2. Filled text, radio buttons, animation progress and more
-   3. In `bevy_ui`, state is stored as components on entities (or rarely, as global resources)
 
-On top of this base, you might want to add:
+On top of this base, you likely want to add:
 
 1. Navigation
    1. Moving through GUI menus in a prinicipled discretized way: "tab" is the common keybinding for this
    2. Very useful for both keyboards and gamepads
-   3. `bevy_ui` has no first-party solution to this
-2. Action abstractions
-   1. Undo-redo
-   2. Rebindable hotkeys
-   3. Command palettes
-   4. `bevy_ui` has no first-party solution to this, and even third-party solutions are immature (sorry!)
-3. Accessibility
-   1. Create and expose a machine-friendly API for your UI: reading state, sending inputs and detecting what happens when these inputs change
-   2. Generally hooks into keyboard navigation
-   3. This API is used by tools like screen readers, which present an alternative user interface that meets the needs of disabled users
-   4. `bevy_a11y` hooks into `accesskit`, and your GUI framework should too
-4. Localization
-   1. There is more than one language: you need a way to swap out elements of your UI (especially text) to meet the needs of users who prefer a different language
-   2. Seriously, just use `fluent`
-5. Asset management
-   1. The way most UIs look (especially in games!) isn't just defined
-   2. You'll want custom decorations and icons, or to show images and videos in their own right
-   3. `bevy_ui` uses `bevy_asset` for this!
-6. UI serialization (in-memory object to file) and deserialization (file to in-memory object)
-   1. If we can build our UIs based on a definition stored in a file, we can:
-      1. Make it way easier for external tools (like a game editor) to build UIs
-      2. Make the UIs easier for end users to customize (think Greasemonkey and game mods)
-      3. Make it easier for designers to contribute to your project
-      4. Reduce time spent compiling: just hot-reload the asset
-      5. Allows full control over the format and syntax used to define objects
-      6. Offers the potential for better, modular tooling to create [higher level abstractions](https://github.com/bevyengine/bevy/issues/3877) and automated migrations without modifying source code
-   2. In games, this is called a "data-driven" approach
-   3. `bevy_ui` currently uses scenes (from `bevy_scene`) for this
-   4. Cart, Bevy's project lead, is working on a [revamp of scenes](https://github.com/bevyengine/bevy/discussions/9538) with the `bsn` file format, targeted at this use case.
-7. Styling
+   3. Vital accessibility feature for traditional applications
+   4. `bevy_ui` has no first-party solution to this
+2. Styling
    1. Widgets and nodes have a ton of mostly-cosmetic properties.
-   2. We want to ensure a consistent feel across our app, and be able to quickly swap it out.
-   3. This might take the form of:
+   2. We want to ensure a consistent look and feel across our app, and be able to quickly swap it out.
+   3. For applications, (espcially mobile applications) a [*native* look and feel](https://www.quora.com/What-does-native-UI-mean) is very desirable
+   4. This might take the form of:
       1. Cascading inheritance (like in CSS)
       2. Selectors (like in CSS, or like you might write in `bevy_ui` using queries)
       3. Global themes like light and dark mode
       4. Widget-specific styles
-   4. Styles need to have predictable rules for composition: what happens when more than one style is affecting
-   5. `bevy_ui` does not currently have any first-party abstractions for this.
-8. An abstraction for composable, reusable widgets
+   5. Styles often need to have predictable rules for composition: what happens when more than one style is affecting an element at once?
+   6. `bevy_ui` does not currently have any first-party abstractions for this.
+3. An abstraction for composable, reusable widgets
    1. Even simple widget types (radio buttons, text entry box, ) are quite complex!
-   2. Users shouldn't have to implement them from scratch every time
-      1. This is a waste of time
-      2. It makes it really hard to keep consistent style or behavior within or between apps
-   3. Widgets may be represented by one or more nodes
+   2. Users should be able to write these once, then reuse them across their project(s), improving both development speed and UI consistency
+   3. Widgets may be composed of one or more nodes/elements
    4. The number of nodes per widget can change dynamically: think about a growing to-do list
-   5. `bevy_ui` currently uses the `Bundle` type for this, but it fails badly
-9. Asynchronous tasks
+   5. `bevy_ui` currently uses the `Bundle` type for this, but it fails badly because it can't handle multiple nodes
+4. Action abstractions
+   1. Undo-redo
+   2. Rebindable hotkeys
+   3. Command palettes
+   4. `bevy_ui` has no first-party solution to this, and even third-party solutions are immature (sorry!)
+5. Accessibility
+   1. Create and expose a machine-friendly API for your UI: reading state, altering rendering/display, sending inputs and detecting what happens when these inputs change
+   2. Generally hooks into keyboard navigation
+   3. This API is used by tools like screen readers, which present an alternative user interface that meets the needs of disabled users
+   4. `bevy_a11y` hooks into `accesskit`, and your GUI framework should too
+   5.  There's a lot to potentially talk about with accessability that we unfortunately don't have the word count to do here
+6. Localization
+   1. There is more than one language: you need a way to swap out elements of your UI (especially text) to meet the needs of users who prefer a different language
+   2. Some languages are read right-to-left instead of left-to-right, and often certain UI designs will end up backwards if this isn't taken into account
+   3. Icons and emoji have different cultural meanings in different places as well
+   4. Seriously, just use `fluent`
+7. Asset management
+   1. UIs often use prerendered images or icons for visuals, especially in games
+   2. You'll want custom decorations and icons, or to show images and videos in their own right
+   3. `bevy_ui` uses `bevy_asset` for this!
+8. Animation
+   1. Small animations, especially when UI elements change, can dramatically improve the polish and juiciness of a UI
+   2. Folding/unfolding context menus, sliding drawers, spinning loading icons, fade-in/fade-out, etc.
+   3. `bevy_ui` theoretically integrates with `bevy_animation` for this, but the integration is unpolished
+9. Debug tools
+   1. Quickly inspect and modify the UI tree after it has been rendered
+   2. This is extremely useful for catching bugs and twiddling styles
+   3. `bevy_ui` has no solution for this, but `bevy_inspector_egui` is great
+10. UI serialization (in-memory object to file) and deserialization (file to in-memory object)
+   1. If we can build our UIs based on a definition stored in a file, we can:
+      1. Make it way easier for external tools (like a game editor) to build UIs
+      2. Make the UIs easier for end users to customize (think Greasemonkey and game mods)
+      3. Makes it easier to build debug tools
+      5. Reduce time spent compiling: just hot-reload the asset
+      6. Allows full control over the format and syntax used to define objects
+      7. Offers the potential for better, modular tooling to create [higher level abstractions](https://github.com/bevyengine/bevy/issues/3877) and automated migrations without modifying source code
+   2. In games, this is called a "data-driven" approach
+   3. `bevy_ui` currently uses scenes (from `bevy_scene`) for this
+   4. Cart, Bevy's project lead, is working on a [revamp of scenes](https://github.com/bevyengine/bevy/discussions/9538) with the `bsn` file format, targeted at this use case.
+11. Asynchronous tasks
    1. Sometimes, work is triggered by the UI that will take quite a while to complete
    2. You don't want your program to freeze while this happens!
    3. In `bevy_ui`, this uses `bevy_tasks`
