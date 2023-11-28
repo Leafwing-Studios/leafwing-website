@@ -204,7 +204,8 @@ On top of this base, you likely want to add:
    2. Users should be able to write these once, then reuse them across their project(s), improving both development speed and UI consistency
    3. Widgets may be composed of one or more nodes/elements
    4. The number of nodes per widget can change dynamically: think about a growing to-do list
-   5. `bevy_ui` currently uses the `Bundle` type for this, but it fails badly because it can't handle multiple nodes
+   5. Widgets need to be able to take arguments to change their contents or behavior. For example, creating a reusable button with customizable text.
+   6. `bevy_ui` currently uses the `Bundle` type for this, but it fails badly because it can't handle multiple nodes
 4. Action abstractions
    1. Undo-redo
    2. Rebindable hotkeys
@@ -238,9 +239,9 @@ On top of this base, you likely want to add:
       1. Make it way easier for external tools (like a game editor) to build UIs
       2. Make the UIs easier for end users to customize (think Greasemonkey and game mods)
       3. Makes it easier to build debug tools
-      5. Reduce time spent compiling: just hot-reload the asset
-      6. Allows full control over the format and syntax used to define objects
-      7. Offers the potential for better, modular tooling to create [higher level abstractions](https://github.com/bevyengine/bevy/issues/3877) and automated migrations without modifying source code
+      4. Reduce time spent compiling: just hot-reload the asset
+      5. Allows full control over the format and syntax used to define objects
+      6. Offers the potential for better, modular tooling to create [higher level abstractions](https://github.com/bevyengine/bevy/issues/3877) and automated migrations without modifying source code
    2. In games, this is called a "data-driven" approach
    3. `bevy_ui` currently uses scenes (from `bevy_scene`) for this
    4. Cart, Bevy's project lead, is working on a [revamp of scenes](https://github.com/bevyengine/bevy/discussions/9538) with the `bsn` file format, targeted at this use case.
@@ -253,40 +254,42 @@ On top of this base, you likely want to add:
 
 By hooking into Bevy, a fully-featured (but not yet complete) game engine, `bevy_ui` actually has preliminary solutions in most of these domains!
 
-So why is it overwhelming viewed as more Bavy than Bevy?
+So why is it overwhelmingly viewed as more Bavy than Bevy?
 [Having used](https://github.com/bevyengine/bevy/discussions/2235), worked on, and listened to users using `bevy_ui`, here are the key problems, as of Bevy 0.12.
 These are loosely ranked in order of subjective impact on user experience.
 
 1. Spawning entities with tons of custom properties requires a lot of boilerplate.
    1. Endless nesting and `..Default::default()` *everywhere*.
-   2. This gets so, so much worse [when working with multiple entities arranged in a tree](https://github.com/bevyengine/bevy/blob/v0.12.0/examples/ui/ui.rs).
+   2. This gets so, so much worse [when working with multiple entities arranged in a tree](https://github.com/bevyengine/bevy/blob/v0.12.0/examples/ui/ui.rs). As mentioned, you can't use bundles for this.
    3. A data-driven workflow isn't widely used, because Bevy's scenes are [verbose and inadequately documented](https://github.com/bevyengine/bevy/discussions/9538).
 2. Bevy needs a real abstraction for widgets.
    1. Not all widgets can be meaningfully represented as a single entity.
-   2. Basic widgets are missing: we only have buttons and images.
-   3. Because we lack a standardized abstraction, even [adding the simplest, most useful widgets is controversial and gets bogged down](https://github.com/bevyengine/bevy/pull/7116).
+   2. Bevy provides precious few prebuilt widgets: we only have buttons and images.
+   3. Because we lack a standardized abstraction, even [adding the simplest, most useful widgets is controversial and gets bogged down](https://github.com/bevyengine/bevy/pull/7116). (To be clear, this isn't the fault of the reviewers or the author.)
 3. Using systems in a schedule is not a great fit for data binding.
-   1. UI behavior is almost always one-off, extremely lightweight tasks.
-   2. We really want to be able to reference a single, specific entity plus its parent and children.
-      1. Getting around this requires the creation of dozens and dozens of marker components: virtually one for each button.
-   3. 99% of the time, these systems will be doing no work. This wastes time, as the schedule must
-4. Managing and traversing hierarchies (up, down and sideways) in `bevy_ecs` really sucks.
+   1. UI behavior is almost always one-off or very sparse.
+   2. Tasks launched from the UI are usually either quite small, or are throwing work into an async pool.
+   3. We really want to be able to reference a single, specific entity plus its parent and children.
+      1. Getting around this requires the creation of dozens and dozens of marker components: virtually one for every button, text box, image, container, etc.
+   4. 99% of the time, these systems will be doing no work. This wastes time, as the schedule must constantly poll to see if anything needs to be done.
+4. Managing and traversing hierarchies (both up and down) in `bevy_ecs` really sucks.
    1. [Relations](https://github.com/bevyengine/bevy/issues/3742) can't come soon enough.
 5. Bevy's input handling for UI is very primitive.
    1. The [`Interaction`](https://docs.rs/bevy/0.12.0/bevy/ui/enum.Interaction.html) component for dealing with pointer input [is too limited](https://github.com/bevyengine/bevy/issues/7371).
    2. [Multi-touch support](https://github.com/bevyengine/bevy/issues/15) for mobile is [quite limited](https://github.com/bevyengine/bevy/issues/2333).
    3. [Keyboard and gamepad navigation](https://github.com/bevyengine/rfcs/pull/41) is currently missing.
    4. There is no first party support for an [action abstraction](https://github.com/leafwing-studios/leafwing-input-manager) for configurable keybindings.
-   5. Bevy's picking support is very simplistic, and isn't easily extended to non-rectangular elements or those in world-space.
-6. Flexbox (and to a much lesser extent CSS Grid) are [hard to learn and have frustrating edge cases and a terrible API](https://elk.zone/mastodon.gamedev.place/@alice_i_cecile/111349519044271857).
+   5. Bevy's picking support is very simplistic, and isn't easily extended to non-rectangular elements or those in world-space. ([`bevy_mod_picking`](https://crates.io/crates/bevy_mod_picking) please...)
+6. Flexbox (and to a much lesser extent CSS Grid) are [hard to learn, have frustrating edge cases, and a terrible API](https://elk.zone/mastodon.gamedev.place/@alice_i_cecile/111349519044271857). Can *you* explain what `flex-basis` does?
 7. Font rendering in `bevy_ui` is sometimes remarkably ugly, due to a [just fixed bug](https://github.com/bevyengine/bevy/pull/10537).
 8. Bevy is missing a styling abstraction.
    1. Implementation could be done today: just modify components!
 9. Adding non-trivial visuals to `bevy_ui` is too hard.
-   1. We're missing [rounded corners](https://github.com/bevyengine/bevy/pull/8973): essential for good-looking code-defined UI.
-   2. We're missing [nine-patch support](https://github.com/bevyengine/bevy/pull/10588): essential for good-looking but flexible asset-defined UI.
-   3. Until Bevy 0.12's UI materials, there was no escape hatch that let you add your own rendering abstractions within `bevy_ui`.
-10. Building UIs in pure code or by typing out a scene file is always going to be painful and error-prone: a visual editor would be great.
+   1. We're missing [rounded corners](https://github.com/bevyengine/bevy/pull/8973): essential for good-looking code-defined UI. (They're currently very fashionable for UI. We *could* just wait a few years for them to go out of fashion, but they'll be back in a few years after that anyway.)
+   2. We don't have drop shadows either, but no one cares.
+   3. We're missing [nine-patch support](https://github.com/bevyengine/bevy/pull/10588): essential for good-looking but flexible asset-defined UI.
+   4. Until Bevy 0.12's UI materials, there was no escape hatch that let you add your own rendering abstractions within `bevy_ui`.
+10. Building UIs in pure code or by typing out a scene file can be painful and error-prone: a visual editor would be great.
 11. [World-space UI](https://github.com/bevyengine/bevy/issues/5476) is very poorly supported, and uses an [entirely different set of tools](https://github.com/bevyengine/bevy/blob/v0.12.0/examples/2d/text2d.rs).
     1. This is essential for games (healthbars, unit frames), but is also really useful for things like markers and labels in GIS or CAD applications.
 12. `bevy_ui` has no first-class animation support.
@@ -294,15 +297,16 @@ These are loosely ranked in order of subjective impact on user experience.
 14. The ergonomics of working with async tasks in Bevy is frustrating: too much manual tracking and polling of tasks.
 
 Of these problems, only 1 (entity spawning boilerplate), 2 (widget abstraction), 3 (systems are not a good fit for callbacks) and 4 (hierarchy pain) are caused by our choice to use an ECS architecture.
-The rest of these problems are bog-standard GUI problems: they need to be solved no matter what paradigm you're using.
+The rest of these are bog-standard GUI problems: they need to be solved no matter what paradigm you're using.
 And critically, *every single one of those ECS-linked problems* is something that Bevy should fix for other use cases:
 
-1. Spawning custom entities (and especially entity assemblages) sucks for ordinary gameplay code, and scenes aren't good enough.
+1. Spawning custom entities (and especially entity assemblages) sucks for ordinary gameplay code, and scenes aren't good enough. For example, spawning a player and all their weapons.
 2. Bevy is missing a code-defined level of abstraction that covers multi-entity hierarchies: bundles aren't good enough.
 3. One-shot systems are useful for all sorts of bespoke, complex logic, and we need to develop patterns to use them effectively.
 4. Bevy's approach to hierarchy is fundamentally slow, brittle and painful to work with. Relations need to be a first-class primitive.
 
-There's no fundamental impedance mismatch or architectural incompatibility beween ECS and GUIs: `bevy_ecs` (and `bevy_scene`) [simply isn't good enough yet](https://elk.zone/mastodon.gamedev.place/@alice_i_cecile/111349511360164259).
+There's no fundamental impedance mismatch or architectural incompatibility beween ECS and GUIs.
+`bevy_ui` isn't a fundamentally flawed concept, its ECS foundation [just isn't good enough yet](https://elk.zone/mastodon.gamedev.place/@alice_i_cecile/111349511360164259).
 
 ## The path forward for `bevy_ui`
 
