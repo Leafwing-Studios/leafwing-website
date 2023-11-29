@@ -2,7 +2,7 @@
 title = "A skeptic's guide to AI-powered products"
 description = "Delivering value in the face of hype"
 date = 2023-10-03
-author = "Alice I. Cecile"
+authors = ["Alice I. Cecile"]
 
 [taxonomies]
 tags = ["machine learning", "game design", "business"]
