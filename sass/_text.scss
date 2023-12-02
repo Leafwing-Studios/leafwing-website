@@ -21,10 +21,18 @@ h1,
 // Controls subtitles shown on blog posts
 .subtitle-text {
   font-family: "Raleway", sans-serif;
+  font-weight: bold;
   font-style: italic;
   font-size: 20px;
   color: var( --text-on-secondary-color);
   margin-top: 0;
+}
+
+.author-text {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  color: var( --text-on-secondary-color);
+  margin-bottom: 3.0rem;
 }
 
 h2 {

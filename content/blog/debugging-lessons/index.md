@@ -2,7 +2,7 @@
 title = "Lessons from my marathon Rust debugging session"
 description = "A methodical approach to squashing bugs for good"
 date = 2022-08-02
-author = "Alice I. Cecile"
+authors = ["Alice I. Cecile"]
 
 [taxonomies]
 tags = ["bevy", "rust", "development philosophy"]

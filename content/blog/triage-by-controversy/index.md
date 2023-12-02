@@ -2,7 +2,7 @@
 title = "Triage-by-controversy and community review"
 description = "Making good use of open source enthusiasm"
 date = 2023-09-09
-author = "Alice I. Cecile"
+authors = ["Alice I. Cecile"]
 
 [taxonomies]
 tags = ["bevy", "open source", "development philosophy"]

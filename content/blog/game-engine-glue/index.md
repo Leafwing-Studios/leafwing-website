@@ -2,7 +2,7 @@
 title = "Game engines are more than libraries glued together"
 description = "The value of vision and the cost of external dependencies"
 date = 2022-07-22
-author = "Alice I. Cecile"
+authors = ["Alice I. Cecile"]
 
 [taxonomies]
 tags = ["bevy", "open source", "development philosophy"]
