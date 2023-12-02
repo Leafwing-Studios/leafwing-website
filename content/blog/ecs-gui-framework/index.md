@@ -29,7 +29,7 @@ Rose is an employee at the [Foresight Spatial Labs](https://www.foresightmining.
 **These opinions are purely our own, and are not the final or official word!**
 
 This post aims to record *how* you might make a GUI framework, *why* we're using an ECS at all, and *what* we need to fix to make `bevy_ui` genuinely good.
-There's been a lot of reshashed discussion, in [far](https://github.com/bevyengine/bevy/issues/254) [too](https://github.com/bevyengine/bevy/discussions/9538) [many]((https://github.com/bevyengine/bevy/discussions/5604)) [places](https://discord.com/channels/691052431525675048/743663673393938453), but very little tangible movement (except [ickshonpe](https://github.com/bevyengine/bevy/pulls/ickshonpe), you rock).
+There's been a lot of rehashed discussion, in [far](https://github.com/bevyengine/bevy/issues/254) [too](https://github.com/bevyengine/bevy/discussions/9538) [many](https://github.com/bevyengine/bevy/discussions/5604) [places](https://discord.com/channels/691052431525675048/743663673393938453), but very little tangible movement (except [ickshonpe](https://github.com/bevyengine/bevy/pulls/ickshonpe), you rock).
 It's easy to say "`bevy_ui` should work just like my favorite UI framework", but actually turning that into a workable design, getting consensus, and *building* it is much harder.
 
 By writing an up-to-date, comprehensive, low-buzzword document on the requirements, vision and progress, we hope that the Bevy community will be able to come together to fix the problems `bevy_ui` has today, conclusively rule out possibilities and propose solid designs for the critical missing pieces.
@@ -157,7 +157,7 @@ There are several parts that are so essential that their removal cripples the en
    1. Collecting user input in the form of keyboard presses, mouse clicks, mouse movement, touchscreen taps, gamepad inputs and so on
    2. Generally paired with "picking": figure out the elements that a pointer event is associated with based on position
    3. Ideally build some nice abstractions for this, to cover things like hovering and pressing, releasing, and long-pressing buttons
-   4. `bevy_ui` relies on `bevy_input`, which in turn gets data from [`winit`](https://github.com/rust-windowing/winit) and [`gilrs`](https://docs.rs/gilrs/0.12.0/gilrs/)
+   4. `bevy_ui` relies on `bevy_input`, which in turn gets data from [`winit`](https://github.com/rust-windowing/winit) and [`gilrs`](https://docs.rs/gilrs/latest/gilrs/)
 4. Text
    1. Converts strings into pixels that we can draw on the screen
    2. Lays out text within the bounds of the node it is contained within
