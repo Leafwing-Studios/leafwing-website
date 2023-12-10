@@ -41,10 +41,7 @@ tags = ["game design"]
 	- Anti-inspirations? (useful for quickly rejecting distractions!)
 	- Check the early design documents for things like emblematic
 
-
-"My game is like [popular thing] meets [other similar popular thing]" is a major red flag for this.
-
-## Start of Post (End of notes)
+..
 
 I think everyone who dabbles in game design at least sometimes gets the feeling of "what if [thing that I like], but made by me!"
 
@@ -108,3 +105,39 @@ Let's break down some of the knock-on effects of designing by stumble:
 6. **Huge starting scope:** When working in video games, copying other popular games is often much harder than it seems. Large AAA games require hundreds of people working over the course of years. Starting with that as a template would sign you up for far more work than most studios have the budget to complete. (As a sidenote, this problem doesn't exist on the tabletop because copying someone else's TTRPG is as simple as copy/pasting the text of the rulebook. I'm not sure if that's a good or a bad thing.)
 7. **Static analysis:** Iteration is great, but a lot of iteration time and work can be saved by carefully analyzing mechanics before adding or changing them. Thinking through designs, running small tests on paper, comparing to existing work, building internal frameworks for balance, and more are all great design strategies. Think before you stumble!
 
+## Doing better: a Principled Approach
+
+So, how can we do better?
+Having a clear goal in mind is the main theme here, but there are lots of specifics that go into that.
+Here at Leafwing Studios, we've developed a fairly robust list of questions that we use whenever we start a new project.
+For us, *this* is the first step for a new idea.
+So, here are some questions and topics to help you refine the goals and vision for *your* next game:
+
+- Overview
+  - What are the overall goals of this project? Why are we making this thing? (Money, fun, practice, to play with friends, to advance the state of the art, etc.)
+  - What's the core concept (mechanically or thematically)? What idea made you want to pitch this project?
+  - Elevator pitch: In one short sentence, what is this game about?
+  - What are the themes? What is the fantasy we’re trying to create? What message are we trying to send?
+- Audience
+  - What's the target audience for this game?
+  - What kind of player would really enjoy this game? What else do they like? What would they like the most about our game? (There may be more than one group!)
+  - What kind of player would not vibe with our game at all? What about our game would rub them the wrong way? (There may be more than one group!)
+- Prior art
+  - What inspirations are we drawing from?
+  - What are our anti-inspirations? What existing (but similar) works do we *not* want to be like?
+  - What genre, if any, does it fit into? What genre conventions are we interested in following?
+  - What other works exist in this space? How are we going to be better than them?
+  - Are there major existing works that we're not very familiar with? We should check them out!
+- Practical constraints?
+  - How many team members do we have on our team, and what are their skills?
+  - What's the budget? (Y'know, in dollars)
+  - What timeline are we aiming for?
+  - What are our team's main skill gaps, and how able are we to hire out that kind of work? (If you can't cover those gaps, then you'll need to design around them.)
+- Business
+  - Monetiziation strategy: How are we going to make money from our players?
+  - Marketing strategy: What channels are we going to use to reach our target audience?
+  - Marketing hooks: What game design elements can we focus on to push the marketability of this game?
+
+## Conclusion
+
+TODO
