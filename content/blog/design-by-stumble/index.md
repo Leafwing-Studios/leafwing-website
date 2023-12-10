@@ -141,3 +141,37 @@ So, here are some questions and topics to help you refine the goals and vision f
 ## Conclusion
 
 TODO
+
+
+## Bonus section: Two interesting tangents
+
+The post is over, but I ran into a two interesting cases that are related to the topic at hand.
+I felt like I had something interesting to say about each of these, but I couldn't find a natural place to fit them in the post, so I've just collected them here.
+Consider it a bonus, or a sprinboard for future discussions :).
+
+### Mainstream games can often be derivitive, but for different reasons
+
+A natural question is: "so, is this the reason that AAA games are so derivitive?"
+Although design by stumble does often produce derivitive work, I don't believe it's is the reason why many released games are derivitive of others.
+I think the simple explanation for this trend is that some publisher or executive saw a successful game and said, "Look at all the money they're making! We should be making that money!"
+And then they told the studio to copy said successful thing.
+(In some cases, the successful thing being copied is just the last thing the studio released.)
+This outlook *is* very similar to design by stumble, but it's subtly different.
+In this case, the goals are actually very well defined, but the project is lacking in vision because the "why" behind the project is explicitly to try to copy someone else.
+
+It's a mindset born not of blind XXX, but of risk-aversion.
+
+### Copying someone, but doing it better
+
+Another similar but subtly different pattern is to try to copy a flawed game, but just fix all the flaws.
+Doing this properly requires doing some real analysis on the thing being copied.
+That way, you have a clear understanding of what the problems are, why they don't work, and how to fix them.
+But, if you can do that analysis, this can be a winning strategy.
+
+The difference here, again, is that the goals are quite clear.
+The work is still explicitly derivitive, but the strategy and motivation are sharp: take something else and improve upon it.
+The downside is that it's still difficult to stand out.
+Making one or two small improvements isn't going to get a dedicated player base to move over.
+But if there are significant problems with the original, or if there are significant improvements to be made on the formula, then you can really run with something like this.
+
+If you've ever heard a reviewer say "This game is basically an X clone, but it's a *really good* X clone", then I'd bet that this is what happened.
