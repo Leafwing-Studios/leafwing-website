@@ -44,13 +44,15 @@ tags = ["game design"]
 
 "My game is like [popular thing] meets [other similar popular thing]" is a major red flag for this.
 
-..
+## Start of Post (End of notes)
 
-I think everyone who dabbles in game design at least sometimes gets this feeling of "what if [thing that I like], but made by me!"
+I think everyone who dabbles in game design at least sometimes gets the feeling of "what if [thing that I like], but made by me!"
 
 "I love God of War. Wouldn't it be awesome if there was a game that was a lot like God of War, but like, I was the one who made it!?"
 
 "Man, Minecraft is so cool. I'd love it if I made a game and at the end of the process, it was just like Minecraft, because Minecraft is really cool."
+
+"I love Dungeons & Dragons, and I love making games! I want to make a games that are just like Dungeons & Dragons."
 
 We all get this feeling!
 It's a common thing, and it's a great way hype yourself up and build motivation for projects you're working on.
@@ -58,7 +60,7 @@ There's no shame in it.
 
 But, this outlook generally doesn't lead to good outcomes.
 Obviously, following this instinct blindly leads to very derivitive work, but there are lot of more subtle issues at play here.
-I've seen a lot of designs and projects by amateur designers that feel boring, derivative, bloated in scope, and full of vestigial features.
+I've seen a lot of designs and projects by amateur designers that feel boring, derivative, bloated in scope, full of vestigial features and lacking in cohesion.
 It's probably the most common single problem I see when reviewing designs by hobbyists, especially those working solo.
 So, what's going on here, why does this happen, and how can we do better?
 
@@ -95,4 +97,14 @@ Because design by stumble really falls apart if you want to make something that'
 
 ## Why doesn't design by sumble work?
 
+The core issue is that, since design by stumble is unpricipled and unmotivated, the random changes are both unlikely to result in meaningful improvement, and likely to result in unintended problems.
+Let's break down some of the knock-on effects of designing by stumble:
+
+1. **Derivative work:** If you're starting with someone else's idea, it's hard to stand out and be original.
+2. **Iteration needs direction:** Iteration isn't inherently flawed, but it needs *direction* to evaluate if the iterative changes have actually improved the project. And direction means you need high level *goals* to evaluate against. Changes made at random are just as likely to harm a game as they are to improve it.
+3. **Unintended side-effects:** Even seemingly small changes can have significant and far-reaching effects, often unintuitively. Anyone who's played a competitive video game has seen how very small balance changes can dramatically shift the optimal stratigies. (I could (and probably should) write a whole series of posts about times this has happened.)
+4. **Poor team alignment:** When working with others, having clear goals and vision is very useful for keeping everyone aligned, and making sure everyone understands what they're working on.
+5. **Scope creep:** If you're not careful about what you're adding/changing and *why*, it's very easy to bloat the scope of your project into something huge. Unless you clearly know your constraints and limits, you might end up adding more and more and *more* features until it's just too much to handle.
+6. **Huge starting scope:** When working in video games, copying other popular games is often much harder than it seems. Large AAA games require hundreds of people working over the course of years. Starting with that as a template would sign you up for far more work than most studios have the budget to complete. (As a sidenote, this problem doesn't exist on the tabletop because copying someone else's TTRPG is as simple as copy/pasting the text of the rulebook. I'm not sure if that's a good or a bad thing.)
+7. **Static analysis:** Iteration is great, but a lot of iteration time and work can be saved by carefully analyzing mechanics before adding or changing them. Thinking through designs, running small tests on paper, comparing to existing work, building internal frameworks for balance, and more are all great design strategies. Think before you stumble!
 
