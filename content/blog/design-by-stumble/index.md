@@ -35,16 +35,16 @@ One of *my* earliest design projects was basically just taking a boring JRPG tem
 I've also seen *a lot* of homebrew for *Dungeons & Dragons* that falls into this category.
 
 To be clear, this is distinct from taking *inspiration* from previous work.
-Firstly, inspiration is generally more removed than the process being described above.
+Firstly, works which inspire a game are a bit further removed from the game being made.
 When designing by stumble, the inspiring work is used as a *starting point*.
 It's like taking a whole painting and then painting on your own additions over top of what's there.
-Healthier inspiration is more like taking the outlines or broad strokes from a painting, sketching it on the canvas using a pencil, and then using that as guidance.
+Healthier inspiration is more like taking the outlines or broad strokes from a painting, sketching it on the canvas using a pencil, and then using that as *guidance*.
 
 More concretely, when a skilled designer takes inspiration from other work, they typically start not by hacking on it, but by *analyzing* it.
 The first stage is focused on determinging which parts of that work were effective, which parts weren't, and *why*.
 Instead of grabbing mechanics and ideas uncritically- those ideas are evaluated against the project's *goals* to see if they would be a good fit.
 
-And that really is the key piece here: design by stumble isn't defined by taking functioning pieces from other works.
+And that really is the key piece here: design by stumble *isn't* defined by taking functioning pieces from other works.
 It's defined by a lack of *goals* and *vision*.
 
 And, to be clear, there's nothing inherently *wrong* with that!
