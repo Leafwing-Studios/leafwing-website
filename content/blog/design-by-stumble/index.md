@@ -123,7 +123,7 @@ So, here are some questions and topics to help you refine the goals and vision f
   - What kind of player would really enjoy this game? What else do they like? What would they like the most about our game? (There may be more than one group!)
   - What kind of player would not vibe with our game at all? What about our game would rub them the wrong way? (There may be more than one group!)
 - Prior art
-  - What inspirations are we drawing from?
+  - What inspirations are we drawing from? (Because inspiration is good!)
   - What are our anti-inspirations? What existing (but similar) works do we *not* want to be like?
   - What genre, if any, does it fit into? What genre conventions are we interested in following?
   - What other works exist in this space? How are we going to be better than them?
@@ -138,16 +138,23 @@ So, here are some questions and topics to help you refine the goals and vision f
   - Marketing strategy: What channels are we going to use to reach our target audience?
   - Marketing hooks: What game design elements can we focus on to push the marketability of this game?
 
-## Conclusion
+## Dear Princess Celestia, Today I Learned...
 
-TODO
+...that having goals is important!
 
+We all want to make art like the things that we love, but we should make sure we're *intentional* about it.
+Why are we doing this, and what do we want out of the project?
+If all we want is to mess around and learn some new stuff, then to hell with all this preplanning nonsense!
+Get out your fattest paintbrush and slap some color on that canvas!
+But if we want to make the next great thing, we should make sure we know where we're going.
+
+And *then* slap some paint on that canvas :)
 
 ## Bonus section: Two interesting tangents
 
 The post is over, but I ran into a two interesting cases that are related to the topic at hand.
 I felt like I had something interesting to say about each of these, but I couldn't find a natural place to fit them in the post, so I've just collected them here.
-Consider it a bonus, or a sprinboard for future discussions :).
+Consider it a bonus, or a sprinboard for future discussions :)
 
 ### Mainstream games can often be derivitive, but for different reasons
 
